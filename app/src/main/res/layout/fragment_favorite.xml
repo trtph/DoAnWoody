@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FavoriteFragment"
+    android:orientation="vertical"
     android:padding="15dp">
 
     <TextView
@@ -13,5 +13,8 @@
         android:text="Favorite"
         android:textSize="40dp"
         android:layout_gravity="center"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
 
-</FrameLayout>
