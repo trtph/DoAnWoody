@@ -7,14 +7,20 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.Adapter.ShoppingBagAdapter;
+import com.example.model.productshopModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView navigationView;
     FrameLayout frame_content;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
