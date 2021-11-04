@@ -73,9 +73,9 @@ public class HomeFragment extends Fragment {
                 fragmentTransaction.replace(R.id.frame_collection, fragment);
                 fragmentTransaction.commit();
             }
-//            if(view.getId()==R.id.imvNotifications){
-//                startActivity(new Intent(getContext(), com.example.woodygroupapplication.NotiActivity.class));
-//            }
+            if(view.getId()==R.id.imvNotifications){
+                startActivity(new Intent(getContext(), com.example.woodygroupapplication.NotiActivity.class));
+            }
 
         }
     };
