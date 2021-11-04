@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imvThumb"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="350dp"-->
+<!--        android:layout_margin="5dp"-->
+
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/img_floral"-->
+
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imvThumb"
+        android:layout_width="220dp"
+        android:layout_height="350dp"
+        android:layout_margin="5dp"
+        app:riv_corner_radius="30dp"
+
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_floral"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="MissingClass" />
+
+
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+
+        android:text="Modern Badroom"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+
+        app:layout_constraintRight_toRightOf="@+id/imvThumb"
+        app:layout_constraintBottom_toBottomOf="@+id/imvThumb"
+
+        android:layout_marginBottom="30dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/txtNumber"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+
+        android:text="20 items"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+
+        app:layout_constraintRight_toRightOf="@+id/imvThumb"
+        app:layout_constraintBottom_toBottomOf="@+id/imvThumb"
+
+        android:layout_marginBottom="10dp"
+        android:gravity="center"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

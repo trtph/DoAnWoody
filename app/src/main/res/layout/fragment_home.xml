@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment"
+    android:orientation="vertical"
+    android:background="@color/background_home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_woody_null"/>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="HOME"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/imvNotifications"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_noti"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtSeachHome"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="What are you looking for?"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="12dp"
+        android:paddingStart="8dp"
+        android:background="@drawable/custom_search_home"
+        android:layout_margin="8dp" />
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="56dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_margin="10dp"-->
+<!--        app:menu="@menu/item_menu_product"-->
+<!--        android:background="@color/background_home"-->
+<!--        app:itemIconSize="48dp"-->
+<!--        app:labelVisibilityMode="unlabeled"/>-->
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp"
+    android:padding="8dp">
+        <ImageView
+            android:id="@+id/imvBest"
+            android:layout_weight="1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_best"/>
+        <ImageView
+            android:id="@+id/imvSeat"
+            android:layout_weight="1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_seat"/>
+        <ImageView
+            android:id="@+id/imvDesk"
+            android:layout_weight="1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_desk"/>
+        <ImageView
+            android:id="@+id/imvSofa"
+            android:layout_weight="1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_sofa"/>
+        <ImageView
+            android:id="@+id/imvBed"
+            android:layout_weight="1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_bed"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_collection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

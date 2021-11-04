@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/navBestCollection"
+        android:title="Best Collection"
+        android:icon="@drawable/ic_best"/>
+    <item android:id="@+id/navSeatCollection"
+        android:title="Seat Collection"
+        android:icon="@drawable/ic_seat"/>
+    <item android:id="@+id/navDeskCollection"
+        android:title="Desk Collection"
+        android:icon="@drawable/ic_desk"/>
+    <item android:id="@+id/navSofaCollection"
+        android:title="Sofa Collection"
+        android:icon="@drawable/ic_sofa"/>
+    <item android:id="@+id/navBedCollection"
+        android:title="Bed Collection"
+        android:icon="@drawable/ic_bed"/>
+</menu>
