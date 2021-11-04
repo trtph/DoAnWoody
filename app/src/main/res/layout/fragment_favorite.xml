@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoriteFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FavoriteFragment"
+    android:padding="15dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -11,4 +13,12 @@
         android:text="Favorite"
         android:textSize="40dp"
         android:layout_gravity="center"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to Favourite"
+        app:cornerRadius="10dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"/>
 </FrameLayout>
