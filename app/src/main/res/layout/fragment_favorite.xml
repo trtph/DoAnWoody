@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FavoriteFragment"
-    android:orientation="vertical"
     android:padding="15dp">
 
     <TextView
@@ -17,6 +16,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:text="Favorite"
         android:textSize="20sp"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:layout_gravity="center"/>
     <ImageView
@@ -27,6 +27,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvFavouriteProduct"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
