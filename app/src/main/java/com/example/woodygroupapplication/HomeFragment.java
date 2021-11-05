@@ -24,6 +24,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        //linkView
         imvBest = view.findViewById(R.id.imvBest);
         imvSeat = view.findViewById(R.id.imvSeat);
         imvDesk = view.findViewById(R.id.imvDesk);
@@ -42,6 +43,7 @@ public class HomeFragment extends Fragment {
         imvNoti.setOnClickListener(myClick);
 
 
+        //addEvents
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_collection, new com.example.woodygroupapplication.BestCollectionFragment()).commit();
 
         return view;
@@ -73,9 +75,9 @@ public class HomeFragment extends Fragment {
                 fragmentTransaction.replace(R.id.frame_collection, fragment);
                 fragmentTransaction.commit();
             }
-            if(view.getId()==R.id.imvNotifications){
-                startActivity(new Intent(getContext(), com.example.woodygroupapplication.NotiActivity.class));
-            }
+//            if(view.getId()==R.id.imvNotifications){
+//                startActivity(new Intent(getContext(),NotiActivity.class));
+//            }
 
         }
     };

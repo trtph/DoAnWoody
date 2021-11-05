@@ -1,12 +1,12 @@
 package com.example.woodygroupapplication;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,10 +33,11 @@ public class BestCollectionFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         rcvBestCollection.setLayoutManager(manager);
 
-        DividerItemDecoration decoration = new DividerItemDecoration(rcvBestCollection.getContext(), manager.getOrientation());
+//        DividerItemDecoration decoration = new DividerItemDecoration(rcvBestCollection.getContext(), manager.getOrientation());
 //        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.custom_divider);
 //        decoration.setDrawable(drawable);
-        rcvBestCollection.addItemDecoration(decoration);
+//        rcvBestCollection.addItemDecoration(decoration);
+
 
 
         products = new ArrayList<Product>();
@@ -48,7 +49,25 @@ public class BestCollectionFragment extends Fragment {
         apdater = new ProductApdater(getContext(), products);
         rcvBestCollection.setAdapter(apdater);
 
+        class SpacesItemDecortion extends RecyclerView.ItemDecoration{
+            private final int mSpace;
+            public SpacesItemDecortion(int space, int mSpace){
+                this.mSpace = mSpace;
+            }
+            @Override
+            public void getItemOffsets(Rect outRect,
+                                       View view,
+                                       RecyclerView parent, RecyclerView.State state){
+                outRect.left = mSpace;
+                outRect.right = mSpace;
+            }
+        }
+
+        rcvBestCollection.addItemDecoration(new SpacesItemDecortion(50, 30));
+
         return view;
     }
+
+
 
 }

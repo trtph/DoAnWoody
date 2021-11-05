@@ -15,6 +15,10 @@
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/custom_listview_layout.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/custom_recyclerview.xml" value="0.25" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_favorite.xml" value="0.25" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.2015625" />
+>>>>>>> master
       </map>
     </option>
   </component>
