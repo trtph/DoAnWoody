@@ -1,5 +1,6 @@
 package com.example.woodygroupapplication;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,9 +34,24 @@ public class BedCollectionFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         rcvBedCollection.setLayoutManager(manager);
 
-        DividerItemDecoration decoration = new DividerItemDecoration(rcvBedCollection.getContext(), manager.getOrientation());
+//        DividerItemDecoration decoration = new DividerItemDecoration(rcvBedCollection.getContext(), manager.getOrientation());
+//        rcvBedCollection.addItemDecoration(decoration);
 
-        rcvBedCollection.addItemDecoration(decoration);
+        class SpacesItemDecortion extends RecyclerView.ItemDecoration{
+            private final int mSpace;
+            public SpacesItemDecortion(int space, int mSpace){
+                this.mSpace = mSpace;
+            }
+            @Override
+            public void getItemOffsets(Rect outRect,
+                                       View view,
+                                       RecyclerView parent, RecyclerView.State state){
+                outRect.left = mSpace;
+                outRect.right = mSpace;
+            }
+        }
+
+        rcvBedCollection.addItemDecoration(new SpacesItemDecortion(50, 30));
 
 
         products = new ArrayList<Product>();
