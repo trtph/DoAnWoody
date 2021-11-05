@@ -2,10 +2,12 @@ package com.example.woodygroupapplication;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -20,6 +22,8 @@ import java.util.List;
 
 public class UserAccountFragment extends Fragment {
 
+    Button btnLogin;
+
     RecyclerView rcvUserAccount;
     List<UserAccount> userAccounts;
     UserAdapter userAdapter;
@@ -30,6 +34,10 @@ public class UserAccountFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_account, container, false);
 
+        //linkViews
+        btnLogin = view.findViewById(R.id.btnLogin);
+
+        //addEvents
         rcvUserAccount = view.findViewById(R.id.rcvUserAccounts);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -48,6 +56,14 @@ public class UserAccountFragment extends Fragment {
         userAdapter = new UserAdapter((Activity) getContext(),userAccounts);
 
         rcvUserAccount.setAdapter(userAdapter);
+
+        //Open Login Activity
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), LoginActivity.class));
+            }
+        });
 
         return view;
     }

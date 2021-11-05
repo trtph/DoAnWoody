@@ -22,14 +22,13 @@
         android:id="@+id/imvThumb"
         android:layout_width="220dp"
         android:layout_height="350dp"
-        android:layout_margin="5dp"
         app:riv_corner_radius="30dp"
 
         android:scaleType="centerCrop"
         android:src="@drawable/img_floral"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         tools:ignore="MissingClass" />
 
 

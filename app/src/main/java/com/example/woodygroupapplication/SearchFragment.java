@@ -1,63 +1,88 @@
 package com.example.woodygroupapplication;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SearchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.Adapter.ProductAdapter2;
+import com.example.Adapter.searchAdapter;
+import com.example.model.Product;
+import com.example.model.searchProduct;
+
+import java.util.ArrayList;
+
+
 public class SearchFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    RecyclerView rcvCategory, rcvRooms, rcvRecently;
+    searchAdapter adapter;
+    ArrayList<searchProduct> searchProducts, productRooms, productRecently;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public SearchFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SearchFragment newInstance(String param1, String param2) {
-        SearchFragment fragment = new SearchFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        rcvRecently=view.findViewById(R.id.rcvRecently);
+        rcvRooms=view.findViewById(R.id.rcvRooms);
+        rcvCategory=view.findViewById(R.id.rcvCategory);
+
+        LinearLayoutManager manager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager manager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager manager3 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+
+
+        rcvCategory.setLayoutManager(manager1);
+        rcvRooms.setLayoutManager(manager2);
+        rcvRecently.setLayoutManager(manager3);
+
+
+        DividerItemDecoration decoration1 = new DividerItemDecoration(rcvCategory.getContext(), manager1.getOrientation());
+        DividerItemDecoration decoration2 = new DividerItemDecoration(rcvRooms.getContext(), manager2.getOrientation());
+        DividerItemDecoration decoration3 = new DividerItemDecoration(rcvRecently.getContext(), manager3.getOrientation());
+
+        rcvCategory.addItemDecoration(decoration1);
+        rcvRooms.addItemDecoration(decoration2);
+        rcvRecently.addItemDecoration(decoration3);
+
+        Drawable drawable1 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
+        Drawable drawable2 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
+        Drawable drawable3 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
+
+
+        searchProducts = new ArrayList<searchProduct>();
+        searchProducts.add(new searchProduct(R.drawable.h1, "Furniture"));
+        searchProducts.add(new searchProduct(R.drawable.h2, "Kitchen & appliances"));
+        searchProducts.add(new searchProduct(R.drawable.h3, "Beds & mattresses"));
+
+        productRooms = new ArrayList<searchProduct>();
+        productRooms.add(new searchProduct(R.drawable.r1, "Living room"));
+        productRooms.add(new searchProduct(R.drawable.r2, "Dining room"));
+        productRooms.add(new searchProduct(R.drawable.r3, "Bathroom"));
+
+        productRecently = new ArrayList<searchProduct>();
+        productRecently.add(new searchProduct(R.drawable.img, "Chair"));
+
+
+        adapter = new searchAdapter(getContext(), searchProducts);
+        rcvCategory.setAdapter(adapter);
+
+        adapter = new searchAdapter(getContext(), productRecently);
+        rcvRecently.setAdapter(adapter);
+
+        adapter = new searchAdapter(getContext(), productRooms);
+        rcvRooms.setAdapter(adapter);
+
+        return view;
     }
 }
+
