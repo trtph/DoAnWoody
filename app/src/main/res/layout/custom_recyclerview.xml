@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -66,6 +65,8 @@
 
         android:layout_marginBottom="10dp"
         android:gravity="center"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
