@@ -18,7 +18,7 @@ import com.google.android.material.button.MaterialButton;
 public class LoginActivity extends AppCompatActivity {
 
     ImageView imvBackUserAccount;
-    TextView txtForgotPassword;
+    TextView txtForgotPassword, txtSignUp;
     MaterialButton btnSignIn;
 
     @Override
@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void linkViews() {
         txtForgotPassword = findViewById(R.id.txtForgotPassword);
+        txtSignUp = findViewById(R.id.txtSignUp);
         imvBackUserAccount = findViewById(R.id.imvBackUserAccount);
         btnSignIn = findViewById(R.id.btnSignIn);
     }
@@ -46,6 +47,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            }
+        });
+        txtSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
