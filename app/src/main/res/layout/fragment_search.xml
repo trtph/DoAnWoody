@@ -12,6 +12,7 @@
         android:text="Search"
         android:textSize="21sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_gravity="center"/>
 
     <LinearLayout
@@ -24,9 +25,12 @@
             android:src="@drawable/ic_baseline_search_24"/>
 
         <EditText
+            android:layout_marginTop="10dp"
             android:id="@+id/edtSearch"
             android:layout_width="362dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_search_home"
             android:hint="What are you looking for ?"
             android:inputType="text"
             android:textSize="16sp" />
@@ -43,12 +47,11 @@
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/btn1"
+        <TextView
+            android:id="@+id/txtView1"
             android:layout_width="121dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
-            android:backgroundTint="@color/white"
             android:text="View all"
             android:gravity="right"
             android:textColor="#979393"
@@ -72,12 +75,11 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn2"
+        <TextView
+            android:id="@+id/txtView2"
             android:layout_width="121dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
-            android:backgroundTint="@color/white"
             android:text="View all"
             android:gravity="right"
             android:textColor="#979393"
