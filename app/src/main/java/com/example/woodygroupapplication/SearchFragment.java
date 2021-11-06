@@ -46,14 +46,6 @@ public class SearchFragment extends Fragment {
         rcvRecently.setLayoutManager(manager3);
 
 
-        DividerItemDecoration decoration1 = new DividerItemDecoration(rcvCategory.getContext(), manager1.getOrientation());
-        DividerItemDecoration decoration2 = new DividerItemDecoration(rcvRooms.getContext(), manager2.getOrientation());
-        DividerItemDecoration decoration3 = new DividerItemDecoration(rcvRecently.getContext(), manager3.getOrientation());
-
-        rcvCategory.addItemDecoration(decoration1);
-        rcvRooms.addItemDecoration(decoration2);
-        rcvRecently.addItemDecoration(decoration3);
-
         Drawable drawable1 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
         Drawable drawable2 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
         Drawable drawable3 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
