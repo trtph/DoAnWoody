@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
-            android:text="Purchase"
+            android:text="Check Out"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:cornerRadius="20dp"
