@@ -1,10 +1,12 @@
 package com.example.woodygroupapplication;
 
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Space;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -46,17 +48,17 @@ public class SearchFragment extends Fragment {
         rcvRecently.setLayoutManager(manager3);
 
 
-        DividerItemDecoration decoration1 = new DividerItemDecoration(rcvCategory.getContext(), manager1.getOrientation());
-        DividerItemDecoration decoration2 = new DividerItemDecoration(rcvRooms.getContext(), manager2.getOrientation());
-        DividerItemDecoration decoration3 = new DividerItemDecoration(rcvRecently.getContext(), manager3.getOrientation());
-
-        rcvCategory.addItemDecoration(decoration1);
-        rcvRooms.addItemDecoration(decoration2);
-        rcvRecently.addItemDecoration(decoration3);
-
-        Drawable drawable1 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
-        Drawable drawable2 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
-        Drawable drawable3 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
+//        DividerItemDecoration decoration1 = new DividerItemDecoration(rcvCategory.getContext(), manager1.getOrientation());
+//        DividerItemDecoration decoration2 = new DividerItemDecoration(rcvRooms.getContext(), manager2.getOrientation());
+//        DividerItemDecoration decoration3 = new DividerItemDecoration(rcvRecently.getContext(), manager3.getOrientation());
+//
+//        rcvCategory.addItemDecoration(decoration1);
+//        rcvRooms.addItemDecoration(decoration2);
+//        rcvRecently.addItemDecoration(decoration3);
+//
+//        Drawable drawable1 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
+//        Drawable drawable2 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
+//        Drawable drawable3 = ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.custom_divider);
 
 
         searchProducts = new ArrayList<searchProduct>();
@@ -82,6 +84,22 @@ public class SearchFragment extends Fragment {
         adapter = new searchAdapter(getContext(), productRooms);
         rcvRooms.setAdapter(adapter);
 
+        class SpacesItemDecoration extends  RecyclerView.ItemDecoration{
+            private  final int mSpace;
+            public SpacesItemDecoration(int space,int mSpace){
+                this.mSpace=mSpace;
+            }
+            @Override
+            public  void  getItemOffsets(Rect outRect,
+                                         View view,
+                                         RecyclerView parent, RecyclerView.State state){
+                outRect.left=mSpace;
+                outRect.right=mSpace;
+            }
+        }
+        rcvRooms.addItemDecoration(new SpacesItemDecoration(50,30));
+        rcvRecently.addItemDecoration(new SpacesItemDecoration(50,30));
+        rcvCategory.addItemDecoration(new SpacesItemDecoration(50,30));
         return view;
     }
 }
