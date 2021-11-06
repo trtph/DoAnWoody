@@ -29,12 +29,12 @@
             android:textStyle="bold"/>
         <ImageView
             android:id="@+id/imvNotifications"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_noti"
-            android:layout_gravity="center"
-            android:layout_marginEnd="20dp"/>
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_noti"
+        android:layout_gravity="center"
+        android:layout_marginEnd="20dp"/>
     </LinearLayout>
 
     <EditText
