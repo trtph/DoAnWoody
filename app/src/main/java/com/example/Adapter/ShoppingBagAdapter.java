@@ -5,19 +5,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chauthai.swipereveallayout.SwipeRevealLayout;
+import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.example.model.productshopModel;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
 
 public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.ViewHolder> {
+
     Context context;
     ArrayList<productshopModel> productshopModels;
+    private ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
 
     public ShoppingBagAdapter (Context context,  ArrayList<productshopModel> productshopModels){
         this.context=context;
@@ -41,6 +46,16 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
         holder.imvThumb.setImageResource(productshopModels.get(position).getProductThumb());
         holder.txtInfo.setText(b.getProductName());
         holder.txtPrice.setText(String.valueOf(b.getProductPrice()));
+        viewBinderHelper.bind(holder.swipeRevealLayout, String.valueOf(b));
+        viewBinderHelper.setOpenOnlyOne(true);
+
+        holder.layoutDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                productshopModels.remove(holder.getAbsoluteAdapterPosition());
+                notifyItemRemoved(holder.getAbsoluteAdapterPosition());
+            }
+        });
     }
 
     @Override
@@ -51,11 +66,16 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
         TextView txtInfo, txtPrice;
+        private SwipeRevealLayout swipeRevealLayout;
+        private LinearLayout layoutDelete;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb = itemView.findViewById(R.id.imvThumb);
             txtInfo=itemView.findViewById(R.id.txtInfo);
             txtPrice=itemView.findViewById(R.id.txtPrice);
+
+            swipeRevealLayout = itemView.findViewById(R.id.SwipeRevealLayout);
+            layoutDelete = itemView.findViewById(R.id.layoutDelete);
         }
     }
 }
