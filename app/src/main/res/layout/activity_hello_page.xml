@@ -48,7 +48,6 @@
         android:textSize="18sp"
 
         android:padding="8dp"
-        android:background="@drawable/custom_round_hello"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
