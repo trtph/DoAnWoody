@@ -49,7 +49,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edtLayoutEmailPhone"
+        android:id="@+id/edtLayoutPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.498"
@@ -57,10 +57,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLayoutName">
         <EditText
-            android:id="@+id/edtEmailPhone"
+            android:id="@+id/edtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email/Phone number"
+            android:hint="Phone number"
             android:textSize="20sp"
             android:password="true"
 
@@ -90,7 +90,7 @@
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtLayoutEmailPhone"/>
+        app:layout_constraintTop_toBottomOf="@id/edtLayoutPhone"/>
     <TextView
         android:id="@+id/txtAlready"
         android:layout_width="350dp"

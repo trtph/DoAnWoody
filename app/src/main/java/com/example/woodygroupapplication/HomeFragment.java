@@ -1,5 +1,6 @@
 package com.example.woodygroupapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -40,12 +42,17 @@ public class HomeFragment extends Fragment {
         imvDesk.setOnClickListener(myClick);
         imvSofa.setOnClickListener(myClick);
         imvBed.setOnClickListener(myClick);
-        imvNoti.setOnClickListener(myClick);
-
 
         //addEvents
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_collection, new com.example.woodygroupapplication.BestCollectionFragment()).commit();
 
+//        imvNoti.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getContext(), NotiActivity.class));
+//            }
+//        });
+//
         return view;
     }
     View.OnClickListener myClick = new View.OnClickListener() {
