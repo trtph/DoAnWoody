@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:text="Verification code will be sent via SMS or your email. Please wait __(s)"
+        android:text="Verification code will be sent via SMS or your phone number. Please wait __(s)"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:gravity="center"
