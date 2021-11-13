@@ -10,7 +10,18 @@
         <entry key="..\:/Android/Woody/app/src/main/res/layout/custom_recyclerview.xml" value="0.12239583333333333" />
         <entry key="..\:/Android/Woody/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Android/Woody/app/src/main/res/menu/item_menu.xml" value="0.12239583333333333" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/drawable-v24/custom_button.xml" value="0.19010416666666666" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/drawable/add_shipping_bg.xml" value="0.19010416666666666" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/drawable/add_shipping_button_bg.xml" value="0.2755208333333333" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/drawable/custom_divider.xml" value="0.19010416666666666" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/drawable/custom_email_password.xml" value="0.19010416666666666" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/drawable/custom_search_home.xml" value="0.19010416666666666" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/drawable/custom_shape.xml" value="0.19010416666666666" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_add_shipping_layout.xml" value="0.24139492753623187" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_checkout_layout.xml" value="0.24139492753623187" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/add_shipping_layout.xml" value="0.264" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/checkout_layout.xml" value="0.2" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/custom_favouritefragment_recyclerview.xml" value="0.25679347826086957" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.264" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/search_item.xml" value="0.15989583333333332" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/shoppingbag_items.xml" value="0.15989583333333332" />

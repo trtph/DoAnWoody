@@ -80,7 +80,7 @@
                 android:id="@+id/txtNameAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:text="John"
                 android:textColor="@color/black"
@@ -91,10 +91,10 @@
 
             <TextView
                 android:id="@+id/txtAddress"
-                android:layout_width="350dp"
+                android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 android:text="50A Hai Ba Trung Street, district 1, Ho Chi Minh city"
-                android:layout_marginTop="30dp"
+                android:layout_margin="30dp"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,29 +115,29 @@
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginTop="110dp"
                 android:src="@drawable/shippingadd_change"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/txtNameAdd" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="68dp"
                 android:text="Payment"
+                android:layout_marginTop="110dp"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/txtNameAdd" />
 
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/card"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -259,9 +259,9 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="300dp"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:backgroundTint="@color/black"
-                app:cornerRadius="30dp"
+                app:cornerRadius="10dp"
                 android:text="Submit Order"
                 android:textSize="20sp"
                 android:textAllCaps="false"

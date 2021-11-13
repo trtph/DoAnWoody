@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
+            android:name=".AddShipping_Layout"
+            android:exported="true" />
+        <activity
+            android:name=".Checkout_Layout"
+            android:exported="true" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
