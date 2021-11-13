@@ -15,13 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.Adapter.ShoppingBagAdapter;
 import com.example.model.productshopModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnCheckout;
+
 
     BottomNavigationView navigationView;
     FrameLayout frame_content;
@@ -39,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
     private void linkViews() {
         navigationView = findViewById(R.id.bottom_navigation);
         frame_content = findViewById(R.id.frame_content);
+
     }
 
     private void addEvents() {
+
 
         navigationView.setOnItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new HomeFragment()).commit();

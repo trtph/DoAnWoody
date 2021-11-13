@@ -1,5 +1,6 @@
 package com.example.woodygroupapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ShoppingBagAdapter;
 import com.example.model.productshopModel;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,8 @@ public class ShoppingCartFragment extends Fragment {
     ShoppingBagAdapter adapter;
     ArrayList<productshopModel> productshopModels;
 
+    MaterialButton btnCheckout;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +34,7 @@ public class ShoppingCartFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_shopping_cart, container, false);
 
         rcvProduct=view.findViewById(R.id.rcvProduct);
+        btnCheckout= view.findViewById(R.id.btnCheckout);
 
         LinearLayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rcvProduct.setLayoutManager(manager);
@@ -45,6 +50,14 @@ public class ShoppingCartFragment extends Fragment {
 
         adapter = new ShoppingBagAdapter(getContext(),productshopModels);
         rcvProduct.setAdapter(adapter);
+
+        //Open Checkout Activity
+        btnCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), Checkout_Layout.class));
+            }
+        });
 
         return view;
     }

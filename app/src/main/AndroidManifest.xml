@@ -37,6 +37,12 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".Checkout_Layout"
+            android:exported="false" />
+        <activity
+            android:name=".AddShipping_Layout"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
