@@ -8,13 +8,10 @@ import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Adapter.ProductAdapter2;
 import com.example.Adapter.searchAdapter;
-import com.example.model.Product;
 import com.example.model.searchProduct;
 
 import java.util.ArrayList;

@@ -7,7 +7,7 @@
     tools:context=".SeatCollectionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvBestCollection"
+        android:id="@+id/rcvSeatCollection"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -24,6 +24,6 @@
         android:textStyle="bold"
 
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/rcvBestCollection"
+        app:layout_constraintTop_toBottomOf="@+id/rcvSeatCollection"
         app:layout_constraintLeft_toLeftOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

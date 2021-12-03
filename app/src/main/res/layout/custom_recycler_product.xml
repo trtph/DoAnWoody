@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imvThumbProduct"-->
-<!--        android:layout_width="250dp"-->
-<!--        android:layout_height="350dp"-->
-<!--        android:layout_margin="5dp"-->
-
-<!--        android:src="@drawable/loberget"-->
-<!--        android:scaleType="centerCrop"-->
-
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"/>-->
     <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/imvThumbProduct"
+        android:id="@+id/imvThumb"
         android:layout_width="220dp"
         android:layout_height="350dp"
         android:layout_margin="5dp"
@@ -32,47 +21,44 @@
         android:layout_width="80dp"
         android:layout_height="20dp"
 
-        android:background="@drawable/round_coner"
-
-        app:layout_constraintRight_toRightOf="@+id/imvThumbProduct"
-        app:layout_constraintBottom_toBottomOf="@+id/imvThumbProduct"
+        app:layout_constraintRight_toRightOf="@+id/imvThumb"
+        app:layout_constraintBottom_toBottomOf="@+id/imvThumb"
 
         android:layout_marginBottom="16dp"/>
 
 
     <TextView
-        android:id="@+id/txtName2"
+        android:id="@+id/txtName"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
 
-        android:text="LOBERGET / BLYSKÄR"
+        android:text="Modern Badroom"
+        android:textSize="24sp"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:background="@drawable/round_coner"
 
-        app:layout_constraintRight_toRightOf="@+id/imvThumbProduct"
-        app:layout_constraintBottom_toBottomOf="@+id/imvThumbProduct"
+        app:layout_constraintRight_toRightOf="@+id/imvThumb"
+        app:layout_constraintBottom_toBottomOf="@+id/imvThumb"
 
         android:layout_marginBottom="40dp"
         android:gravity="center"/>
 
 
     <TextView
-        android:id="@+id/txtNumber2"
+        android:id="@+id/txtNumber"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
 
-        android:text="$ 24.99"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:text="20 items"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="italic"
 
-        app:layout_constraintRight_toRightOf="@+id/imvThumbProduct"
-        app:layout_constraintBottom_toBottomOf="@+id/imvThumbProduct"
+        app:layout_constraintRight_toRightOf="@+id/imvThumb"
+        app:layout_constraintBottom_toBottomOf="@+id/imvThumb"
 
-        android:layout_marginBottom="15dp"
-        android:layout_marginRight="5dp"
-        android:gravity="end"/>
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:layout_marginRight="5dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
