@@ -29,77 +29,111 @@
             android:textStyle="bold"/>
         <ImageView
             android:id="@+id/imvNotifications"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_noti"
-        android:layout_gravity="center"
-        android:layout_marginEnd="20dp"/>
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_noti"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp"/>
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/edtSeachHome"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:hint="What are you looking for?"
-        android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="12dp"
-        android:paddingStart="8dp"
-        android:background="@drawable/custom_search_home"
-        android:layout_margin="8dp" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/edtSeachHome"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="What are you looking for?"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="12dp"
+                android:paddingStart="8dp"
+                android:background="@drawable/custom_search_home"
+                android:layout_margin="8dp" />
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="56dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_margin="10dp"-->
-<!--        app:menu="@menu/item_menu_product"-->
-<!--        android:background="@color/background_home"-->
-<!--        app:itemIconSize="48dp"-->
-<!--        app:labelVisibilityMode="unlabeled"/>-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvBanner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
 
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="10dp"
-    android:padding="8dp">
-        <ImageView
-            android:id="@+id/imvBest"
-            android:layout_weight="1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_best"/>
-        <ImageView
-            android:id="@+id/imvSeat"
-            android:layout_weight="1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_seat"/>
-        <ImageView
-            android:id="@+id/imvDesk"
-            android:layout_weight="1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_desk"/>
-        <ImageView
-            android:id="@+id/imvSofa"
-            android:layout_weight="1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_sofa"/>
-        <ImageView
-            android:id="@+id/imvBed"
-            android:layout_weight="1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_bed"/>
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:weightSum="2">
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Trải nghiệm sản phẩm"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:backgroundTint="#86F4ECEC"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+                <Button
+                    android:id="@+id/btn2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Trải nghiệm sản phẩm"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:backgroundTint="#86F4ECEC"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/frame_collection"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+                <ImageView
+                    android:id="@+id/imvBest"
+                    android:layout_weight="1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_best"/>
+                <ImageView
+                    android:id="@+id/imvSeat"
+                    android:layout_weight="1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_seat"/>
+                <ImageView
+                    android:id="@+id/imvDesk"
+                    android:layout_weight="1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_desk"/>
+                <ImageView
+                    android:id="@+id/imvSofa"
+                    android:layout_weight="1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_sofa"/>
+                <ImageView
+                    android:id="@+id/imvBed"
+                    android:layout_weight="1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_bed"/>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_collection"
+                android:layout_width="match_parent"
+                android:layout_height="520dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
 
 </LinearLayout>
