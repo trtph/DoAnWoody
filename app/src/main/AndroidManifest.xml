@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
+            android:name=".PaymentMethod_Layout"
+            android:exported="true" />
+        <activity
             android:name=".ProductActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".HelloPageActivity"
             android:exported="true">

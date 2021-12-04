@@ -112,7 +112,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/btnChangePayment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -173,23 +173,13 @@
                 android:layout_margin="15dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="36dp"
-                android:text="Shipping Address"
+                android:text="Total order"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView10"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8"
                 app:layout_constraintVertical_bias="0.043" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/shippingadd_change"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8"
-                app:layout_constraintVertical_bias="0.053" />
 
             <TextView
                 android:id="@+id/textView9"
