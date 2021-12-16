@@ -10,48 +10,50 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.model.UserAccount;
+import com.example.model.Voucher;
 import com.example.woodygroupapplication.R;
 
 import java.util.List;
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
+public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.ViewHolder> {
     Activity context;
-    List<UserAccount> userAccountList;
+    List<Voucher> voucherList;
 
-    public UserAdapter(Activity context, List<UserAccount> userAccountList) {
+    public VoucherAdapter(Activity context, List<Voucher> voucherList) {
         this.context = context;
-        this.userAccountList = userAccountList;
+        this.voucherList = voucherList;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater =  LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_user,parent,false);
+        View view = inflater.inflate(R.layout.item_voucher,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        UserAccount b = userAccountList.get(position);
-        holder.imvThumb.setImageResource(b.getImage());
-        holder.txtName.setText(b.getName());
+        Voucher b = voucherList.get(position);
+        holder.imvThumb.setImageResource(b.getImageVoucher());
+        holder.txtName.setText(b.getNameVoucher());
+        holder.txtContentVoucher.setText((b.getContentVoucher()));
+
     }
 
     @Override
     public int getItemCount() {
-        return userAccountList.size();
+        return voucherList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
-        TextView txtName;
+        TextView txtName,txtContentVoucher;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb = itemView.findViewById(R.id.imvThumb);
             txtName = itemView.findViewById(R.id.txtName);
+            txtContentVoucher = itemView.findViewById(R.id.txtContentVoucher);
         }
-
     }
 }
