@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Adapter.CollectionAdapter;
-import com.example.model.Collection;
+import com.example.Adapter.ProductCollectionAdapter;
+import com.example.model.ProductCollection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,16 +27,13 @@ import java.util.ArrayList;
 public class BedCollectionFragment extends Fragment {
 
 
-    RecyclerView rcvBedCollection;
+    RecyclerView rcvBed;
 
-    //Firebase
-    DatabaseReference databaseReference;
-
-    //Variable
-
-    ArrayList<Collection> collectionArrayList;
-    CollectionAdapter collectionAdapter;
+    ArrayList<ProductCollection> productCollections;
+    ProductCollectionAdapter adapter;
     Context context;
+
+    DatabaseReference databaseReference;
 
 
 
@@ -45,16 +42,13 @@ public class BedCollectionFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bed_collection, container, false);
-        rcvBedCollection = view.findViewById(R.id.rcvBedCollection);
+        rcvBed = view.findViewById(R.id.rcvBed);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
-        rcvBedCollection.setLayoutManager(manager);
+        rcvBed.setLayoutManager(manager);
 
         //Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
-        //ArrayList
-        collectionArrayList = new ArrayList<>();
 
         //Get Data Method
         GetDataFromFirebase();
@@ -73,29 +67,31 @@ public class BedCollectionFragment extends Fragment {
             }
         }
 
-        rcvBedCollection.addItemDecoration(new SpacesItemDecortion(50, 30));
+        rcvBed.addItemDecoration(new SpacesItemDecortion(30, 30));
 
         return view;
     }
 
     private void GetDataFromFirebase() {
-        Query query = databaseReference.child("Collection").child("bedCollection");
+        Query query = databaseReference.child("ProductCollection").child("BedCollection");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                for(DataSnapshot snapshot : datasnapshot.getChildren()){
-                    Collection collection = new Collection();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                productCollections = new ArrayList<>();
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    ProductCollection p =new ProductCollection();
+                    p.setPrImage(snapshot.child("prImage").getValue().toString());
+                    p.setPrName(snapshot.child("prName").getValue().toString());
+                    p.setPrPrice(snapshot.child("prPrice").getValue().toString());
+                    p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
+                    p.setPrDescription(snapshot.child("prDescription").getValue().toString());
+                    p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
 
-                    collection.setCltImage(snapshot.child("cltImage").getValue().toString());
-                    collection.setCltName(snapshot.child("cltName").getValue().toString());
-                    collection.setCltNumber(snapshot.child("cltNumber").getValue().toString() + " $");
-
-                    collectionArrayList.add(collection);
-
+                    productCollections.add(p);
                 }
-                collectionAdapter = new CollectionAdapter(getContext(),collectionArrayList);
-                rcvBedCollection.setAdapter(collectionAdapter);
-                collectionAdapter.notifyDataSetChanged();
+                adapter = new ProductCollectionAdapter(getActivity(),R.layout.item_product_collection, productCollections);
+                rcvBed.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
 
             @Override

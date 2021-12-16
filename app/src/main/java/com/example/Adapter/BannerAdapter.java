@@ -17,8 +17,6 @@ import java.util.ArrayList;
 
 public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder>{
 
-//    public static final String Tag ="RecyclerView";
-
     Context context;
     ArrayList<Banner> bannersList;
 
@@ -30,7 +28,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
     @NonNull
     @Override
     public BannerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_item_banner, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_banner, parent, false);
         return new ViewHolder(view);
     }
 
@@ -50,10 +48,9 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imvBanner;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            //Link View
             imvBanner = itemView.findViewById(R.id.imvBanner);
 
         }

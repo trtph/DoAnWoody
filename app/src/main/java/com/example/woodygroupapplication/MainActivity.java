@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.navSearch:
-                    fragment = new com.example.woodygroupapplication.SearchFragment();
+                    fragment = new SearchFragment();
                     break;
 
                 case R.id.navFavorite:
-                    fragment = new com.example.woodygroupapplication.FavoriteFragment();
+                    fragment = new FavoriteFragment();
                     break;
 
                 case R.id.navShoppingCart:

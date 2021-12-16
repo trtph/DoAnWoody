@@ -7,13 +7,12 @@
     tools:context=".BedCollectionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvBedCollection"
+        android:id="@+id/rcvBed"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,6 +23,6 @@
         android:textStyle="bold"
 
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/rcvBedCollection"
+        app:layout_constraintTop_toBottomOf="@+id/rcvBed"
         app:layout_constraintLeft_toLeftOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
