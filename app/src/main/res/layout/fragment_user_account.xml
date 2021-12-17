@@ -3,18 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#F8F7F7"
-    tools:context=".UserAccountFragment">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
+    android:background="#F8F8F8"
+    tools:context=".UserAccountFragment"
+    android:weightSum="10">
 
         <TextView
-
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="User account"
@@ -22,7 +17,7 @@
             android:textColor="@color/black"
             android:gravity="center"
             android:textStyle="bold"/>
-    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,21 +59,188 @@
                 android:textStyle="italic" />
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="#F8F7F7"
-            android:background="@drawable/custom_button"
+            app:cornerRadius="60dp"
+            android:backgroundTint="@color/black"
             android:text="Login" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rcvUserAccounts">
+        android:orientation="vertical"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingBottom="35dp"
+        android:weightSum="5" >
+        <LinearLayout
+            android:id="@+id/linearMypurchase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_weight="0.5">
+                <ImageView
+                    android:layout_marginLeft="30dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/mypurchase" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="My Purchase"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearRecentlyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.6">
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/recentlyview" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Recently View"
+                android:layout_marginLeft="25dp"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearWishList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.6">
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/wishlist" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Wish List"
+                android:layout_marginLeft="25dp"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearMyVoucher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:layout_weight="0.6">
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/myvouchers" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="My Vouchers"
+                android:layout_marginLeft="25dp"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearAccountSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:layout_weight="0.6">
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/accountsetting" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Account Setting"
+                android:layout_marginLeft="25dp"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearChatWithWoody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:layout_weight="0.6">
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/chatwithwoody" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Chat with Woody"
+                android:layout_marginLeft="25dp"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
