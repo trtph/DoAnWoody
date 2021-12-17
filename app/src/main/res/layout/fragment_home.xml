@@ -129,12 +129,9 @@
             <FrameLayout
                 android:id="@+id/frame_collection"
                 android:layout_width="match_parent"
-                android:layout_height="520dp"/>
+                android:layout_height="520dp"
+                android:layout_marginBottom="30dp"/>
         </LinearLayout>
     </ScrollView>
-
-
-
-
 
 </LinearLayout>
