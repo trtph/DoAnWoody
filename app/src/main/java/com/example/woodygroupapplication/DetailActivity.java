@@ -31,10 +31,9 @@ public class DetailActivity extends AppCompatActivity {
         }
         ProductCollection p = (ProductCollection) bundle.get("object");
 
-//        imvThumb.setImageResource(p.getPrImage());
         Glide.with(DetailActivity.this).load(p.getPrImage()).into(imvThumb);
         txtName.setText(p.getPrName());
-        txtPrice.setText(p.getPrPrice()+" $");
+        txtPrice.setText("$ " + p.getPrPrice());
         txtRvNumber.setText("(" + p.getPrRvNumber()+" reviews)");
         txtDes.setText(p.getPrDescription());
         ratingBar.setRating(p.getPrRating());

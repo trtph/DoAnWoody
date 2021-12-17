@@ -1,6 +1,7 @@
 package com.example.woodygroupapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ProductCollectionAdapter;
+import com.example.MyInterfaces.IClickItemCollection;
 import com.example.model.ProductCollection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -76,7 +78,7 @@ public class SeatCollectionFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 productCollections = new ArrayList<>();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    ProductCollection p =new ProductCollection();
+                    ProductCollection p = new ProductCollection();
                     p.setPrImage(snapshot.child("prImage").getValue().toString());
                     p.setPrName(snapshot.child("prName").getValue().toString());
                     p.setPrPrice(snapshot.child("prPrice").getValue().toString());
@@ -86,7 +88,7 @@ public class SeatCollectionFragment extends Fragment {
 
                     productCollections.add(p);
                 }
-                adapter = new ProductCollectionAdapter(getActivity(),R.layout.item_product_collection, productCollections);
+                adapter = new ProductCollectionAdapter(getActivity(), R.layout.item_product_collection, productCollections);
                 rcvSeat.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }

@@ -1,5 +1,6 @@
 package com.example.woodygroupapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ShoppingBagAdapter;
+import com.example.model.ProductCollection;
 import com.example.model.productshopModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;

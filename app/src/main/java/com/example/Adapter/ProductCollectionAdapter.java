@@ -1,6 +1,7 @@
 package com.example.Adapter;
 
 import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,9 +16,10 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.MyInterfaces.IClickItemCollection;
 import com.example.model.ProductCollection;
+
 import com.example.woodygroupapplication.DetailActivity;
-import com.example.woodygroupapplication.HomeFragment;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
@@ -27,6 +29,8 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
     Context context;
     int item_product_collection;
     ArrayList<ProductCollection> productCollections;
+
+//    IClickItemCollection iClickItemCollection;
 
     public ProductCollectionAdapter(Context context, int item_product_collection, ArrayList<ProductCollection> productCollections) {
         this.context = context;
@@ -49,24 +53,26 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
         Glide.with(context).load(p.getPrImage()).into(holder.imvThumb);
 
         holder.txtName.setText(p.getPrName());
-        holder.txtPrice.setText(p.getPrPrice() + " $");
+        holder.txtPrice.setText( " $" + p.getPrPrice());
         holder.txtRvNumber.setText("(" + p.getPrRvNumber() + ")");
         holder.ratingBar.setRating(p.getPrRating());
 
         holder.layout_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickToDetail(p);
+               onClickToDetail(p);
             }
         });
     }
-
     private void onClickToDetail(ProductCollection p){
         Intent intent = new Intent(context, DetailActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object", p);
         intent.putExtras(bundle);
         context.startActivity(intent);
+    }
+    public void release(){
+        context = null;
     }
 
     @Override

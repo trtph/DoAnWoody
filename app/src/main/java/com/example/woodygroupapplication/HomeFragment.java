@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.BannerAdapter;
 import com.example.model.Banner;
+import com.example.model.ProductCollection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -175,4 +176,6 @@ public class HomeFragment extends Fragment {
             }
         }
     };
+
+
 }
