@@ -94,7 +94,7 @@ public class UserAccountFragment extends Fragment {
         linearAccountSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getContext(), AccountSetting.class));
             }
         });
         //Open Chat With Woody tab

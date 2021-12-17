@@ -36,7 +36,7 @@ public class MyVouchers extends AppCompatActivity {
         vouchers = new ArrayList<Voucher>();
 
         vouchers.add(new Voucher("BINLOVEHIHI","Hi guy, you will get 50% discount on your first order",R.drawable.voucher1));
-        vouchers.add(new Voucher("BINLOVEHIHI","Hi guy, you will get 50% discount on your first order",R.drawable.voucher1));
+        vouchers.add(new Voucher("RACINGBOIZ","Hi guy, you will get 30% discount on your first order",R.drawable.voucher1));
 
         vouchersAdapter = new VoucherAdapter( MyVouchers.this,vouchers);
 

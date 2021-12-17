@@ -21,19 +21,8 @@
             android:exported="false" />
         <activity
             android:name=".HelloPageActivity"
-            android:exported="true">
+            android:exported="true"/>
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-
-=======
-
-        </activity>
->>>>>>> f5499ba92a87afe08f21f77025def2caab21ecdd
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
@@ -51,17 +40,13 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-<<<<<<< HEAD
-            android:exported="true" />
-=======
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
->>>>>>> f5499ba92a87afe08f21f77025def2caab21ecdd
     </application>
 
 </manifest>

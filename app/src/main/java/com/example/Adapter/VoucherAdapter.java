@@ -28,11 +28,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater =  LayoutInflater.from(parent.getContext());
-<<<<<<< HEAD:app/src/main/java/com/example/Adapter/UserAdapter.java
-        View view = inflater.inflate(R.layout.item_vouchers,parent,false);
-=======
         View view = inflater.inflate(R.layout.item_voucher,parent,false);
->>>>>>> master:app/src/main/java/com/example/Adapter/VoucherAdapter.java
         return new ViewHolder(view);
     }
 

@@ -97,7 +97,7 @@ public class HomeFragment extends Fragment {
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
                     Banner banner = new Banner();
 
-                    banner.setImageUrl(snapshot.child("bannerImage").getValue().toString());
+//                    banner.setImageUrl(snapshot.child("bannerImage").getValue().toString());
 
                     bannersList.add(banner);
 
