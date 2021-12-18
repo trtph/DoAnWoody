@@ -10,16 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
-            android:name=".PaymentMethod_Layout"
-            android:exported="true" />
+            android:name=".ReviewActivity"
+            android:exported="false" />
         <activity
-            android:name=".ProductActivity"
+            android:name=".NewFeatureActivity"
             android:exported="false" />
         <activity
             android:name=".HelloPageActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="false"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
@@ -36,10 +34,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Checkout_Layout"
-            android:exported="false" />
-        <activity
-            android:name=".AddShipping_Layout"
+            android:name=".DetailActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

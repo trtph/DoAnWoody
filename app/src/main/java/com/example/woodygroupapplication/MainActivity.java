@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ShoppingBagAdapter;
+import com.example.model.ProductCollection;
 import com.example.model.productshopModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
@@ -59,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.navSearch:
-                    fragment = new com.example.woodygroupapplication.SearchFragment();
+                    fragment = new SearchFragment();
                     break;
 
                 case R.id.navFavorite:
-                    fragment = new com.example.woodygroupapplication.FavoriteFragment();
+                    fragment = new FavoriteFragment();
                     break;
 
                 case R.id.navShoppingCart:

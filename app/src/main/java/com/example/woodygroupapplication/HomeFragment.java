@@ -1,10 +1,12 @@
 package com.example.woodygroupapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.BannerAdapter;
 import com.example.model.Banner;
+import com.example.model.ProductCollection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +34,7 @@ public class HomeFragment extends Fragment {
 
 
     ImageView imvBest, imvSeat, imvDesk, imvSofa, imvBed, imvNoti;
+    Button btnShowroom, btn3D;
     FrameLayout frame_collection;
     RecyclerView rcvBanner;
 
@@ -76,15 +80,34 @@ public class HomeFragment extends Fragment {
 
         rcvBanner = view.findViewById(R.id.rcvBanner);
 
+        btnShowroom = view.findViewById(R.id.btnShowroom);
+        btn3D = view.findViewById(R.id.btn3D);
 
+
+        //Click event
         imvBest.setOnClickListener(myClick);
         imvSeat.setOnClickListener(myClick);
         imvDesk.setOnClickListener(myClick);
         imvSofa.setOnClickListener(myClick);
         imvBed.setOnClickListener(myClick);
 
-        //addEvents
+        //Nhúng mặc định fragment
         getActivity().getSupportFragmentManager().beginTransaction( ).replace(R.id.frame_collection, new com.example.woodygroupapplication.BestCollectionFragment()).commit();
+
+        btnShowroom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), NewFeatureActivity.class);
+                HomeFragment.this.startActivity(intent);
+            }
+        });
+        btn3D.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), NewFeatureActivity.class);
+                HomeFragment.this.startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -97,7 +120,7 @@ public class HomeFragment extends Fragment {
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
                     Banner banner = new Banner();
 
-                    banner.setImageUrl(snapshot.child("bannerImage").getValue().toString());
+                    banner.setImageUrl(snapshot.child("bnImage").getValue().toString());
 
                     bannersList.add(banner);
 
@@ -132,29 +155,25 @@ public class HomeFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             Fragment fragment = null;
             if (view.getId() == R.id.imvBest){
-                fragment = new com.example.woodygroupapplication.BestCollectionFragment();
+                fragment = new BestCollectionFragment();
 
             }else if (view.getId() == R.id.imvSeat){
-                fragment = new com.example.woodygroupapplication.SeatCollectionFragment();
+                fragment = new SeatCollectionFragment();
 
             }else if (view.getId() == R.id.imvDesk){
-                fragment = new com.example.woodygroupapplication.DestCollectionFragment();
+                fragment = new DestCollectionFragment();
 
             }else if (view.getId() == R.id.imvSofa){
                 fragment = new SofaCollectionFragment();
 
             }else if (view.getId() == R.id.imvBed){
-                fragment = new com.example.woodygroupapplication.BedCollectionFragment();
+                fragment = new BedCollectionFragment();
 
             }
             if (fragment != null){
                 fragmentTransaction.replace(R.id.frame_collection, fragment);
                 fragmentTransaction.commit();
             }
-//            if(view.getId()==R.id.imvNotifications){
-//                startActivity(new Intent(getContext(),NotiActivity.class));
-//            }
-
         }
     };
 
