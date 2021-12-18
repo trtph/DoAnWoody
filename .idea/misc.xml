@@ -34,7 +34,6 @@
         <entry key="..\:/Android/Woody/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19282051282051282" />
         <entry key="..\:/Android/Woody/app/src/main/res/drawable/custom_divider.xml" value="0.19282051282051282" />
         <entry key="..\:/Android/Woody/app/src/main/res/drawable/custom_email_password.xml" value="0.19282051282051282" />
->>>>>>> f5499ba92a87afe08f21f77025def2caab21ecdd
         <entry key="..\:/Android/Woody/app/src/main/res/drawable/custom_search_home.xml" value="0.19583333333333333" />
         <entry key="..\:/Android/Woody/app/src/main/res/drawable/ic_noti.xml" value="0.13854166666666667" />
         <entry key="..\:/Android/Woody/app/src/main/res/layout/activity_home_fragment.xml" value="0.1796875" />
@@ -74,6 +73,15 @@
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/search_item.xml" value="0.10364583333333334" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/shoppingbag_items.xml" value="0.1796875" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/user_account.xml" value="0.15625" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/activity_account_setting.xml" value="0.1796875" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/activity_create_password.xml" value="0.1" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/activity_my_purchases.xml" value="0.1" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/activity_my_vouchers.xml" value="0.1259259259259259" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/activity_order_success.xml" value="0.1" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/activity_recently_view.xml" value="0.1" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/fragment_search.xml" value="0.1796875" />
+        <entry key="..\:/bin/DoAnWoody/app/src/main/res/layout/fragment_user_account.xml" value="0.1796875" />
       </map>
     </option>
   </component>

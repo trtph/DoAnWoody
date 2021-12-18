@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
-public class UserAccountFragment extends Fragment {
+public class UserAccountActivity extends Fragment {
 
     Button btnLogin;
     LinearLayout linearMyPurchase,linearRecentlyView,linearWishList,linearMyVoucher,linearAccountSetting,linearChatWithWoody;
@@ -23,7 +23,7 @@ public class UserAccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_user_account, container, false);
+        View view = inflater.inflate(R.layout.activity_user_account, container, false);
 
         //linkViews
         btnLogin = view.findViewById(R.id.btnLogin);
@@ -87,14 +87,15 @@ public class UserAccountFragment extends Fragment {
         linearMyVoucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), MyVouchers.class));
+                Intent intent = new Intent(getContext(), MyVouchers.class);
+                startActivity(intent);
             }
         });
         //Open Account Setting tab
         linearAccountSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getContext(), AccountSetting.class));
             }
         });
         //Open Chat With Woody tab
