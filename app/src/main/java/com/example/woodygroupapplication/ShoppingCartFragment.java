@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -23,6 +25,8 @@ public class ShoppingCartFragment extends Fragment {
     RecyclerView rcvProduct;
     ShoppingBagAdapter adapter;
     ArrayList<productshopModel> productshopModels;
+    TextView txtToTal;
+    LinearLayout layoutdelete;
 
     MaterialButton btnCheckout;
 
@@ -32,9 +36,10 @@ public class ShoppingCartFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shopping_cart, container, false);
-
+        View view1 = inflater.inflate(R.layout.shoppingbag_items, container, false);
         rcvProduct=view.findViewById(R.id.rcvProduct);
         btnCheckout= view.findViewById(R.id.btnCheckout);
+        txtToTal = view.findViewById(R.id.txtTotal);
 
         LinearLayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rcvProduct.setLayoutManager(manager);
@@ -58,7 +63,17 @@ public class ShoppingCartFragment extends Fragment {
                 startActivity(new Intent(getContext(), Checkout_Layout.class));
             }
         });
-
+        caculateCart();
         return view;
+    }
+
+    public Double caculateCart() {
+        double total = 0;
+        for (int i = 0; i < productshopModels.size(); i++) {
+                total = total + (productshopModels.get(i).getProductPrice());
+        }
+        txtToTal.setText("$ " + total);
+        return total;
+
     }
 }

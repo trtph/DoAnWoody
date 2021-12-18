@@ -54,6 +54,7 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
             public void onClick(View view) {
                 productshopModels.remove(holder.getAbsoluteAdapterPosition());
                 notifyItemRemoved(holder.getAbsoluteAdapterPosition());
+                caculateCart();
             }
         });
     }
@@ -65,7 +66,7 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
-        TextView txtInfo, txtPrice;
+        TextView txtInfo, txtPrice, txtTotal;
         private SwipeRevealLayout swipeRevealLayout;
         private LinearLayout layoutDelete;
         public ViewHolder(@NonNull View itemView) {
@@ -77,5 +78,12 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
             swipeRevealLayout = itemView.findViewById(R.id.SwipeRevealLayout);
             layoutDelete = itemView.findViewById(R.id.layoutDelete);
         }
+    }
+    public Double caculateCart() {
+        double total = 0;
+        for (int i = 0; i < productshopModels.size(); i++) {
+            total = total + (productshopModels.get(i).getProductPrice());
+        }
+        return total;
     }
 }

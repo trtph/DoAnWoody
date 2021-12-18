@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.model.Product;
 import com.example.woodygroupapplication.R;
-import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
 
@@ -39,7 +38,6 @@ public class ProductApdater extends RecyclerView.Adapter<ProductApdater.ViewHold
         holder.imvThumb.setImageResource(p.getProductThumb());
         holder.txtName.setText(p.getProductName());
         holder.txtNumber.setText(String.valueOf(p.getProductNumber())+" items");
-
     }
 
     @Override
