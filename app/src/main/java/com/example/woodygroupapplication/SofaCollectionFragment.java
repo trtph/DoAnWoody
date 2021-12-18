@@ -1,18 +1,25 @@
 package com.example.woodygroupapplication;
 
+import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Adapter.ProductAdapter2;
-import com.example.model.Product;
+import com.example.Adapter.CollectionAdapter;
+import com.example.model.Collection;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -20,8 +27,17 @@ public class SofaCollectionFragment extends Fragment {
 
 
     RecyclerView rcvSofaCollection;
-    ProductAdapter2 productAdapter2;
-    ArrayList<Product> products;
+
+    //Firebase
+    DatabaseReference databaseReference;
+
+    //Variable
+
+    ArrayList<Collection> collectionArrayList;
+    CollectionAdapter collectionAdapter;
+    Context context;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,8 +49,14 @@ public class SofaCollectionFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         rcvSofaCollection.setLayoutManager(manager);
 
-//        DividerItemDecoration decoration = new DividerItemDecoration(rcvSofaCollection.getContext(), manager.getOrientation());
-//        rcvSofaCollection.addItemDecoration(decoration);
+        //Firebase
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        //ArrayList
+        collectionArrayList = new ArrayList<>();
+
+        //Get Data Method
+        GetDataFromFirebase();
 
         class SpacesItemDecortion extends RecyclerView.ItemDecoration{
             private final int mSpace;
@@ -52,15 +74,33 @@ public class SofaCollectionFragment extends Fragment {
 
         rcvSofaCollection.addItemDecoration(new SpacesItemDecortion(50, 30));
 
-
-        products = new ArrayList<Product>();
-        products.add(new Product(R.drawable.kivik, "KIVIK TWO SEAT", 349.99));
-        products.add(new Product(R.drawable.soederhamn, "SÖDERHAMN", 648.99));
-        products.add(new Product(R.drawable.kivik_light, "KIVIK FOUR SEAT", 849.93));
-        products.add(new Product(R.drawable.norsborg, "NORSBORG", 394.99));
-
-        productAdapter2 = new ProductAdapter2(getContext(), products);
-        rcvSofaCollection.setAdapter(productAdapter2);
         return view;
+    }
+
+    private void GetDataFromFirebase() {
+        Query query = databaseReference.child("Collection").child("sofaCollection");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                    Collection collection = new Collection();
+
+                    collection.setCltImage(snapshot.child("cltImage").getValue().toString());
+                    collection.setCltName(snapshot.child("cltName").getValue().toString());
+                    collection.setCltNumber(snapshot.child("cltNumber").getValue().toString() + " $");
+
+                    collectionArrayList.add(collection);
+
+                }
+                collectionAdapter = new CollectionAdapter(getContext(),collectionArrayList);
+                rcvSofaCollection.setAdapter(collectionAdapter);
+                collectionAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

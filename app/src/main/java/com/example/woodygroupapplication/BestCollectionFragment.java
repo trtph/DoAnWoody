@@ -1,17 +1,25 @@
 package com.example.woodygroupapplication;
 
+import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Adapter.ProductApdater;
-import com.example.model.Product;
+import com.example.Adapter.CollectionAdapter;
+import com.example.model.Collection;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -19,8 +27,15 @@ import java.util.ArrayList;
 public class BestCollectionFragment extends Fragment {
 
     RecyclerView rcvBestCollection;
-    ProductApdater apdater;
-    ArrayList<Product> products;
+    //Firebase
+    DatabaseReference databaseReference;
+
+    //Variable
+
+    ArrayList<Collection> collectionArrayList;
+    CollectionAdapter collectionAdapter;
+    Context context;
+
 
 
     @Override
@@ -33,21 +48,14 @@ public class BestCollectionFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         rcvBestCollection.setLayoutManager(manager);
 
-//        DividerItemDecoration decoration = new DividerItemDecoration(rcvBestCollection.getContext(), manager.getOrientation());
-//        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.custom_divider);
-//        decoration.setDrawable(drawable);
-//        rcvBestCollection.addItemDecoration(decoration);
+        //Firebase
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        //ArrayList
+        collectionArrayList = new ArrayList<>();
 
-
-        products = new ArrayList<Product>();
-        products.add(new Product(R.drawable.baby, "Baby & children", 20));
-        products.add(new Product(R.drawable.decoration, "Decoration", 200));
-        products.add(new Product(R.drawable.bathroom, "Bathroom products", 56));
-        products.add(new Product(R.drawable.lingting, "LingTing", 120));
-
-        apdater = new ProductApdater(getContext(), products);
-        rcvBestCollection.setAdapter(apdater);
+        //Get Data Method
+        GetDataFromFirebase();
 
         class SpacesItemDecortion extends RecyclerView.ItemDecoration{
             private final int mSpace;
@@ -68,6 +76,32 @@ public class BestCollectionFragment extends Fragment {
         return view;
     }
 
+    private void GetDataFromFirebase() {
+        Query query = databaseReference.child("Collection").child("bestCollection");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                    Collection collection = new Collection();
+
+                    collection.setCltImage(snapshot.child("cltImage").getValue().toString());
+                    collection.setCltName(snapshot.child("cltName").getValue().toString());
+                    collection.setCltNumber(snapshot.child("cltNumber").getValue().toString() + " item");
+
+                    collectionArrayList.add(collection);
+
+                }
+                collectionAdapter = new CollectionAdapter(getContext(),collectionArrayList);
+                rcvBestCollection.setAdapter(collectionAdapter);
+                collectionAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
 
 }

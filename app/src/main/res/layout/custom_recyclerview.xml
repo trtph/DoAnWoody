@@ -6,18 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imvThumb"-->
-<!--        android:layout_width="250dp"-->
-<!--        android:layout_height="350dp"-->
-<!--        android:layout_margin="5dp"-->
-
-<!--        android:scaleType="centerCrop"-->
-<!--        android:src="@drawable/img_floral"-->
-
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imvThumb"
         android:layout_width="220dp"
@@ -55,7 +43,7 @@
         android:layout_height="wrap_content"
 
         android:text="20 items"
-        android:textSize="16sp"
+        android:textSize="19sp"
         android:textColor="@color/white"
         android:textStyle="italic"
 

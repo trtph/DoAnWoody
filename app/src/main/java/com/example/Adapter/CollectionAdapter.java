@@ -10,39 +10,44 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.model.Product;
+import com.bumptech.glide.Glide;
+import com.example.model.Collection;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
 
-public class ProductApdater extends RecyclerView.Adapter<ProductApdater.ViewHolder> {
-    Context context;
-    ArrayList<Product> products;
+public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.ViewHolder>{
 
-    public ProductApdater(Context context, ArrayList<Product> products) {
+    Context context;
+    ArrayList<Collection> collections;
+
+    public CollectionAdapter(Context context, ArrayList<Collection> collections) {
         this.context = context;
-        this.products = products;
+        this.collections = collections;
     }
+
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.custom_recyclerview, null);
+    public CollectionAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recycler_product, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Product p = products.get(position);
-        holder.imvThumb.setImageResource(p.getProductThumb());
-        holder.txtName.setText(p.getProductName());
-        holder.txtNumber.setText(String.valueOf(p.getProductNumber())+" items");
+    public void onBindViewHolder(@NonNull CollectionAdapter.ViewHolder holder, int position) {
+
+        holder.txtName.setText(collections.get(position).getCltName());
+        holder.txtNumber.setText(String.valueOf(collections.get(position).getCltNumber()));
+
+        //ImageView: Glide Library
+        Glide.with(context).load(collections.get(position).getCltImage()).into(holder.imvThumb);
+
     }
 
     @Override
     public int getItemCount() {
-        return products.size();
+        return collections.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
