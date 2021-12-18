@@ -10,11 +10,12 @@ public class ProductCollection implements Serializable {
     private String prDescription;
     private Float prRating;
     private String prRvNumber;
+    private String prIntro;
 
     public ProductCollection() {
     }
 
-    public ProductCollection(String prID, String prImage, String prName, String prPrice, String prDescription, Float prRating, String prRvNumber) {
+    public ProductCollection(String prID, String prImage, String prName, String prPrice, String prDescription, Float prRating, String prRvNumber, String prIntro) {
         this.prID = prID;
         this.prImage = prImage;
         this.prName = prName;
@@ -22,6 +23,7 @@ public class ProductCollection implements Serializable {
         this.prDescription = prDescription;
         this.prRating = prRating;
         this.prRvNumber = prRvNumber;
+        this.prIntro = prIntro;
     }
 
     public String getPrID() {
@@ -80,4 +82,11 @@ public class ProductCollection implements Serializable {
         this.prRvNumber = prRvNumber;
     }
 
+    public String getPrIntro() {
+        return prIntro;
+    }
+
+    public void setPrIntro(String prIntro) {
+        this.prIntro = prIntro;
+    }
 }

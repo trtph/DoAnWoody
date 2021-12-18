@@ -87,6 +87,7 @@ public class BestCollectionFragment extends Fragment {
                     p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
                     p.setPrDescription(snapshot.child("prDescription").getValue().toString());
                     p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
+                    p.setPrIntro(snapshot.child("prIntro").getValue().toString());
 
                     productCollections.add(p);
                 }
