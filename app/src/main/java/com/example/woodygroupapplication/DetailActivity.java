@@ -14,7 +14,7 @@ import com.example.model.ProductCollection;
 
 public class DetailActivity extends AppCompatActivity {
     ImageView imvThumb, add_quantity, remove_quantity;
-    TextView txtName, txtPrice, txtRvNumber, txtDes, txtQuantity, txtIntro;
+    TextView txtName, txtPrice, txtRvNumber, txtDes, txtQuantity;
     RatingBar ratingBar;
     int totalQuantity = 1;
 
@@ -40,7 +40,6 @@ public class DetailActivity extends AppCompatActivity {
         txtRvNumber.setText("(" + p.getPrRvNumber()+" reviews)");
         txtDes.setText(p.getPrDescription());
         ratingBar.setRating(p.getPrRating());
-        txtIntro.setText(p.getPrIntro());
 
         add_quantity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +79,6 @@ public class DetailActivity extends AppCompatActivity {
         txtRvNumber = findViewById(R.id.txtRvNumber);
         txtDes = findViewById(R.id.txtDescription);
         ratingBar = findViewById(R.id.ratingBar);
-        txtIntro = findViewById(R.id.txtIntro);
 
         add_quantity = findViewById(R.id.add_quantity);
         remove_quantity = findViewById(R.id.remove_quantity);

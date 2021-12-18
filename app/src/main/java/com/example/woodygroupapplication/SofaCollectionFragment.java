@@ -34,9 +34,6 @@ public class SofaCollectionFragment extends Fragment {
     Context context;
 
     DatabaseReference databaseReference;
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -82,7 +79,7 @@ public class SofaCollectionFragment extends Fragment {
                     ProductCollection p =new ProductCollection();
                     p.setPrImage(snapshot.child("prImage").getValue().toString());
                     p.setPrName(snapshot.child("prName").getValue().toString());
-                    p.setPrPrice(snapshot.child("prPrice").getValue().toString());
+                    p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
                     p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
                     p.setPrDescription(snapshot.child("prDescription").getValue().toString());
                     p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
