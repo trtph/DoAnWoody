@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".FavoriteFragment"
     android:orientation="vertical"
+    android:id="@+id/frgMyPurchases"
     android:padding="15dp">
 
     <LinearLayout
@@ -66,11 +67,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-        <androidx.recyclerview.widget.RecyclerView
+        <FrameLayout
+            android:id="@+id/frame_collection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rcvSuggestions"
-            android:padding="10dp">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_marginBottom="30dp"/>
     </LinearLayout>
 </LinearLayout>

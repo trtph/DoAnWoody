@@ -80,10 +80,10 @@ public class BestCollectionFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 productCollections = new ArrayList<>();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    ProductCollection p =new ProductCollection();
+                    ProductCollection p = new ProductCollection();
                     p.setPrImage(snapshot.child("prImage").getValue().toString());
                     p.setPrName(snapshot.child("prName").getValue().toString());
-                    p.setPrPrice(snapshot.child("prPrice").getValue().toString());
+                    p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
                     p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
                     p.setPrDescription(snapshot.child("prDescription").getValue().toString());
                     p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));

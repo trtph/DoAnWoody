@@ -6,8 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#F8F8F8"
-    tools:context=".UserAccountActivity"
-    android:weightSum="10">
+    tools:context=".UserAccountFragment"
+    android:weightSum="10"
+    android:id="@+id/layoutUserAccount">
 
         <TextView
             android:layout_width="match_parent"
@@ -26,7 +27,8 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgAvatar"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center_vertical"
@@ -43,6 +45,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txtUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -82,11 +85,11 @@
         <LinearLayout
             android:id="@+id/linearMypurchase"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="#FFFFFF"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:layout_weight="0.5">
+            android:layout_weight="0.75">
                 <ImageView
                     android:layout_marginLeft="30dp"
                     android:layout_gravity="center"
@@ -109,12 +112,12 @@
         <LinearLayout
             android:id="@+id/linearRecentlyView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="#FFFFFF"
             android:orientation="horizontal"
             android:padding="10dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="0.6">
+            android:layout_weight="0.75">
             <ImageView
                 android:layout_marginLeft="30dp"
                 android:layout_gravity="center"
@@ -136,12 +139,12 @@
         <LinearLayout
             android:id="@+id/linearWishList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="#FFFFFF"
             android:orientation="horizontal"
             android:padding="10dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="0.6">
+            android:layout_weight="0.75">
             <ImageView
                 android:layout_marginLeft="30dp"
                 android:layout_gravity="center"
@@ -163,12 +166,12 @@
         <LinearLayout
             android:id="@+id/linearMyVoucher"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="#FFFFFF"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:layout_weight="0.6">
+            android:layout_weight="0.75">
             <ImageView
                 android:layout_marginLeft="30dp"
                 android:layout_gravity="center"
@@ -190,12 +193,12 @@
         <LinearLayout
             android:id="@+id/linearAccountSetting"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="#FFFFFF"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:layout_weight="0.6">
+            android:layout_weight="0.75">
             <ImageView
                 android:layout_marginLeft="30dp"
                 android:layout_gravity="center"
@@ -217,12 +220,12 @@
         <LinearLayout
             android:id="@+id/linearChatWithWoody"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="#FFFFFF"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:layout_weight="0.6">
+            android:layout_weight="0.75">
             <ImageView
                 android:layout_marginLeft="30dp"
                 android:layout_gravity="center"
@@ -240,6 +243,8 @@
                 android:textSize="20dp"
                 android:textStyle="bold"/>
         </LinearLayout>
+
+
 
     </LinearLayout>
 

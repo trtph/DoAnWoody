@@ -34,29 +34,30 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvProduct"
         android:layout_width="match_parent"
-        android:layout_height="520dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtShoppingBag"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/txtShoppingBag" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="90dp"
         android:background="#F8F8F8"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/rcvProduct">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <CheckBox
-            android:id="@+id/radAll"
+            android:id="@+id/ckbAll"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:buttonTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="10dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
@@ -66,7 +67,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/radAll"
+            app:layout_constraintLeft_toRightOf="@id/ckbAll"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -94,14 +95,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCheckout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
             android:text="Check Out"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:cornerRadius="20dp"
             android:textSize="11sp"
+            app:cornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txtTotal"

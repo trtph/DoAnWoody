@@ -64,10 +64,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLoginAccount">
         <EditText
-            android:id="@+id/edtPhoneNumber"
+            android:id="@+id/edtEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Phone number"
+            android:hint="Email"
             android:textSize="20sp"
 
             android:background="@drawable/custom_email_password"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtLayoutPhone"
         app:passwordToggleEnabled="true">
         <EditText
-            android:id="@+id/edtPassword"
+            android:id="@+id/edtPassLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -99,7 +99,7 @@
 
             android:background="@drawable/custom_email_password"
 
-            app:layout_constraintTop_toBottomOf="@id/edtPhoneNumber"
+            app:layout_constraintTop_toBottomOf="@id/edtEmailLogin"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
 
