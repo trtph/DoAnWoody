@@ -10,13 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
+            android:name=".MyPurchases"
+            android:exported="true" />
+        <activity
             android:name=".ProductActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".HelloPageActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />

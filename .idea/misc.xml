@@ -45,11 +45,19 @@
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/search_item.xml" value="0.15989583333333332" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/shoppingbag_items.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/drawable/round_coner.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/activity_my_purchases.xml" value="0.25" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/custom_favouritefragment_recyclerview.xml" value="0.33" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/custom_listview_layout.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/custom_recycler_mypurchases.xml" value="0.33" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/custom_recycler_product.xml" value="0.2015625" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/custom_recyclerview.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_best_collection.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_desk_collection.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_favorite.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_my_purchases.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_search.xml" value="0.3537037037037037" />
+        <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_seat_collection.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.2015625" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/shoppingbag_items.xml" value="0.2015625" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/menu/item_menu.xml" value="0.18333333333333332" />
