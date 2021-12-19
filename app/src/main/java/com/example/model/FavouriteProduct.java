@@ -1,46 +1,41 @@
 package com.example.model;
 
 public class FavouriteProduct {
-    private int productThumb;
-    private String productName;
-    private double productPrice;
 
-    public FavouriteProduct(int productThumb, String productName, double productPrice) {
-        this.productThumb = productThumb;
-        this.productName = productName;
-        this.productPrice = productPrice;
+    private String prThumb;
+    private String prName;
+    private String prPrice;
+
+    public FavouriteProduct(String prThumb, String prName, String prPrice) {
+        this.prThumb = prThumb;
+        this.prName = prName;
+        this.prPrice = prPrice;
     }
 
-    public int getProductThumb() {
-        return productThumb;
+    public FavouriteProduct() {
     }
 
-    public void setProductThumb(int productThumb) {
-        this.productThumb = productThumb;
+    public String getPrThumb() {
+        return prThumb;
     }
 
-    public String getProductName() {
-        return productName;
+    public void setPrThumb(String prThumb) {
+        this.prThumb = prThumb;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public String getPrName() {
+        return prName;
     }
 
-    public double getProductPrice() {
-        return productPrice;
+    public void setPrName(String prName) {
+        this.prName = prName;
     }
 
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
+    public String getPrPrice() {
+        return prPrice;
     }
 
-    @Override
-    public String toString() {
-        return "FavouriteProduct{" +
-                "productThumb=" + productThumb +
-                ", productName='" + productName + '\'' +
-                ", productPrice=" + productPrice +
-                '}';
+    public void setPrPrice(String prPrice) {
+        this.prPrice = prPrice;
     }
 }

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.model.ListProduct;
-import com.example.model.Product;
+//import com.example.model.Product;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
