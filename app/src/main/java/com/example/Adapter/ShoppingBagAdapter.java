@@ -1,16 +1,15 @@
 package com.example.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -18,6 +17,11 @@ import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.example.model.productshopModel;
 import com.example.woodygroupapplication.R;
+import com.example.woodygroupapplication.ShoppingCartFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -26,11 +30,16 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
     Context context;
     ArrayList<productshopModel> productshopModels;
     int totalPrice = 0;
+    FirebaseFirestore firestore;
+    FirebaseAuth auth;
+
     private ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
 
     public ShoppingBagAdapter (Context context,  ArrayList<productshopModel> productshopModels){
         this.context=context;
         this.productshopModels=productshopModels;
+        firestore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
     }
 
     @NonNull
@@ -53,11 +62,7 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
         holder.txtPrice.setText(b.getPrPrice());
         holder.txtQuantity.setText(b.getTotalQuantity());
 
-        //pass total amount to My Cart Fragment
-        totalPrice = totalPrice + b.getTotalPrice();
-        Intent intent = new Intent("MyTotalAmount");
-        intent.putExtra("totalAmount", totalPrice);
-        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+
 
         viewBinderHelper.bind(holder.swipeRevealLayout, String.valueOf(b));
         viewBinderHelper.setOpenOnlyOne(true);
@@ -65,9 +70,21 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
         holder.layoutDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                productshopModels.remove(holder.getAbsoluteAdapterPosition());
-                notifyItemRemoved(holder.getAbsoluteAdapterPosition());
-//                caculateCart();
+                firestore.collection("AddToCart").document(b.getDocumentID())
+                        .delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                    productshopModels.remove(b);
+                                    notifyDataSetChanged();
+                                    ShoppingCartFragment.caculateTotalAmount(productshopModels);
+                                    Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         });
     }
@@ -93,11 +110,4 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
             layoutDelete = itemView.findViewById(R.id.layoutDelete);
         }
     }
-//    public String caculateCart() {
-//        String total = 0;
-//        for (int i = 0; i < productshopModels.size(); i++) {
-//            total = total + (productshopModels.get(i).getPrPrice());
-//        }
-//        return total;
-//    }
 }

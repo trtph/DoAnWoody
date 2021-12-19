@@ -143,7 +143,7 @@ public class DetailActivity extends AppCompatActivity {
         txtRvNumber = findViewById(R.id.txtRvNumber);
         txtDes = findViewById(R.id.txtDescription);
         ratingBar = findViewById(R.id.ratingBar);
-        txtIntro = findViewById(R.id.txtIntro);
+//        txtIntro = findViewById(R.id.txtIntro);
 
         add_quantity = findViewById(R.id.add_quantity);
         remove_quantity = findViewById(R.id.remove_quantity);
