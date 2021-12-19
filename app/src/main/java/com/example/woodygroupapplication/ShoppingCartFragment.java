@@ -1,9 +1,6 @@
 package com.example.woodygroupapplication;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,7 +37,7 @@ public class ShoppingCartFragment extends Fragment {
     RecyclerView rcvProduct;
     ShoppingBagAdapter adapter;
     ArrayList<productshopModel> productshopModels;
-    TextView txtToTal;
+    static TextView txtToTal;
     LinearLayout layoutdelete;
 
     MaterialButton btnCheckout;
@@ -57,8 +53,7 @@ public class ShoppingCartFragment extends Fragment {
         txtToTal = view.findViewById(R.id.txtTotal);
         layoutdelete = view.findViewById(R.id.layoutDelete);
 
-        LocalBroadcastManager.getInstance(getActivity())
-                .registerReceiver(mMessageReceiver, new IntentFilter("MyTotalAmount"));
+
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -81,12 +76,19 @@ public class ShoppingCartFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()){
                     for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+
+                        String documentID = documentSnapshot.getId();
+
                         productshopModel cartModel = documentSnapshot.toObject(productshopModel.class);
+
+                        cartModel.setDocumentID(documentID);
+
                         productshopModels.add(cartModel);
                         adapter.notifyDataSetChanged();
                     }
                 }
 
+                caculateTotalAmount(productshopModels);
             }
         });
 
@@ -97,24 +99,14 @@ public class ShoppingCartFragment extends Fragment {
                 startActivity(new Intent(getContext(), Checkout_Layout.class));
             }
         });
-//        caculateCart();
         return view;
     }
-    public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            int totalBill = intent.getIntExtra("totalAmount",0);
-            txtToTal.setText("$ " + totalBill);
-        }
-    };
 
-//    public String caculateCart() {
-//        String total = 0;
-//        for (int i = 0; i < productshopModels.size(); i++) {
-//                total = total + (productshopModels.get(i).getPrPrice());
-//        }
-//        txtToTal.setText("$ " + total);
-//        return total;
-//
-//    }
+    public static void caculateTotalAmount(ArrayList<productshopModel> productshopModels) {
+        double totalAmount = 0.0;
+        for(productshopModel productshopmodel : productshopModels){
+            totalAmount += productshopmodel.getTotalPrice();
+        }
+        txtToTal.setText("$ " + totalAmount);
+    }
 }

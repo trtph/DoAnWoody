@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#F8F8F8"
-    tools:context=".UserAccountFragment"
+    tools:context=".UserAccountActivity"
     android:weightSum="10">
 
         <TextView
