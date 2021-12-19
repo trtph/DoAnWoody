@@ -11,31 +11,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imvBack"-->
-<!--            android:layout_width="20dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:src="@drawable/ic_back"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:layout_marginStart="15dp"/>-->
-
         <TextView
             android:id="@+id/txtReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Review"
-            android:textSize="28sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="156dp"
 
             android:fontFamily="@font/mavenpro_bold"
+            android:text="Review"
+            android:gravity="center"
             android:textColor="@color/black"
-
-            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="8dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imvThumb"
