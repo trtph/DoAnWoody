@@ -46,7 +46,13 @@
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".NotiActivity"
+            android:name=".ListAllCategory"
+            android:exported="false" />
+        <activity
+            android:name=".ListAllRooms"
+            android:exported="false" />
+        <activity
+            android:name=".ListViewProduct"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
