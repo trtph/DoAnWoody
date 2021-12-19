@@ -1,8 +1,11 @@
 package com.example.woodygroupapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView navigationView;
     FrameLayout frame_content;
+    TextView txtView1;
 
 
     @Override
@@ -29,17 +33,23 @@ public class MainActivity extends AppCompatActivity {
         linkViews();
         addEvents();
 
+
     }
+
+
 
     private void linkViews() {
         navigationView = findViewById(R.id.bottom_navigation);
         frame_content = findViewById(R.id.frame_content);
+        txtView1=findViewById(R.id.txtView1);
     }
 
     private void addEvents() {
         navigationView.setOnItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new HomeFragment()).commit();
     }
+
+
     NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {

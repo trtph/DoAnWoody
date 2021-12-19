@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.woodygroupapplication">
 
     <application
@@ -9,6 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
+        <activity
+            android:name=".ListViewProduct"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ListAllRooms"
+            android:exported="true" />
+        <activity
+            android:name=".ListAllCategory"
+            android:exported="true" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
@@ -33,6 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
