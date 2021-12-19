@@ -1,6 +1,7 @@
 package com.example.woodygroupapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,8 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Adapter.CollectionAdapter;
-import com.example.model.Collection;
+import com.example.Adapter.ProductCollectionAdapter;
+import com.example.model.ProductCollection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,15 +27,13 @@ import java.util.ArrayList;
 
 public class BestCollectionFragment extends Fragment {
 
-    RecyclerView rcvBestCollection;
-    //Firebase
-    DatabaseReference databaseReference;
+    RecyclerView rcvBest;
 
-    //Variable
-
-    ArrayList<Collection> collectionArrayList;
-    CollectionAdapter collectionAdapter;
+    ArrayList<ProductCollection> productCollections;
+    ProductCollectionAdapter adapter;
     Context context;
+
+    DatabaseReference databaseReference;
 
 
 
@@ -43,16 +42,13 @@ public class BestCollectionFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_best_collection, container, false);
-        rcvBestCollection = view.findViewById(R.id.rcvBestCollection);
+        rcvBest = view.findViewById(R.id.rcvBest);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
-        rcvBestCollection.setLayoutManager(manager);
+        rcvBest.setLayoutManager(manager);
 
         //Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
-        //ArrayList
-        collectionArrayList = new ArrayList<>();
 
         //Get Data Method
         GetDataFromFirebase();
@@ -71,29 +67,32 @@ public class BestCollectionFragment extends Fragment {
             }
         }
 
-        rcvBestCollection.addItemDecoration(new SpacesItemDecortion(50, 30));
+        rcvBest.addItemDecoration(new SpacesItemDecortion(30, 30));
 
         return view;
     }
 
     private void GetDataFromFirebase() {
-        Query query = databaseReference.child("Collection").child("bestCollection");
+        Query query = databaseReference.child("ProductCollection").child("BestCollection");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                for(DataSnapshot snapshot : datasnapshot.getChildren()){
-                    Collection collection = new Collection();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                productCollections = new ArrayList<>();
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    ProductCollection p =new ProductCollection();
+                    p.setPrImage(snapshot.child("prImage").getValue().toString());
+                    p.setPrName(snapshot.child("prName").getValue().toString());
+                    p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
+                    p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
+                    p.setPrDescription(snapshot.child("prDescription").getValue().toString());
+                    p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
+//                    p.setPrIntro(snapshot.child("prIntro").getValue().toString());
 
-                    collection.setCltImage(snapshot.child("cltImage").getValue().toString());
-                    collection.setCltName(snapshot.child("cltName").getValue().toString());
-                    collection.setCltNumber(snapshot.child("cltNumber").getValue().toString() + " item");
-
-                    collectionArrayList.add(collection);
-
+                    productCollections.add(p);
                 }
-                collectionAdapter = new CollectionAdapter(getContext(),collectionArrayList);
-                rcvBestCollection.setAdapter(collectionAdapter);
-                collectionAdapter.notifyDataSetChanged();
+                adapter = new ProductCollectionAdapter(getActivity(), R.layout.item_product_collection, productCollections);
+                rcvBest.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -102,6 +101,11 @@ public class BestCollectionFragment extends Fragment {
             }
         });
     }
-
-
+    private void onClickToDetail(ProductCollection p){
+        Intent intent = new Intent(getContext(), DetailActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object", p);
+        intent.putExtras(bundle);
+        BestCollectionFragment.this.startActivity(intent);
+    }
 }

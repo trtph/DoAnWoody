@@ -7,9 +7,9 @@
     tools:context=".SofaCollectionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvSofaCollection"
+        android:id="@+id/rcvSofa"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="400dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="10dp"
@@ -24,6 +24,6 @@
         android:textStyle="bold"
 
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/rcvSofaCollection"
+        app:layout_constraintTop_toBottomOf="@+id/rcvSofa"
         app:layout_constraintLeft_toLeftOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
