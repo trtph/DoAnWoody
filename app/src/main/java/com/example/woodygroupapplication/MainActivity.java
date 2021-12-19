@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.navUserAccount:
-                    fragment = new UserAccountActivity();
+                    fragment = new UserAccountFragment();
                     break;
 
             }

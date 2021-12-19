@@ -31,7 +31,7 @@ public class VerificationActivity extends AppCompatActivity {
         btnSendCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VerificationActivity.this, CreatePasswordActivity.class));
+                startActivity(new Intent(VerificationActivity.this, ChangePasswordActivity.class));
             }
         });
         txtSendAgain.setOnClickListener(new View.OnClickListener() {

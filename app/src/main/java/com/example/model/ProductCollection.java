@@ -11,7 +11,9 @@ public class ProductCollection implements Serializable {
     private Float prRating;
     private String prRvNumber;
 
+
     public ProductCollection() {
+
     }
 
     public ProductCollection(String prID, String prImage, String prName, Double prPrice, String prDescription, Float prRating, String prRvNumber) {
