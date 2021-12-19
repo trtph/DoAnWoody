@@ -6,7 +6,7 @@ public class ProductCollection implements Serializable {
     private String prID;
     private String prImage;
     private String prName;
-    private String prPrice;
+    private Double prPrice;
     private String prDescription;
     private Float prRating;
     private String prRvNumber;
@@ -14,7 +14,7 @@ public class ProductCollection implements Serializable {
     public ProductCollection() {
     }
 
-    public ProductCollection(String prID, String prImage, String prName, String prPrice, String prDescription, Float prRating, String prRvNumber) {
+    public ProductCollection(String prID, String prImage, String prName, Double prPrice, String prDescription, Float prRating, String prRvNumber) {
         this.prID = prID;
         this.prImage = prImage;
         this.prName = prName;
@@ -48,11 +48,11 @@ public class ProductCollection implements Serializable {
         this.prName = prName;
     }
 
-    public String getPrPrice() {
+    public Double getPrPrice() {
         return prPrice;
     }
 
-    public void setPrPrice(String prPrice) {
+    public void setPrPrice(Double prPrice) {
         this.prPrice = prPrice;
     }
 
@@ -79,5 +79,4 @@ public class ProductCollection implements Serializable {
     public void setPrRvNumber(String prRvNumber) {
         this.prRvNumber = prRvNumber;
     }
-
 }

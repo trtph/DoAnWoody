@@ -2,6 +2,8 @@ package com.example.woodygroupapplication;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -9,9 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     BottomNavigationView navigationView;
     FrameLayout frame_content;
@@ -29,9 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private void linkViews() {
         navigationView = findViewById(R.id.bottom_navigation);
         frame_content = findViewById(R.id.frame_content);
+
     }
 
     private void addEvents() {
+
+
         navigationView.setOnItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new HomeFragment()).commit();
     }

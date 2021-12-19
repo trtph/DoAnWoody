@@ -94,6 +94,14 @@ public class HomeFragment extends Fragment {
         //Nhúng mặc định fragment
         getActivity().getSupportFragmentManager().beginTransaction( ).replace(R.id.frame_collection, new com.example.woodygroupapplication.BestCollectionFragment()).commit();
 
+        imvNoti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), NotiActivity.class);
+                startActivity(intent);
+            }
+        });
+
         btnShowroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

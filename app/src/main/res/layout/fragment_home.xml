@@ -6,21 +6,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment"
     android:orientation="vertical"
-    android:background="@color/background_home">
+    android:background="@color/background_color">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:scaleType="centerCrop"
             android:src="@drawable/logo_woody_null"/>
         <TextView
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:text="HOME"
             android:textSize="20sp"
             android:textColor="@color/black"
@@ -29,10 +29,10 @@
             android:textStyle="bold"/>
         <ImageView
             android:id="@+id/imvNotifications"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_noti"
+            android:src="@drawable/ic_notifications"
             android:layout_gravity="center"
             android:layout_marginEnd="20dp"/>
     </LinearLayout>
@@ -71,19 +71,23 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Showroom ảo"
-                    android:textSize="10sp"
-                    android:textColor="@color/black"
+                    android:text="Virtual Showroom"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/mavenpro_bold"
                     android:backgroundTint="#86F4ECEC"
+                    android:textColor="@color/Gray61"
                     style="@style/Widget.MaterialComponents.Button.TextButton" />
                 <Button
                     android:id="@+id/btn3D"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Trải nghiệm sản phẩm"
-                    android:textSize="10sp"
-                    android:textColor="@color/black"
+                    android:text="Product experience"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/mavenpro_bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Gray61"
                     android:backgroundTint="#86F4ECEC"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_marginStart="8dp"/>
@@ -129,12 +133,9 @@
             <FrameLayout
                 android:id="@+id/frame_collection"
                 android:layout_width="match_parent"
-                android:layout_height="520dp"/>
+                android:layout_height="520dp"
+                android:layout_marginBottom="30dp"/>
         </LinearLayout>
     </ScrollView>
-
-
-
-
 
 </LinearLayout>

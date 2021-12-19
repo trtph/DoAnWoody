@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ProductCollectionAdapter;
-import com.example.MyInterfaces.IClickItemCollection;
 import com.example.model.ProductCollection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -83,10 +82,11 @@ public class BestCollectionFragment extends Fragment {
                     ProductCollection p =new ProductCollection();
                     p.setPrImage(snapshot.child("prImage").getValue().toString());
                     p.setPrName(snapshot.child("prName").getValue().toString());
-                    p.setPrPrice(snapshot.child("prPrice").getValue().toString());
+                    p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
                     p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
                     p.setPrDescription(snapshot.child("prDescription").getValue().toString());
                     p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
+//                    p.setPrIntro(snapshot.child("prIntro").getValue().toString());
 
                     productCollections.add(p);
                 }
