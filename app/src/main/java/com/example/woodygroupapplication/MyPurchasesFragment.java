@@ -32,10 +32,10 @@ public class MyPurchasesFragment extends Fragment {
 
         DividerItemDecoration decoration = new DividerItemDecoration(rcvRecentlyView.getContext(),manager.getOrientation());
         rcvRecentlyView.addItemDecoration(decoration);
-        favouriteProducts =new ArrayList<FavouriteProduct>();
-        favouriteProducts.add(new FavouriteProduct(R.drawable.woolrug,"WOOL RUG",19000));
-        favouriteProducts.add(new FavouriteProduct(R.drawable.juterug,"JUTE RUG",14000));
-        favouriteProducts.add(new FavouriteProduct(R.drawable.acacia,"ACACIA",15000));
+//        favouriteProducts =new ArrayList      favouriteProducts.add(new FavouriteProduct(R.drawable.woolrug,"WOOL RUG",19000));
+//        favouriteProducts.add(new FavouriteProduct(R.drawable.juterug,"JUTE RUG",14000));
+//        favouriteProducts.add(new FavouriteProduct(R.drawable.acacia,"ACACIA",15000));<FavouriteProduct>();
+//
 
 
 
