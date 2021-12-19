@@ -55,7 +55,7 @@
         android:padding="10dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edtLayoutEmail"
+        android:id="@+id/edtLayoutPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -64,15 +64,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLoginAccount">
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Email"
+            android:hint="Phone number"
             android:textSize="20sp"
 
             android:background="@drawable/custom_email_password"
-            android:inputType="textEmailAddress"
-
             app:layout_constraintTop_toBottomOf="@id/txtLoginAccount"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -89,7 +87,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLayoutEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edtLayoutPhone"
         app:passwordToggleEnabled="true">
         <EditText
             android:id="@+id/edtPassword"
@@ -101,7 +99,7 @@
 
             android:background="@drawable/custom_email_password"
 
-            app:layout_constraintTop_toBottomOf="@id/edtEmail"
+            app:layout_constraintTop_toBottomOf="@id/edtPhoneNumber"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
 

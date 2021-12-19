@@ -1,74 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/SwipeRevealLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    app:mode="same_level"
+    app:dragEdge="right"
+    android:background="@drawable/cart_item_bg"
+    android:elevation="15dp"
+    android:layout_margin="10dp">
 
+    <!-- Your secondary layout here -->
+    <LinearLayout
+        android:id="@+id/layoutDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:src="@drawable/delete_cart" />
+    </LinearLayout>
+
+    <!-- Your main layout here -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="horizontal">
-        <CheckBox
-            android:layout_width="30dp"
-            android:layout_height="170dp"
-            android:gravity="center"
-            android:buttonTint="@color/black"/>
-        <ImageView
-            android:id="@+id/imvThumb"
-            android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_margin="17dp"/>
+            android:orientation="horizontal">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="153dp"
-            android:layout_height="170dp"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--            <CheckBox-->
+<!--                android:id="@+id/ckbItem"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="170dp"-->
+<!--                android:buttonTint="@color/black"-->
+<!--                android:gravity="center" />-->
+            <ImageView
+                android:id="@+id/imvThumb"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:layout_margin="17dp"/>
 
-            <TextView
-                android:id="@+id/txtInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="153dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="30dp"
                 android:gravity="center"
-                android:text="WOOL RUG"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.358" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtInfo"
-                android:layout_marginTop="10dp">
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:fontFamily="@font/nunitosans_semibold"
+                    android:gravity="center"
+                    android:text="WOOL RUG"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.107" />
 
-                <TextView
-                    android:id="@+id/txtPrice"
-                    android:layout_marginLeft="5dp"
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="800.00"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtInfo">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/minus_button" />
+
+                    <TextView
+                        android:id="@+id/txtQuantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunitosans_semibold"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/plus_button" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                    <TextView
+                        android:id="@+id/txtPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:text="800.00"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </LinearLayout>
 
 
-</LinearLayout>
+
+</com.chauthai.swipereveallayout.SwipeRevealLayout>
