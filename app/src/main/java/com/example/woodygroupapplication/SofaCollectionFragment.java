@@ -1,7 +1,6 @@
 package com.example.woodygroupapplication;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ProductCollectionAdapter;
-import com.example.MyInterfaces.IClickItemCollection;
 import com.example.model.ProductCollection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,9 +32,6 @@ public class SofaCollectionFragment extends Fragment {
     Context context;
 
     DatabaseReference databaseReference;
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

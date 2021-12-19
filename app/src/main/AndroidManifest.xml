@@ -16,10 +16,28 @@
             android:name=".ReviewActivity"
             android:exported="false" />
         <activity
+            android:name=".ReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Checkout_Layout"
+            android:exported="false" />
+        <activity
+            android:name=".AddShipping_Layout"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentMethod_Layout"
+            android:exported="false" />
+        <activity
             android:name=".NewFeatureActivity"
             android:exported="false" />
         <activity
             android:name=".HelloPageActivity"
+<<<<<<< HEAD
+=======
+            android:exported="false"/>
+        <activity
+            android:name=".RegisterActivity"
+>>>>>>> master
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
@@ -35,6 +53,9 @@
             android:exported="false" />
         <activity
             android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotiActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
