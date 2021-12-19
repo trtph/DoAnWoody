@@ -1,55 +1,64 @@
 package com.example.model;
 
 public class productshopModel {
-    private int productThumb;
-    private String productName;
-    private double productPrice;
-    private int numberInCart;
+    private String prThumb;
+    private String prName;
+    private String prPrice;
+    private String totalQuantity;
+    int totalPrice;
 
-
-    public productshopModel(int productThumb, String productName, double productPrice) {
-        this.productThumb = productThumb;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.numberInCart = numberInCart;
-
+    public productshopModel() {
     }
 
-    public int getNumberInCart() { return numberInCart; }
-
-    public void setNumberInCart(int numberInCart) { this.numberInCart = numberInCart; }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public productshopModel(String prThumb, String prName, String prPrice, String totalQuantity, int totalPrice) {
+        this.prThumb = prThumb;
+        this.prName = prName;
+        this.prPrice = prPrice;
+        this.totalQuantity = totalQuantity;
+        this.totalPrice = totalPrice;
     }
 
-    public void setProductThumb(int productThumb) {
-        this.productThumb = productThumb;
+    public String getPrThumb() {
+        return prThumb;
     }
 
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
+    public void setPrThumb(String prThumb) {
+        this.prThumb = prThumb;
     }
 
-    public double getProductPrice() {
-        return productPrice;
+    public String getPrName() {
+        return prName;
     }
 
-    public int getProductThumb() {
-        return productThumb;
+    public void setPrName(String prName) {
+        this.prName = prName;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getPrPrice() {
+        return prPrice;
     }
 
-    @Override
-    public String toString() {
-        return "productshopModel{" +
-                "productThumb=" + productThumb +
-                ", productName='" + productName + '\'' +
-                ", productPrice=" + productPrice +
-                '}';
+    public void setPrPrice(String prPrice) {
+        this.prPrice = prPrice;
+    }
+
+    public String getTotalQuantity() {
+        return totalQuantity;
+    }
+
+    public void setTotalQuantity(String totalQuantity) {
+        this.totalQuantity = totalQuantity;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
+
+
+
 
