@@ -13,6 +13,15 @@
             android:name=".ReviewActivity"
             android:exported="false" />
         <activity
+            android:name=".Checkout_Layout"
+            android:exported="false" />
+        <activity
+            android:name=".AddShipping_Layout"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentMethod_Layout"
+            android:exported="false" />
+        <activity
             android:name=".NewFeatureActivity"
             android:exported="false" />
         <activity
