@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.model.FavouriteProduct;
+import com.example.model.productshopModel;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
@@ -35,9 +37,10 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FavouriteProduct b = favouriteProducts.get(position);
-        holder.imvFavouriteThumb.setImageResource(favouriteProducts.get(position).getProductThumb());
-        holder.txtFavouriteProductName.setText(b.getProductName());
-        holder.txtFavouriteProductPrice.setText(String.valueOf(b.getProductPrice()));
+
+        Glide.with(context).load(b.getPrThumb()).into(holder.imvFavouriteThumb);
+        holder.txtFavouriteProductName.setText(b.getPrName());
+        holder. txtFavouriteProductPrice.setText(b.getPrPrice());
     }
 
     @Override

@@ -25,7 +25,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class DetailActivity extends AppCompatActivity {
-    ImageView imvThumb, add_quantity, remove_quantity;
+    ImageView imvThumb, add_quantity, remove_quantity, imvAddToFavorite;
     TextView txtName, txtPrice, txtRvNumber, txtDes, txtQuantity, txtIntro;
     RatingBar ratingBar;
     Button btnAddToCart;
@@ -104,6 +104,31 @@ public class DetailActivity extends AppCompatActivity {
                 AddedToCart();
             }
         });
+        imvAddToFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddedToWishlist();
+            }
+        });
+    }
+
+    private void AddedToWishlist() {
+        final HashMap<String,Object> cartMap1 = new HashMap<>();
+
+        cartMap1.put("prThumb", p.getPrImage());
+        cartMap1.put("prName", txtName.getText().toString());
+        cartMap1.put("prPrice", txtPrice.getText().toString());
+//        cartMap.put("currentDate", currentDate);
+//        cartMap.put("currentTime", currentTime);
+
+
+        firestore.collection("AddToWishlist").add(cartMap1).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentReference> task) {
+                Toast.makeText(DetailActivity.this, "Added " + txtName.getText().toString() + " To Your Wishlist", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
     }
 
     private void AddedToCart() {
@@ -134,10 +159,13 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     private void linkViews() {
         imvThumb = findViewById(R.id.imvThumb);
+        imvAddToFavorite = findViewById(R.id.imvAddToFavorite);
         txtName = findViewById(R.id.txtName);
         txtPrice = findViewById(R.id.txtPrice);
         txtRvNumber = findViewById(R.id.txtRvNumber);
