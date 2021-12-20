@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -26,6 +27,8 @@ public class SearchFragment extends Fragment {
     searchAdapter adapter;
     ArrayList<searchProduct> searchProducts, productRooms, productRecently;
 
+    TextView txtView1, txtView2;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +38,9 @@ public class SearchFragment extends Fragment {
         rcvRecently=view.findViewById(R.id.rcvRecently);
         rcvRooms=view.findViewById(R.id.rcvRooms);
         rcvCategory=view.findViewById(R.id.rcvCategory);
+
+        txtView1=view.findViewById(R.id.txtView1);
+        txtView2=view.findViewById(R.id.txtView2);
 
         imvSearch = view.findViewById(R.id.imvSearch);
         imvSearch.setOnClickListener(new View.OnClickListener() {
@@ -77,13 +83,33 @@ public class SearchFragment extends Fragment {
         adapter = new searchAdapter(getContext(), searchProducts);
         rcvCategory.setAdapter(adapter);
 
-        adapter = new searchAdapter(getContext(), productRecently);
-        rcvRecently.setAdapter(adapter);
 
         adapter = new searchAdapter(getContext(), productRooms);
         rcvRooms.setAdapter(adapter);
 
+
+        adapter = new searchAdapter(getContext(), productRecently);
+        rcvRecently.setAdapter(adapter);
+
+        txtView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getContext(),ListAllCategory.class);
+                startActivity(intent);
+            }
+        });
+
+        txtView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getContext(),ListAllRooms.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
+
+
     }
 }
 
