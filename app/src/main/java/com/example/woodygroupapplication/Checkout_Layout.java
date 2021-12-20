@@ -25,7 +25,7 @@ public class Checkout_Layout extends AppCompatActivity {
         txtDelivery = findViewById(R.id.txtDelivery);
         txtTotalCK = findViewById(R.id.txtTotalCK);
 
-        //Caculate cart
+        //Caculate Cart
         String order = ShoppingCartFragment.txtToTal.getText().toString();
         String delivery = txtDelivery.getText().toString().substring(2);
         Double total = (Double.parseDouble(order.substring(2)) + Double.parseDouble(delivery));
