@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -34,13 +35,14 @@ public class ShoppingCartFragment extends Fragment {
     FirebaseFirestore db;
     FirebaseAuth auth;
 
+    static ConstraintLayout constraintCart, constraintEmpty;
     RecyclerView rcvProduct;
     ShoppingBagAdapter adapter;
     ArrayList<productshopModel> productshopModels;
     static TextView txtToTal;
-    LinearLayout layoutdelete;
 
     MaterialButton btnCheckout;
+    ImageView imvAddNumber, imvDecreseNumber;
 
 
     @Override
@@ -51,7 +53,11 @@ public class ShoppingCartFragment extends Fragment {
         rcvProduct=view.findViewById(R.id.rcvProduct);
         btnCheckout= view.findViewById(R.id.btnCheckout);
         txtToTal = view.findViewById(R.id.txtTotal);
-        layoutdelete = view.findViewById(R.id.layoutDelete);
+        imvAddNumber = view.findViewById(R.id.imvAddNumber);
+        imvDecreseNumber = view.findViewById(R.id.imvAddNumber);
+        constraintCart = view.findViewById(R.id.constraintCart);
+        constraintEmpty = view.findViewById(R.id.constraintEmpty);
+
 
 
 
@@ -87,7 +93,8 @@ public class ShoppingCartFragment extends Fragment {
                         adapter.notifyDataSetChanged();
                     }
                 }
-
+                //Switch constraintLayout
+                SwitchLayout(productshopModels);
                 caculateTotalAmount(productshopModels);
             }
         });
@@ -100,6 +107,16 @@ public class ShoppingCartFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    public static void SwitchLayout(ArrayList<productshopModel> productshopModels) {
+        if (productshopModels.isEmpty()){
+            constraintEmpty.setVisibility(View.VISIBLE);
+            constraintCart.setVisibility(View.GONE);
+        }else if (!productshopModels.isEmpty()){
+            constraintEmpty.setVisibility(View.GONE);
+            constraintCart.setVisibility(View.VISIBLE);
+        }
     }
 
     public static void caculateTotalAmount(ArrayList<productshopModel> productshopModels) {
