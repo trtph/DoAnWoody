@@ -93,19 +93,17 @@ public class DestCollectionFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
 
-            private void onClickToDetail(ProductCollection p) {
-                Intent intent = new Intent(getActivity(), DetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("object", p);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
     }
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (adapter != null){
+            adapter.release();
+        }
+    }
 }

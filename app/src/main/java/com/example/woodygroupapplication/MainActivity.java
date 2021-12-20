@@ -1,6 +1,5 @@
 package com.example.woodygroupapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,16 +9,10 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Adapter.ShoppingBagAdapter;
-import com.example.model.ProductCollection;
-import com.example.model.productshopModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationBarView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.navUserAccount:
-                    fragment = new UserAccountFragment();
+                    fragment = new UserAccountActivity();
                     break;
 
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, fragment).addToBackStack(null).commit();
             return true;
         }
     };

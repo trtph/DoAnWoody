@@ -86,7 +86,6 @@ public class BestCollectionFragment extends Fragment {
                     p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
                     p.setPrDescription(snapshot.child("prDescription").getValue().toString());
                     p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
-//                    p.setPrIntro(snapshot.child("prIntro").getValue().toString());
 
                     productCollections.add(p);
                 }
@@ -101,11 +100,11 @@ public class BestCollectionFragment extends Fragment {
             }
         });
     }
-    private void onClickToDetail(ProductCollection p){
-        Intent intent = new Intent(getContext(), DetailActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("object", p);
-        intent.putExtras(bundle);
-        BestCollectionFragment.this.startActivity(intent);
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (adapter != null){
+            adapter.release();
+        }
     }
 }

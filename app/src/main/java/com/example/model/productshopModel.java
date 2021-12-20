@@ -6,6 +6,7 @@ public class productshopModel {
     private String prPrice;
     private String totalQuantity;
     int totalPrice;
+    String documentID;
 
     public productshopModel() {
     }
@@ -16,6 +17,14 @@ public class productshopModel {
         this.prPrice = prPrice;
         this.totalQuantity = totalQuantity;
         this.totalPrice = totalPrice;
+    }
+
+    public String getDocumentID() {
+        return documentID;
+    }
+
+    public void setDocumentID(String documentID) {
+        this.documentID = documentID;
     }
 
     public String getPrThumb() {

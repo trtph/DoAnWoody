@@ -1,21 +1,18 @@
 package com.example.woodygroupapplication;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,13 +35,14 @@ public class ShoppingCartFragment extends Fragment {
     FirebaseFirestore db;
     FirebaseAuth auth;
 
+    static ConstraintLayout constraintCart, constraintEmpty;
     RecyclerView rcvProduct;
     ShoppingBagAdapter adapter;
     ArrayList<productshopModel> productshopModels;
-    TextView txtToTal;
-    LinearLayout layoutdelete;
+    static TextView txtToTal;
 
     MaterialButton btnCheckout;
+    ImageView imvAddNumber, imvDecreseNumber;
 
 
     @Override
@@ -55,10 +53,13 @@ public class ShoppingCartFragment extends Fragment {
         rcvProduct=view.findViewById(R.id.rcvProduct);
         btnCheckout= view.findViewById(R.id.btnCheckout);
         txtToTal = view.findViewById(R.id.txtTotal);
-        layoutdelete = view.findViewById(R.id.layoutDelete);
+        imvAddNumber = view.findViewById(R.id.imvAddNumber);
+        imvDecreseNumber = view.findViewById(R.id.imvAddNumber);
+        constraintCart = view.findViewById(R.id.constraintCart);
+        constraintEmpty = view.findViewById(R.id.constraintEmpty);
 
-        LocalBroadcastManager.getInstance(getActivity())
-                .registerReceiver(mMessageReceiver, new IntentFilter("MyTotalAmount"));
+
+
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -81,12 +82,20 @@ public class ShoppingCartFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()){
                     for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+
+                        String documentID = documentSnapshot.getId();
+
                         productshopModel cartModel = documentSnapshot.toObject(productshopModel.class);
+
+                        cartModel.setDocumentID(documentID);
+
                         productshopModels.add(cartModel);
                         adapter.notifyDataSetChanged();
                     }
                 }
-
+                //Switch constraintLayout
+                SwitchLayout(productshopModels);
+                caculateTotalAmount(productshopModels);
             }
         });
 
@@ -97,24 +106,24 @@ public class ShoppingCartFragment extends Fragment {
                 startActivity(new Intent(getContext(), Checkout_Layout.class));
             }
         });
-//        caculateCart();
         return view;
     }
-    public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            int totalBill = intent.getIntExtra("totalAmount",0);
-            txtToTal.setText("$ " + totalBill);
-        }
-    };
 
-//    public String caculateCart() {
-//        String total = 0;
-//        for (int i = 0; i < productshopModels.size(); i++) {
-//                total = total + (productshopModels.get(i).getPrPrice());
-//        }
-//        txtToTal.setText("$ " + total);
-//        return total;
-//
-//    }
+    public static void SwitchLayout(ArrayList<productshopModel> productshopModels) {
+        if (productshopModels.isEmpty()){
+            constraintEmpty.setVisibility(View.VISIBLE);
+            constraintCart.setVisibility(View.GONE);
+        }else if (!productshopModels.isEmpty()){
+            constraintEmpty.setVisibility(View.GONE);
+            constraintCart.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public static void caculateTotalAmount(ArrayList<productshopModel> productshopModels) {
+        double totalAmount = 0.0;
+        for(productshopModel productshopmodel : productshopModels){
+            totalAmount += productshopmodel.getTotalPrice();
+        }
+        txtToTal.setText("$ " + totalAmount);
+    }
 }

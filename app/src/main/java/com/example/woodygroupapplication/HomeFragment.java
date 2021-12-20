@@ -3,10 +3,13 @@ package com.example.woodygroupapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -17,7 +20,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.Adapter.AllProductAdapter;
 import com.example.Adapter.BannerAdapter;
+import com.example.model.AllProductModel;
 import com.example.model.Banner;
 import com.example.model.ProductCollection;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +33,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -46,6 +52,12 @@ public class HomeFragment extends Fragment {
     BannerAdapter bannerAdapter;
     Context context;
 
+    //Search View
+    EditText edtSeachHome;
+    ArrayList<AllProductModel> allProductModelList;
+    RecyclerView rcvSearchHome;
+    AllProductAdapter allProductAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,6 +68,35 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         rcvBanner.setLayoutManager(layoutManager);
         rcvBanner.setHasFixedSize(true);
+
+        //Search View
+        edtSeachHome = view.findViewById(R.id.edtSeachHome);
+        rcvSearchHome = view.findViewById(R.id.rcvSearchHome);
+        rcvSearchHome.setLayoutManager(new LinearLayoutManager(getContext()));
+        rcvSearchHome.setAdapter(allProductAdapter);
+        rcvSearchHome.setHasFixedSize(true);
+
+        edtSeachHome.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.toString().isEmpty()){
+                    allProductModelList.clear();
+                    allProductAdapter.notifyDataSetChanged();
+                } else {
+                    searchProduct(s.toString());
+                }
+            }
+        });
 
         //Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -83,7 +124,6 @@ public class HomeFragment extends Fragment {
         btnShowroom = view.findViewById(R.id.btnShowroom);
         btn3D = view.findViewById(R.id.btn3D);
 
-
         //Click event
         imvBest.setOnClickListener(myClick);
         imvSeat.setOnClickListener(myClick);
@@ -92,7 +132,15 @@ public class HomeFragment extends Fragment {
         imvBed.setOnClickListener(myClick);
 
         //Nhúng mặc định fragment
-        getActivity().getSupportFragmentManager().beginTransaction( ).replace(R.id.frame_collection, new com.example.woodygroupapplication.BestCollectionFragment()).commit();
+        getActivity().getSupportFragmentManager().beginTransaction( ).replace(R.id.frame_collection, new BestCollectionFragment()).commit();
+
+        imvNoti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), NotiActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnShowroom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +158,38 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void searchProduct(String prType) {
+        if (!prType.isEmpty()){
+            Query firebaseSearchQuery  = databaseReference.child("AllProduct").orderByChild("name").startAt(edtSeachHome.getFreezesText()).endAt(edtSeachHome.getFreezesText() + "\uf8ff");
+            firebaseSearchQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                    allProductModelList = new ArrayList<>();
+                    for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                        AllProductModel p =new AllProductModel();
+                        p.setPrImage(snapshot.child("prImage").getValue().toString());
+                        p.setPrName(snapshot.child("prName").getValue().toString());
+                        p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
+                        p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
+                        p.setPrDescription(snapshot.child("prDescription").getValue().toString());
+                        p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
+
+                        allProductModelList.add(p);
+
+                    }
+                    allProductAdapter = new AllProductAdapter(getContext(),R.layout.item_product_collection,allProductModelList);
+                    rcvSearchHome.setAdapter(allProductAdapter);
+                    allProductAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
     }
 
     private void GetDataFromFirebase() {

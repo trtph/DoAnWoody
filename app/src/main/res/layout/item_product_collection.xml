@@ -6,70 +6,72 @@
     android:layout_height="wrap_content"
     android:id="@+id/layout_item"
     app:cardCornerRadius="20dp">
-    
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
-
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/imvThumb"
-            android:layout_width="250dp"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop"
-            app:riv_corner_radius="30dp"/>
-
-        <TextView
-            android:id="@+id/txtName"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="Decoration"
-            android:textSize="25sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="@font/mavenpro_bold"
-            android:gravity="center"/>
 
         <LinearLayout
             android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
 
-            <RatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:progressTint="@color/Amazon"/>
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imvThumb"
+                android:layout_width="250dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="30dp"/>
 
             <TextView
-                android:id="@+id/txtRvNumber"
-                android:layout_width="wrap_content"
+                android:id="@+id/txtName"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="(20)"
-                android:textSize="16sp"
+                android:text="Decoration"
+                android:textSize="25sp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/mavenpro_regular"
-                android:layout_marginStart="5dp"/>
-
-            <TextView
-                android:id="@+id/txtPrice"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="99.99$"
-                android:fontFamily="@font/mavenpro_extrabold"
-                android:textSize="22sp"
                 android:textStyle="bold"
-                android:textColor="@color/Gray61"
-                android:gravity="end"/>
+                android:fontFamily="@font/mavenpro_bold"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressTint="@color/Amazon"/>
+
+                <TextView
+                    android:id="@+id/txtRvNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(20)"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/mavenpro_regular"
+                    android:layout_marginStart="5dp"/>
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="99.99$"
+                    android:fontFamily="@font/mavenpro_extrabold"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Gray61"
+                    android:gravity="end"/>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
