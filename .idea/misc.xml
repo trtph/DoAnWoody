@@ -101,7 +101,9 @@
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.2015625" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/shoppingbag_items.xml" value="0.2015625" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/drawable/ic_person.xml" value="0.22685185185185186" />
+        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_add_shipping_layout.xml" value="0.25" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_all_category_fragment.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_checkout_layout.xml" value="0.25" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_detail.xml" value="0.13601823708206687" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_all_category.xml" value="0.19021739130434784" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_all_category_fragment.xml" value="0.15307971014492755" />
@@ -110,6 +112,7 @@
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_all_rooms.xml" value="0.13601823708206687" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_collection_furniture.xml" value="0.1585144927536232" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_view_product.xml" value="0.25" />
+        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_payment_method_layout.xml" value="0.25" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_all_category.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_bed_collection.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_home.xml" value="0.18206521739130435" />
