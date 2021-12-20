@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 
 
 public class SearchFragment extends Fragment {
+
+    ImageView imvSearch;
 
     TextView txtView1, txtView2;
     RecyclerView rcvCategory, rcvRooms, rcvRecently;
@@ -42,6 +45,7 @@ public class SearchFragment extends Fragment {
         rcvCategory=view.findViewById(R.id.rcvCategory);
         txtView1=view.findViewById(R.id.txtView1);
         txtView2=view.findViewById(R.id.txtView2);
+        imvSearch=view.findViewById(R.id.imvSearch);
 
 
         LinearLayoutManager manager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
@@ -94,8 +98,13 @@ public class SearchFragment extends Fragment {
             }
         });
 
-
-
+        imvSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
