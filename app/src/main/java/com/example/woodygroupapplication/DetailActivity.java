@@ -25,8 +25,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class DetailActivity extends AppCompatActivity {
-    ImageView imvThumb, add_quantity, remove_quantity;
-    TextView txtName, txtPrice, txtRvNumber, txtDes, txtQuantity, txtIntro;
+    ImageView imvThumb, add_quantity, remove_quantity, imvBack;
+    TextView txtName, txtPrice, txtRvNumber, txtDes, txtQuantity;
     RatingBar ratingBar;
     Button btnAddToCart;
 
@@ -50,6 +50,21 @@ public class DetailActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
     }
+    private void linkViews() {
+        imvThumb = findViewById(R.id.imvThumb);
+        txtName = findViewById(R.id.txtName);
+        txtPrice = findViewById(R.id.txtPrice);
+        txtRvNumber = findViewById(R.id.txtRvNumber);
+        txtDes = findViewById(R.id.txtDescription);
+        ratingBar = findViewById(R.id.ratingBar);
+
+        add_quantity = findViewById(R.id.add_quantity);
+        remove_quantity = findViewById(R.id.remove_quantity);
+        txtQuantity = findViewById(R.id.txtQuantity);
+        btnAddToCart = findViewById(R.id.btnAddToCart);
+
+        imvBack = findViewById(R.id.imvBack);
+    }
 
     private void addEvents() {
         Bundle bundle = getIntent().getExtras();
@@ -66,6 +81,13 @@ public class DetailActivity extends AppCompatActivity {
         ratingBar.setRating(p.getPrRating());
         totalPrice = (int) (p.getPrPrice() * totalQuantity);
 
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().popBackStack();
+                finish();
+            }
+        });
 
         add_quantity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,19 +158,5 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
-    private void linkViews() {
-        imvThumb = findViewById(R.id.imvThumb);
-        txtName = findViewById(R.id.txtName);
-        txtPrice = findViewById(R.id.txtPrice);
-        txtRvNumber = findViewById(R.id.txtRvNumber);
-        txtDes = findViewById(R.id.txtDescription);
-        ratingBar = findViewById(R.id.ratingBar);
-//        txtIntro = findViewById(R.id.txtIntro);
 
-        add_quantity = findViewById(R.id.add_quantity);
-        remove_quantity = findViewById(R.id.remove_quantity);
-        txtQuantity = findViewById(R.id.txtQuantity);
-        btnAddToCart = findViewById(R.id.btnAddToCart);
-
-    }
 }

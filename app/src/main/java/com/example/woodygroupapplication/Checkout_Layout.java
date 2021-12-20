@@ -47,8 +47,8 @@ public class Checkout_Layout extends AppCompatActivity {
         btnBackCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Checkout_Layout.this, MainActivity.class));
-//                getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new ShoppingCartFragment()).commit();
+                getSupportFragmentManager().popBackStack();
+                finish();
             }
         });
 

@@ -25,6 +25,7 @@ public class AddShipping_Layout extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AddShipping_Layout.this, Checkout_Layout.class));
+                finish();
             }
         });
     }

@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, fragment).addToBackStack(null).commit();
             return true;
         }
     };
