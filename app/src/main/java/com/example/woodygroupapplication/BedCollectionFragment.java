@@ -101,13 +101,6 @@ public class BedCollectionFragment extends Fragment {
             }
         });
     }
-    private void onClickToDetail(ProductCollection p){
-        Intent intent = new Intent(getActivity(), DetailActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("object", p);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
 
     @Override
     public void onDestroy() {

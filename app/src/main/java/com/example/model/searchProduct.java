@@ -19,10 +19,6 @@ public class searchProduct {
         this.productThumb = productThumb;
     }
 
-
-
-
-
     public int getProductThumb() {
         return productThumb;
     }
