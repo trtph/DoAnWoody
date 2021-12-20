@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:background="@color/background_color"
     tools:context=".ReviewActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -33,7 +32,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

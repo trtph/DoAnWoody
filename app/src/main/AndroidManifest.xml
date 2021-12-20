@@ -10,7 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailProductSaleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BlackFridayActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewSaleActivity"
             android:exported="false" />
         <activity
             android:name=".Checkout_Layout"
@@ -26,7 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".HelloPageActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
 
-    TextView txtView1, txtView2;
+    ImageView imvSearch;
     RecyclerView rcvCategory, rcvRooms, rcvRecently;
     searchAdapter adapter;
     ArrayList<searchProduct> searchProducts, productRooms, productRecently;
@@ -30,16 +30,20 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         rcvRecently=view.findViewById(R.id.rcvRecently);
         rcvRooms=view.findViewById(R.id.rcvRooms);
         rcvCategory=view.findViewById(R.id.rcvCategory);
-        txtView1=view.findViewById(R.id.txtView1);
-        txtView2=view.findViewById(R.id.txtView2);
 
+        imvSearch = view.findViewById(R.id.imvSearch);
+        imvSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
         LinearLayoutManager manager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager manager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
@@ -60,46 +64,26 @@ public class SearchFragment extends Fragment {
         searchProducts.add(new searchProduct(R.drawable.h1, "Furniture"));
         searchProducts.add(new searchProduct(R.drawable.h2, "Kitchen & appliances"));
         searchProducts.add(new searchProduct(R.drawable.h3, "Beds & mattresses"));
-        adapter = new searchAdapter(getContext(), searchProducts);
-        rcvCategory.setAdapter(adapter);
-
 
         productRooms = new ArrayList<searchProduct>();
         productRooms.add(new searchProduct(R.drawable.r1, "Living room"));
         productRooms.add(new searchProduct(R.drawable.r2, "Dining room"));
         productRooms.add(new searchProduct(R.drawable.r3, "Bathroom"));
-        adapter = new searchAdapter(getContext(), productRooms);
-        rcvRooms.setAdapter(adapter);
 
         productRecently = new ArrayList<searchProduct>();
-        productRecently.add(new searchProduct(R.drawable.h1, "Chair"));
+        productRecently.add(new searchProduct(R.drawable.img, "Chair"));
+
+
+        adapter = new searchAdapter(getContext(), searchProducts);
+        rcvCategory.setAdapter(adapter);
+
         adapter = new searchAdapter(getContext(), productRecently);
         rcvRecently.setAdapter(adapter);
 
-        //Open Checkout Activity
-        txtView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(), ListAllCategory.class));
-            }
-        });
-
-        txtView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(), ListAllRooms.class));
-            }
-        });
-
-
-
+        adapter = new searchAdapter(getContext(), productRooms);
+        rcvRooms.setAdapter(adapter);
 
         return view;
     }
-
-
-
-
-    }
-
+}
 

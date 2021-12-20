@@ -36,6 +36,7 @@ public class PaymentMethod_Layout extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PaymentMethod_Layout.this, Checkout_Layout.class));
+                finish();
             }
         });
 
