@@ -20,7 +20,7 @@ public class Checkout_Layout extends AppCompatActivity {
 
         btnChangeAdd = findViewById(R.id.btnChangeAdd);
         btnChangePayment = findViewById(R.id.btnChangePayment);
-        btnBackCheckout = findViewById(R.id.btnBackCheckout);
+        btnBackCheckout = findViewById(R.id.imvBackCheckout);
         txtOrder = findViewById(R.id.txtOrder);
         txtDelivery = findViewById(R.id.txtDelivery);
         txtTotalCK = findViewById(R.id.txtTotalCK);
