@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    app:cardCornerRadius="20dp"
+    android:id="@+id/layout_itemProduct">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:weightSum="3">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imvThumb"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:padding="5dp"
+            android:src="@drawable/decoration"
+            app:riv_corner_radius="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mavenpro_bold"
+                android:gravity="center"
+                android:text="BUSKBO"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressTint="@color/Amazon" />
+
+            <TextView
+                android:id="@+id/txtRvNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(142 reviews)"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="$99.76"
+            android:textSize="23sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:textColor="@color/red"/>
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

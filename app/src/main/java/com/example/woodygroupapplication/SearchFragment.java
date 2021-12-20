@@ -1,10 +1,12 @@
 package com.example.woodygroupapplication;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
 
+    ImageView imvSearch;
     RecyclerView rcvCategory, rcvRooms, rcvRecently;
     searchAdapter adapter;
     ArrayList<searchProduct> searchProducts, productRooms, productRecently;
@@ -32,6 +35,15 @@ public class SearchFragment extends Fragment {
         rcvRecently=view.findViewById(R.id.rcvRecently);
         rcvRooms=view.findViewById(R.id.rcvRooms);
         rcvCategory=view.findViewById(R.id.rcvCategory);
+
+        imvSearch = view.findViewById(R.id.imvSearch);
+        imvSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
         LinearLayoutManager manager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager manager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);

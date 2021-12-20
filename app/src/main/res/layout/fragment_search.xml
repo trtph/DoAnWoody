@@ -6,35 +6,52 @@
     android:orientation="vertical"
     tools:context=".SearchFragment"
     android:padding="15dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:textSize="21sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_gravity="center"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_search_24"/>
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Search"
+            android:layout_weight="1"
+            android:textSize="28sp"
+            android:fontFamily="@font/mavenpro_bold"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_gravity="center"/>
 
-        <EditText
-            android:layout_marginTop="10dp"
-            android:id="@+id/edtSearch"
-            android:layout_width="362dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_search_home"
-            android:hint="What are you looking for ?"
-            android:inputType="text"
-            android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/imvSearch"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_search_black"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:src="@drawable/ic_baseline_search_24"/>-->
+
+<!--        <EditText-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:id="@+id/edtSearch"-->
+<!--            android:layout_width="362dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/custom_search_home"-->
+<!--            android:hint="What are you looking for ?"-->
+<!--            android:inputType="text"-->
+<!--            android:textSize="16sp" />-->
+<!--    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"

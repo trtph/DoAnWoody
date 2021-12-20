@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailProductSaleActivity"
             android:exported="false" />
         <activity
