@@ -1,19 +1,18 @@
 package com.example.woodygroupapplication;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.Adapter.ProductCollectionAdapter;
+import com.example.Adapter.SaleProductAdapter;
 import com.example.MyInterfaces.IClickItemCollection;
 import com.example.model.ProductModel;
 import com.google.firebase.database.DataSnapshot;
@@ -25,27 +24,26 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class SeatCollectionFragment extends Fragment {
-    RecyclerView rcvSeat;
+public class DiscountEvent extends AppCompatActivity {
+
+    RecyclerView rcvBlackFriday;
+    ImageView imvShopCart, imvBack;
 
     ArrayList<ProductModel> product;
-    ProductCollectionAdapter adapter;
+    SaleProductAdapter adapter;
     Context context;
 
     DatabaseReference databaseReference;
 
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_seat_collection, container, false);
-        rcvSeat = view.findViewById(R.id.rcvSeat);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.discount_event);
+        linkViews();
+        addEvents();
 
-        //Set orientation
-        LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
-        rcvSeat.setLayoutManager(manager);
+        LinearLayoutManager manager = new LinearLayoutManager(getApplication(),LinearLayoutManager.VERTICAL, false);
+        rcvBlackFriday.setLayoutManager(manager);
 
         //Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -53,49 +51,72 @@ public class SeatCollectionFragment extends Fragment {
         //Get Data Method
         GetDataFromFirebase();
 
-        //Set space between items
-        class SpacesItemDecoration extends RecyclerView.ItemDecoration{
+        class SpacesItemDecortion extends RecyclerView.ItemDecoration{
             private final int mSpace;
-            public SpacesItemDecoration(int mSpace){
+            public SpacesItemDecortion(int space, int mSpace){
                 this.mSpace = mSpace;
             }
             @Override
             public void getItemOffsets(Rect outRect,
                                        View view,
                                        RecyclerView parent, RecyclerView.State state){
-                outRect.left = mSpace;
-                outRect.right = mSpace;
+                outRect.top = mSpace;
+                outRect.bottom = mSpace;
             }
         }
-        rcvSeat.addItemDecoration(new SpacesItemDecoration( 30));
 
-        return view;
+        rcvBlackFriday.addItemDecoration(new SpacesItemDecortion(10, 10));
+    }
+
+    private void linkViews() {
+        rcvBlackFriday = findViewById(R.id.rcvBlackFriday);
+        imvShopCart = findViewById(R.id.imvShopCart);
+        imvBack = findViewById(R.id.imvBack);
+    }
+
+    private void addEvents() {
+        imvShopCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Open Shoping Cart
+            }
+        });
+
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Back to Home
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void GetDataFromFirebase() {
-        Query query = databaseReference.child("AllProduct").child("Product").orderByChild("prType").equalTo("seat");
+        Query query = databaseReference.child("AllProduct").child("BlackFriday");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 product = new ArrayList<>();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    ProductModel p = new ProductModel();
+                    ProductModel p =new ProductModel();
                     p.setPrImage(snapshot.child("prImage").getValue().toString());
                     p.setPrName(snapshot.child("prName").getValue().toString());
                     p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
+                    p.setPrPriceSale(Double.valueOf(snapshot.child("prPriceSale").getValue().toString()));
                     p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
                     p.setPrDescription(snapshot.child("prDescription").getValue().toString());
                     p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
 
                     product.add(p);
                 }
-                adapter = new ProductCollectionAdapter(getActivity(), R.layout.item_product_collection, product, new IClickItemCollection() {
+                adapter = new SaleProductAdapter(getApplication(), R.layout.item_product_discount, product, new IClickItemCollection() {
                     @Override
                     public void onClickItemCollection(ProductModel p) {
-                        onClickToDetail(p);
+                        onClickToDetailProductSale(p);
                     }
                 });
-                rcvSeat.setAdapter(adapter);
+                rcvBlackFriday.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
 
@@ -105,13 +126,11 @@ public class SeatCollectionFragment extends Fragment {
             }
         });
     }
-
-    //Go to Product Detail
-    private void onClickToDetail(ProductModel p){
-        Intent intent = new Intent(getContext(), ProductDetail.class);
+        private void onClickToDetailProductSale(ProductModel p) {
+        Intent intent = new Intent(this, ProductDetail.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object", p);
         intent.putExtras(bundle);
-        getActivity().startActivity(intent);
+        startActivity(intent);
     }
 }

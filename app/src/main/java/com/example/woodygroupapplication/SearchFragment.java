@@ -11,12 +11,11 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.Adapter.searchAdapter;
+import com.example.Adapter.SearchAdapter;
 
 import com.example.model.searchProduct;
 
@@ -29,7 +28,7 @@ public class SearchFragment extends Fragment {
 
     TextView txtView1, txtView2;
     RecyclerView rcvCategory, rcvRooms, rcvRecently;
-    searchAdapter adapter;
+    SearchAdapter adapter;
     ArrayList<searchProduct> searchProducts, productRooms, productRecently;
 
 
@@ -67,7 +66,7 @@ public class SearchFragment extends Fragment {
         searchProducts.add(new searchProduct(R.drawable.h1, "Furniture"));
         searchProducts.add(new searchProduct(R.drawable.h2, "Kitchen & appliances"));
         searchProducts.add(new searchProduct(R.drawable.h3, "Beds & mattresses"));
-        adapter = new searchAdapter(getContext(), searchProducts);
+        adapter = new SearchAdapter(getContext(), searchProducts);
         rcvCategory.setAdapter(adapter);
 
 
@@ -75,12 +74,12 @@ public class SearchFragment extends Fragment {
         productRooms.add(new searchProduct(R.drawable.r1, "Living room"));
         productRooms.add(new searchProduct(R.drawable.r2, "Dining room"));
         productRooms.add(new searchProduct(R.drawable.r3, "Bathroom"));
-        adapter = new searchAdapter(getContext(), productRooms);
+        adapter = new SearchAdapter(getContext(), productRooms);
         rcvRooms.setAdapter(adapter);
 
         productRecently = new ArrayList<searchProduct>();
         productRecently.add(new searchProduct(R.drawable.h1, "Chair"));
-        adapter = new searchAdapter(getContext(), productRecently);
+        adapter = new SearchAdapter(getContext(), productRecently);
         rcvRecently.setAdapter(adapter);
 
         //Open Checkout Activity
@@ -101,7 +100,7 @@ public class SearchFragment extends Fragment {
         imvSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), SearchActivity.class);
+                Intent intent = new Intent(getContext(), ProductList.class);
                 startActivity(intent);
             }
         });

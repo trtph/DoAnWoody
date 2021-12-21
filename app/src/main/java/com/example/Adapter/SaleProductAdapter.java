@@ -1,7 +1,6 @@
 package com.example.Adapter;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,22 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.MyInterfaces.IClickItemCollection;
 import com.example.model.ProductModel;
-
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
 
-public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollectionAdapter.ViewHolder> {
-
+public class SaleProductAdapter extends RecyclerView.Adapter<SaleProductAdapter.ViewHolder>{
     Context context;
-    int item_product_collection;
+    int item_sale_product;
     ArrayList<ProductModel> product;
 
     IClickItemCollection iClickItemCollection;
 
-    public ProductCollectionAdapter(Context context, int item_product_collection, ArrayList<ProductModel> product, IClickItemCollection iClickItemCollection) {
+    public SaleProductAdapter(Context context, int item_sale_product, ArrayList<ProductModel> product, IClickItemCollection iClickItemCollection) {
         this.context = context;
-        this.item_product_collection = item_product_collection;
+        this.item_sale_product = item_sale_product;
         this.product = product;
         this.iClickItemCollection = iClickItemCollection;
     }
@@ -39,30 +36,27 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_collection, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_discount, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        ProductModel p = product.get(position);
-
+    public void onBindViewHolder(@NonNull SaleProductAdapter.ViewHolder holder, int position) {
+        final ProductModel p = product.get(position);
         Glide.with(context).load(p.getPrImage()).into(holder.imvThumb);
 
         holder.txtName.setText(p.getPrName());
         holder.txtPrice.setText( " $" + p.getPrPrice());
-        holder.txtRvNumber.setText("(" + p.getPrRvNumber() + ")");
+        holder.txtPriceSale.setText(" $" + p.getPrPriceSale());
         holder.ratingBar.setRating(p.getPrRating());
 
-        holder.layout_item.setOnClickListener(new View.OnClickListener() {
+        holder.layout_itemSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 iClickItemCollection.onClickItemCollection(p);
             }
         });
     }
-
 
     @Override
     public int getItemCount() {
@@ -72,16 +66,16 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
         RatingBar ratingBar;
-        TextView txtName, txtPrice, txtRvNumber;
-        CardView layout_item;
+        TextView txtName, txtPrice,txtPriceSale;
+        CardView layout_itemSale;
         public ViewHolder(@NonNull View itemView) {
-          super(itemView);
-            imvThumb = itemView.findViewById(R.id.imvThumb);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
-            txtName = itemView.findViewById(R.id.txtName);
-            txtPrice = itemView.findViewById(R.id.txtPrice);
-            txtRvNumber = itemView.findViewById(R.id.txtRvNumber);
-            layout_item = itemView.findViewById(R.id.layout_item);
+            super(itemView);
+            imvThumb = itemView.findViewById(R.id.imvThumb1);
+            ratingBar = itemView.findViewById(R.id.ratingBar1);
+            txtName = itemView.findViewById(R.id.txtName1);
+            txtPrice = itemView.findViewById(R.id.txtPrice1);
+            txtPriceSale = itemView.findViewById(R.id.txtPriceSale1);
+            layout_itemSale = itemView.findViewById(R.id.layout_itemSale);
         }
     }
 }

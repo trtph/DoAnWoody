@@ -1,16 +1,17 @@
 package com.example.Adapter;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ImageView;
-import android.widget.RatingBar;
+import android.widget.LinearLayout;
+
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -21,48 +22,43 @@ import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
 
-public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollectionAdapter.ViewHolder> {
-
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
     Context context;
-    int item_product_collection;
+    int item_product;
     ArrayList<ProductModel> product;
 
     IClickItemCollection iClickItemCollection;
 
-    public ProductCollectionAdapter(Context context, int item_product_collection, ArrayList<ProductModel> product, IClickItemCollection iClickItemCollection) {
+    public ProductAdapter(Context context, int item_product, ArrayList<ProductModel> product, IClickItemCollection iClickItemCollection) {
         this.context = context;
-        this.item_product_collection = item_product_collection;
+        this.item_product = item_product;
         this.product = product;
         this.iClickItemCollection = iClickItemCollection;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_collection, parent, false);
+    public ProductAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
         ProductModel p = product.get(position);
 
         Glide.with(context).load(p.getPrImage()).into(holder.imvThumb);
-
         holder.txtName.setText(p.getPrName());
         holder.txtPrice.setText( " $" + p.getPrPrice());
-        holder.txtRvNumber.setText("(" + p.getPrRvNumber() + ")");
-        holder.ratingBar.setRating(p.getPrRating());
 
-        holder.layout_item.setOnClickListener(new View.OnClickListener() {
+        //OnClick Item
+        holder.layout_itemProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 iClickItemCollection.onClickItemCollection(p);
             }
         });
     }
-
 
     @Override
     public int getItemCount() {
@@ -71,17 +67,22 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
-        RatingBar ratingBar;
-        TextView txtName, txtPrice, txtRvNumber;
-        CardView layout_item;
+        TextView txtName, txtPrice;
+        LinearLayout layout_itemProduct;
         public ViewHolder(@NonNull View itemView) {
-          super(itemView);
+            super(itemView);
             imvThumb = itemView.findViewById(R.id.imvThumb);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
             txtName = itemView.findViewById(R.id.txtName);
             txtPrice = itemView.findViewById(R.id.txtPrice);
-            txtRvNumber = itemView.findViewById(R.id.txtRvNumber);
-            layout_item = itemView.findViewById(R.id.layout_item);
+            layout_itemProduct = itemView.findViewById(R.id.layout_itemProduct);
         }
     }
+
+    //Search view
+    public void filterList(ArrayList<ProductModel> filteredList){
+        product = filteredList;
+        notifyDataSetChanged();
+    }
+
+
 }

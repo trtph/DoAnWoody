@@ -3,13 +3,10 @@ package com.example.woodygroupapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -20,11 +17,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Adapter.AllProductAdapter;
 import com.example.Adapter.BannerAdapter;
-import com.example.model.AllProductModel;
-import com.example.model.Banner;
-import com.example.model.ProductCollection;
+import com.example.model.BannerModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +27,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -48,7 +41,7 @@ public class HomeFragment extends Fragment {
     DatabaseReference databaseReference;
 
     //Variable
-    ArrayList<Banner> bannersList;
+    ArrayList<BannerModel> bannersList;
     BannerAdapter bannerAdapter;
     Context context;
 
@@ -58,11 +51,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //Banner
-        rcvBanner = view.findViewById(R.id.rcvBanner);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-        rcvBanner.setLayoutManager(layoutManager);
-        rcvBanner.setHasFixedSize(true);
+
 
 
         //Firebase
@@ -89,6 +78,14 @@ public class HomeFragment extends Fragment {
         btnShowroom = view.findViewById(R.id.btnShowroom);
         btn3D = view.findViewById(R.id.btn3D);
 
+        //Set orientation for banner
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        rcvBanner.setLayoutManager(layoutManager);
+        rcvBanner.setHasFixedSize(true);
+
+        //Default returns HomeFragment
+        getActivity().getSupportFragmentManager().beginTransaction( ).replace(R.id.frame_collection, new BestCollectionFragment()).commit();
+
         //OnClick event
         imvBest.setOnClickListener(myClick);
         imvSeat.setOnClickListener(myClick);
@@ -96,13 +93,11 @@ public class HomeFragment extends Fragment {
         imvSofa.setOnClickListener(myClick);
         imvBed.setOnClickListener(myClick);
 
-        //Mặc định HomeFragment
-        getActivity().getSupportFragmentManager().beginTransaction( ).replace(R.id.frame_collection, new BestCollectionFragment()).commit();
-
+        //Set OnClick
         imvNoti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), NotiActivity.class);
+                Intent intent = new Intent(getContext(), Notification.class);
                 startActivity(intent);
             }
         });
@@ -121,21 +116,23 @@ public class HomeFragment extends Fragment {
                 HomeFragment.this.startActivity(intent);
             }
         });
+        //Onclick end
 
         return view;
     }
 
+    //Get data
     private void GetDataFromFirebase() {
         Query query = databaseReference.child("Banner");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
-                    Banner banner = new Banner();
+                    BannerModel bannerModel = new BannerModel();
 
-                    banner.setImageUrl(snapshot.child("bnImage").getValue().toString());
+                    bannerModel.setImageUrl(snapshot.child("bnImage").getValue().toString());
 
-                    bannersList.add(banner);
+                    bannersList.add(bannerModel);
 
                 }
                 bannerAdapter = new BannerAdapter(getContext(),bannersList);
@@ -150,10 +147,10 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    //OnClick Collection
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             Fragment fragment = null;
@@ -164,7 +161,7 @@ public class HomeFragment extends Fragment {
                 fragment = new SeatCollectionFragment();
 
             }else if (view.getId() == R.id.imvDesk){
-                fragment = new DestCollectionFragment();
+                fragment = new DeskCollectionFragment();
 
             }else if (view.getId() == R.id.imvSofa){
                 fragment = new SofaCollectionFragment();

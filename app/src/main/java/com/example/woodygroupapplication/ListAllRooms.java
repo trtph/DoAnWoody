@@ -12,9 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.Adapter.ListCategoryAdapter;
-import com.example.Adapter.searchAdapter;
 import com.example.model.ListCategoryProduct;
-import com.example.model.searchProduct;
 
 import java.util.ArrayList;
 

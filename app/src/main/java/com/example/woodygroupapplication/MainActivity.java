@@ -16,11 +16,8 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     BottomNavigationView navigationView;
     FrameLayout frame_content;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,21 +25,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         linkViews();
         addEvents();
-
     }
 
     private void linkViews() {
         navigationView = findViewById(R.id.bottom_navigation);
         frame_content = findViewById(R.id.frame_content);
-
     }
 
     private void addEvents() {
-
-
         navigationView.setOnItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new HomeFragment()).commit();
     }
+
+    //OnClick Navigation
     NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -67,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navUserAccount:
                     fragment = new UserAccountActivity();
                     break;
-
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, fragment).addToBackStack(null).commit();
             return true;

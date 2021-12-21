@@ -25,8 +25,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class SeatCollectionFragment extends Fragment {
-    RecyclerView rcvSeat;
+
+public class DeskCollectionFragment extends Fragment {
+    RecyclerView rcvDesk;
 
     ArrayList<ProductModel> product;
     ProductCollectionAdapter adapter;
@@ -40,12 +41,12 @@ public class SeatCollectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_seat_collection, container, false);
-        rcvSeat = view.findViewById(R.id.rcvSeat);
+        View view = inflater.inflate(R.layout.fragment_desk_collection, container, false);
+        rcvDesk = view.findViewById(R.id.rcvDesk);
 
         //Set orientation
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
-        rcvSeat.setLayoutManager(manager);
+        rcvDesk.setLayoutManager(manager);
 
         //Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -67,19 +68,20 @@ public class SeatCollectionFragment extends Fragment {
                 outRect.right = mSpace;
             }
         }
-        rcvSeat.addItemDecoration(new SpacesItemDecoration( 30));
+        rcvDesk.addItemDecoration(new SpacesItemDecoration( 30));
 
         return view;
     }
 
+    //Get data
     private void GetDataFromFirebase() {
-        Query query = databaseReference.child("AllProduct").child("Product").orderByChild("prType").equalTo("seat");
+        Query query = databaseReference.child("AllProduct").child("Product").orderByChild("prType").equalTo("desk");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 product = new ArrayList<>();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    ProductModel p = new ProductModel();
+                    ProductModel p =new ProductModel();
                     p.setPrImage(snapshot.child("prImage").getValue().toString());
                     p.setPrName(snapshot.child("prName").getValue().toString());
                     p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
@@ -95,7 +97,7 @@ public class SeatCollectionFragment extends Fragment {
                         onClickToDetail(p);
                     }
                 });
-                rcvSeat.setAdapter(adapter);
+                rcvDesk.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
 

@@ -10,25 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
-            android:name=".ReviewProductActivity"
+            android:name=".ProductList"
             android:exported="false" />
         <activity
-            android:name=".ProductDetailActivity"
+            android:name=".DiscountEvent"
             android:exported="false" />
         <activity
-            android:name=".SearchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProductDetail_Banner"
-            android:exported="false" />
-        <activity
-            android:name=".BlackFridayActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ReviewCollectionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ReviewBannerActivity"
+            android:name=".Review"
             android:exported="false" />
         <activity
             android:name=".Checkout_Layout"
@@ -43,7 +31,7 @@
             android:name=".NewFeatureActivity"
             android:exported="false" />
         <activity
-            android:name=".HelloPageActivity"
+            android:name=".Introduction"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
@@ -61,19 +49,16 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductDetail_Collection"
+            android:name=".ProductDetail"
             android:exported="false" />
         <activity
-            android:name=".NotiActivity"
+            android:name=".Notification"
             android:exported="false" />
         <activity
             android:name=".ListAllRooms"
             android:exported="false" />
         <activity
             android:name=".ListAllCategory"
-            android:exported="false" />
-        <activity
-            android:name=".ListViewProduct"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
