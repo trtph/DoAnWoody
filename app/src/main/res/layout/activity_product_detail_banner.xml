@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    tools:context=".DetailProductSaleActivity">
+    tools:context=".ProductDetail_Banner">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -173,7 +174,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/ic_favorite1"
-            app:layout_constraintTop_toBottomOf="@+id/txtDescription"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescription1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/btnAddToCart"/>

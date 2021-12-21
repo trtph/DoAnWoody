@@ -5,16 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.model.ProductCollection;
 import com.example.model.SaleProduct;
 
-public class DetailProductSaleActivity extends AppCompatActivity {
+public class ProductDetail_Banner extends AppCompatActivity {
     ImageView imvThumb, add_quantity, remove_quantity, imvBack;
     TextView txtName, txtPrice, txtPriceSale, txtRvNumber, txtDes, txtQuantity;
     RatingBar ratingBar;
@@ -24,7 +22,7 @@ public class DetailProductSaleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_product_sale);
+        setContentView(R.layout.activity_product_detail_banner);
         linkViews();
         addEvents();
     }
@@ -52,7 +50,7 @@ public class DetailProductSaleActivity extends AppCompatActivity {
         }
         s = (SaleProduct) bundle.get("object_sale");
 
-        Glide.with(DetailProductSaleActivity.this).load(s.getPrImage()).into(imvThumb);
+        Glide.with(ProductDetail_Banner.this).load(s.getPrImage()).into(imvThumb);
         txtName.setText(s.getPrName());
         txtPrice.setText("$ " + s.getPrPrice());
         txtPriceSale.setText("$ " + s.getPrPriceSale());
@@ -81,14 +79,14 @@ public class DetailProductSaleActivity extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailProductSaleActivity.this, BlackFridayActivity.class);
+                Intent intent = new Intent(ProductDetail_Banner.this, BlackFridayActivity.class);
                 startActivity(intent);
             }
         });
         txtRvNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailProductSaleActivity.this, ReviewSaleActivity.class);
+                Intent intent = new Intent(ProductDetail_Banner.this, ReviewBannerActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("object_sale", s);
                 intent.putExtras(bundle);
@@ -96,5 +94,4 @@ public class DetailProductSaleActivity extends AppCompatActivity {
             }
         });
     }
-
 }

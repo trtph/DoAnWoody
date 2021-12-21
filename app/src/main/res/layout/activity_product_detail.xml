@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDetailActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imvThumb"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/decoration"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:riv_corner_radius_bottom_left="70dp" />
+
+        <ImageView
+            android:id="@+id/imvBack"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="15dp"/>
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mavenpro_bold"
+            android:gravity="center_horizontal"
+            android:text="HAUGA"
+
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imvThumb"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginTop="10dp" />
+
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 99.99"
+            android:fontFamily="@font/nunitosans_bold"
+            android:textSize="26sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/remove_quantity"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_remove"
+
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="25sp"
+            android:gravity="center_vertical"
+
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:layout_constraintRight_toLeftOf="@+id/remove_quantity"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/add_quantity"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_add"
+
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:layout_constraintRight_toLeftOf="@+id/txtQuantity"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressTint="#FFC107"
+
+            app:layout_constraintTop_toBottomOf="@+id/txtPrice"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtRvNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(20 reviews)"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:textSize="16sp"
+
+            app:layout_constraintTop_toBottomOf="@+id/txtPrice"
+            app:layout_constraintLeft_toRightOf="@+id/ratingBar"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:text=""
+            android:fontFamily="@font/nunitosans_regular"
+            android:justificationMode="inter_word"
+            android:textSize="16sp"
+            android:padding="25dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/txtRvNumber"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="75dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddToCart"
+            android:layout_width="220dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="28dp"
+            android:backgroundTint="@color/black"
+            android:text="Add to cart"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:textSize="20sp"
+            app:cornerRadius="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescription"
+            app:layout_constraintRight_toLeftOf="@+id/imvAddToFavorite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+        <ImageView
+            android:id="@+id/imvAddToFavorite"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_favorite1"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnAddToCart"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -16,10 +16,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.MyInterfaces.IClickItemCollection;
 import com.example.model.ProductCollection;
 
-import com.example.woodygroupapplication.DetailActivity;
+import com.example.woodygroupapplication.ProductDetail_Collection;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
@@ -30,7 +29,6 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
     int item_product_collection;
     ArrayList<ProductCollection> productCollections;
 
-//    IClickItemCollection iClickItemCollection;
 
     public ProductCollectionAdapter(Context context, int item_product_collection, ArrayList<ProductCollection> productCollections) {
         this.context = context;
@@ -65,7 +63,7 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
         });
     }
     private void onClickToDetail(ProductCollection p){
-        Intent intent = new Intent(context, DetailActivity.class);
+        Intent intent = new Intent(context, ProductDetail_Collection.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object", p);
         intent.putExtras(bundle);

@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class AllProductModel {
+import java.io.Serializable;
+
+public class AllProductModel implements Serializable {
     private String prID;
     private String prImage;
     private String prName;

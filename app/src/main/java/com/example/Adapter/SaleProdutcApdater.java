@@ -3,8 +3,6 @@ package com.example.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.model.SaleProduct;
-import com.example.woodygroupapplication.DetailActivity;
-import com.example.woodygroupapplication.DetailProductSaleActivity;
+import com.example.woodygroupapplication.ProductDetail_Banner;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
@@ -61,7 +58,7 @@ public class SaleProdutcApdater extends RecyclerView.Adapter<SaleProdutcApdater.
     }
 
     private void onClickToDetailProductSale(SaleProduct s) {
-        Intent intent = new Intent(context, DetailProductSaleActivity.class);
+        Intent intent = new Intent(context, ProductDetail_Banner.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_sale", s);
         intent.putExtras(bundle);

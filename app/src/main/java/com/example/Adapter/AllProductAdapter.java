@@ -1,6 +1,8 @@
 package com.example.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.model.AllProductModel;
 
+import com.example.woodygroupapplication.ProductDetailActivity;
+import com.example.woodygroupapplication.ProductDetail_Collection;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
@@ -51,7 +55,7 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.Vi
         holder.layout_itemProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Open Product Detail
+                onClickToDetail(all);
             }
         });
     }
@@ -77,5 +81,18 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.Vi
     public void filterList(ArrayList<AllProductModel> filteredList){
         allProductModels = filteredList;
         notifyDataSetChanged();
+    }
+
+    //Open Product Detail
+    private void onClickToDetail(AllProductModel all){
+        Intent intent = new Intent(context, ProductDetailActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_product", all);
+        intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+    public void release(){
+        context = null;
     }
 }

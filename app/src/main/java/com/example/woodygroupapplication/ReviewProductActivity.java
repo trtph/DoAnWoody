@@ -1,27 +1,25 @@
 package com.example.woodygroupapplication;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
-import com.example.model.ProductCollection;
-import com.example.model.SaleProduct;
+import com.example.model.AllProductModel;
 
-public class ReviewSaleActivity extends AppCompatActivity {
-
+public class ReviewProductActivity extends AppCompatActivity {
     ImageView imvThumb, imvBack;
     TextView txtName, txtRvNumber;
     RatingBar ratingBar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review_sale);
+        setContentView(R.layout.activity_review_product);
         linkViews();
         addEvents();
     }
@@ -39,12 +37,12 @@ public class ReviewSaleActivity extends AppCompatActivity {
         if (bundle == null){
             return;
         }
+        AllProductModel allProductModel = (AllProductModel) bundle.get("object_product");
 
-        SaleProduct s = (SaleProduct) bundle.get("object_sale");
-        Glide.with(ReviewSaleActivity.this).load(s.getPrImage()).into(imvThumb);
-        txtName.setText(s.getPrName());
-        txtRvNumber.setText("" + s.getPrRvNumber()+" reviews");
-        ratingBar.setRating(s.getPrRating());
+        Glide.with(ReviewProductActivity.this).load(allProductModel.getPrImage()).into(imvThumb);
+        txtName.setText(allProductModel.getPrName());
+        txtRvNumber.setText("( " + allProductModel.getPrRvNumber()+" reviews)");
+        ratingBar.setRating(allProductModel.getPrRating());
 
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override

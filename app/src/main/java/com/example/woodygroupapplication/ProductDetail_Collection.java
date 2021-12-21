@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class DetailActivity extends AppCompatActivity {
+public class ProductDetail_Collection extends AppCompatActivity {
     ImageView imvThumb, add_quantity, remove_quantity, imvBack;
     TextView txtName, txtPrice, txtRvNumber, txtDes, txtQuantity;
     RatingBar ratingBar;
@@ -37,12 +37,12 @@ public class DetailActivity extends AppCompatActivity {
     FirebaseFirestore firestore;
     FirebaseAuth auth;
 
-    ProductCollection productCollection = null;
+//    ProductCollection productCollection = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_product_detail_collection);
         linkViews();
 
         addEvents();
@@ -73,7 +73,7 @@ public class DetailActivity extends AppCompatActivity {
         }
         p = (ProductCollection) bundle.get("object");
 
-        Glide.with(DetailActivity.this).load(p.getPrImage()).into(imvThumb);
+        Glide.with(ProductDetail_Collection.this).load(p.getPrImage()).into(imvThumb);
         txtName.setText(p.getPrName());
         txtPrice.setText("$ " + p.getPrPrice());
         txtRvNumber.setText("(" + p.getPrRvNumber()+" reviews)");
@@ -81,6 +81,7 @@ public class DetailActivity extends AppCompatActivity {
         ratingBar.setRating(p.getPrRating());
         totalPrice = (int) (p.getPrPrice() * totalQuantity);
 
+        //OnClick Back
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +114,7 @@ public class DetailActivity extends AppCompatActivity {
         txtRvNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailActivity.this, ReviewActivity.class);
+                Intent intent = new Intent(ProductDetail_Collection.this, ReviewCollectionActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("object", p);
                 intent.putExtras(bundle);
@@ -151,7 +152,7 @@ public class DetailActivity extends AppCompatActivity {
         firestore.collection("AddToCart").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
-                Toast.makeText(DetailActivity.this, "Added " + txtQuantity.getText().toString() + " " + txtName.getText().toString() + " To Your Cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductDetail_Collection.this, "Added " + txtQuantity.getText().toString() + " " + txtName.getText().toString() + " To Your Cart", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
