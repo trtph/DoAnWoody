@@ -52,11 +52,6 @@ public class HomeFragment extends Fragment {
     BannerAdapter bannerAdapter;
     Context context;
 
-    //Search View
-    EditText edtSeachHome;
-    ArrayList<AllProductModel> allProductModelList;
-    RecyclerView rcvSearchHome;
-    AllProductAdapter allProductAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,34 +64,6 @@ public class HomeFragment extends Fragment {
         rcvBanner.setLayoutManager(layoutManager);
         rcvBanner.setHasFixedSize(true);
 
-        //Search View
-        edtSeachHome = view.findViewById(R.id.edtSeachHome);
-        rcvSearchHome = view.findViewById(R.id.rcvSearchHome);
-        rcvSearchHome.setLayoutManager(new LinearLayoutManager(getContext()));
-        rcvSearchHome.setAdapter(allProductAdapter);
-        rcvSearchHome.setHasFixedSize(true);
-
-        edtSeachHome.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s.toString().isEmpty()){
-                    allProductModelList.clear();
-                    allProductAdapter.notifyDataSetChanged();
-                } else {
-                    searchProduct(s.toString());
-                }
-            }
-        });
 
         //Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -107,8 +74,10 @@ public class HomeFragment extends Fragment {
         //Get Data Method
         GetDataFromFirebase();
 
-
         //linkView
+        rcvBanner = view.findViewById(R.id.rcvBanner);
+        frame_collection = view.findViewById(R.id.frame_collection);
+
         imvBest = view.findViewById(R.id.imvBest);
         imvSeat = view.findViewById(R.id.imvSeat);
         imvDesk = view.findViewById(R.id.imvDesk);
@@ -117,21 +86,17 @@ public class HomeFragment extends Fragment {
 
         imvNoti = view.findViewById(R.id.imvNotifications);
 
-        frame_collection = view.findViewById(R.id.frame_collection);
-
-        rcvBanner = view.findViewById(R.id.rcvBanner);
-
         btnShowroom = view.findViewById(R.id.btnShowroom);
         btn3D = view.findViewById(R.id.btn3D);
 
-        //Click event
+        //OnClick event
         imvBest.setOnClickListener(myClick);
         imvSeat.setOnClickListener(myClick);
         imvDesk.setOnClickListener(myClick);
         imvSofa.setOnClickListener(myClick);
         imvBed.setOnClickListener(myClick);
 
-        //Nhúng mặc định fragment
+        //Mặc định HomeFragment
         getActivity().getSupportFragmentManager().beginTransaction( ).replace(R.id.frame_collection, new BestCollectionFragment()).commit();
 
         imvNoti.setOnClickListener(new View.OnClickListener() {
@@ -160,38 +125,6 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void searchProduct(String prType) {
-        if (!prType.isEmpty()){
-            Query firebaseSearchQuery  = databaseReference.child("AllProduct").orderByChild("name").startAt(edtSeachHome.getFreezesText()).endAt(edtSeachHome.getFreezesText() + "\uf8ff");
-            firebaseSearchQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                    allProductModelList = new ArrayList<>();
-                    for(DataSnapshot snapshot : datasnapshot.getChildren()){
-                        AllProductModel p =new AllProductModel();
-                        p.setPrImage(snapshot.child("prImage").getValue().toString());
-                        p.setPrName(snapshot.child("prName").getValue().toString());
-                        p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
-                        p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
-                        p.setPrDescription(snapshot.child("prDescription").getValue().toString());
-                        p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
-
-                        allProductModelList.add(p);
-
-                    }
-                    allProductAdapter = new AllProductAdapter(getContext(),R.layout.item_product_collection,allProductModelList);
-                    rcvSearchHome.setAdapter(allProductAdapter);
-                    allProductAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
-    }
-
     private void GetDataFromFirebase() {
         Query query = databaseReference.child("Banner");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -215,16 +148,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-    }
-
-    private void ClearAll(){
-        if (bannersList != null){
-            bannersList.clear();
-            if (rcvBanner != null){
-                bannerAdapter.notifyDataSetChanged();
-            }
-        }
-        bannersList = new ArrayList<>();
     }
 
     View.OnClickListener myClick = new View.OnClickListener() {
@@ -256,6 +179,4 @@ public class HomeFragment extends Fragment {
             }
         }
     };
-
-
 }

@@ -4,22 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ImageView;
-import android.widget.RatingBar;
+import android.widget.LinearLayout;
+
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.model.AllProductModel;
-import com.example.model.ProductCollection;
+
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
 
-public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.ViewHolder>{
+public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.ViewHolder> {
     Context context;
     int item_product;
     ArrayList<AllProductModel> allProductModels;
@@ -33,7 +35,7 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.Vi
     @NonNull
     @Override
     public AllProductAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
         return new ViewHolder(view);
     }
 
@@ -42,11 +44,16 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.Vi
         AllProductModel all = allProductModels.get(position);
 
         Glide.with(context).load(all.getPrImage()).into(holder.imvThumb);
-
         holder.txtName.setText(all.getPrName());
         holder.txtPrice.setText( " $" + all.getPrPrice());
-        holder.txtRvNumber.setText("(" + all.getPrRvNumber() + ")");
-        holder.ratingBar.setRating(all.getPrRating());
+
+        //OnClick Item
+        holder.layout_itemProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Open Product Detail
+            }
+        });
     }
 
     @Override
@@ -54,24 +61,21 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.Vi
         return allProductModels.size();
     }
 
-    public void filteredList(ArrayList<AllProductModel> filteredList){
-        allProductModels = filteredList;
-        notifyDataSetChanged();
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvThumb;
-        RatingBar ratingBar;
-        TextView txtName, txtPrice, txtRvNumber;
-        CardView layout_itemProduct;
+        TextView txtName, txtPrice;
+        LinearLayout layout_itemProduct;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvThumb = itemView.findViewById(R.id.imvThumb);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
             txtName = itemView.findViewById(R.id.txtName);
             txtPrice = itemView.findViewById(R.id.txtPrice);
-            txtRvNumber = itemView.findViewById(R.id.txtRvNumber);
             layout_itemProduct = itemView.findViewById(R.id.layout_itemProduct);
         }
+    }
+    //Search view
+    public void filterList(ArrayList<AllProductModel> filteredList){
+        allProductModels = filteredList;
+        notifyDataSetChanged();
     }
 }

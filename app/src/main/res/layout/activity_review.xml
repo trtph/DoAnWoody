@@ -14,9 +14,9 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/imvBack"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_back"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"/>
         <TextView
@@ -28,7 +28,7 @@
             android:gravity="center"
             android:text="Review"
             android:textColor="@color/black"
-            android:textSize="28sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HAUGA"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/nunitosans_regular"
 
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(20 reviews)"
-                android:fontFamily="@font/mavenpro_regular"
+                android:fontFamily="@font/nunitosans_semibold"
                 android:textSize="20sp"
 
                 app:layout_constraintTop_toBottomOf="@+id/ratingBar"
@@ -136,9 +136,9 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Đặng Tiến Hưng"
-                            android:textSize="24sp"
+                            android:textSize="18sp"
                             android:textColor="@color/black"
-                            android:fontFamily="@font/mavenpro_regular"
+                            android:fontFamily="@font/nunitosans_semibold"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="10dp"/>
                         <TextView
@@ -146,6 +146,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="26/10/2021"
+                            android:fontFamily="@font/nunitosans_regular"
                             android:textSize="14sp"
                             android:gravity="end"/>
                     </LinearLayout>
@@ -219,10 +220,10 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="10dp"
                             android:layout_weight="1"
-                            android:fontFamily="@font/mavenpro_regular"
+                            android:fontFamily="@font/nunitosans_semibold"
                             android:text="Phạm Thành Đạt"
                             android:textColor="@color/black"
-                            android:textSize="24sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -230,6 +231,7 @@
                             android:layout_weight="1"
                             android:gravity="end"
                             android:text="15/06/2021"
+                            android:fontFamily="@font/nunitosans_regular"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -299,9 +301,9 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Trương Nhật Hoàng"
-                            android:textSize="24sp"
+                            android:textSize="18sp"
                             android:textColor="@color/black"
-                            android:fontFamily="@font/mavenpro_regular"
+                            android:fontFamily="@font/nunitosans_semibold"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="10dp"/>
                         <TextView
@@ -309,6 +311,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="15/06/2021"
+                            android:fontFamily="@font/nunitosans_regular"
                             android:textSize="14sp"
                             android:gravity="end"/>
                     </LinearLayout>

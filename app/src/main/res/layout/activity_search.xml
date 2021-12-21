@@ -7,26 +7,26 @@
     tools:context=".SearchActivity"
     android:orientation="vertical"
     android:background="@color/background_color"
-    android:padding="10dp">
+    android:gravity="center_horizontal">
 
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:padding="10dp">
         <ImageView
             android:id="@+id/imvBack"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_back"
             android:layout_gravity="center"/>
 
         <EditText
-            android:id="@+id/edtSeach"
+            android:id="@+id/edtSearch"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:hint="What are you looking for?"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:fontFamily="@font/mavenpro_regular"
             android:background="@drawable/custom_search_home"
 
@@ -36,12 +36,12 @@
             android:layout_marginStart="5dp"/>
     </LinearLayout>
 
-
     <androidx.recyclerview.widget.RecyclerView
+        android:gravity="center"
         android:id="@+id/rcvProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_marginStart="5dp"/>
 
 
 </LinearLayout>
