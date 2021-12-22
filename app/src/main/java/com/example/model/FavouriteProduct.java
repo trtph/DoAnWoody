@@ -5,11 +5,20 @@ public class FavouriteProduct {
     private String prThumb;
     private String prName;
     private String prPrice;
+    String documentID;
 
     public FavouriteProduct(String prThumb, String prName, String prPrice) {
         this.prThumb = prThumb;
         this.prName = prName;
         this.prPrice = prPrice;
+    }
+
+    public String getDocumentID() {
+        return documentID;
+    }
+
+    public void setDocumentID(String documentID) {
+        this.documentID = documentID;
     }
 
     public FavouriteProduct() {
