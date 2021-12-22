@@ -66,8 +66,8 @@ public class ListAllRooms extends AppCompatActivity {
         browseRoomProduct = new ArrayList<ListCategoryProduct>();
         browseRoomProduct.add(new ListCategoryProduct(R.drawable.livingroom, "LIVING ROOM"));
         browseRoomProduct.add(new ListCategoryProduct(R.drawable.diningroom, "DINING ROOM"));
-        browseRoomProduct.add(new ListCategoryProduct(R.drawable.img_1, "BATHROOM"));
-        browseRoomProduct.add(new ListCategoryProduct(R.drawable.img_2, "BEDROOM"));
+        browseRoomProduct.add(new ListCategoryProduct(R.drawable.bath, "BATHROOM"));
+        browseRoomProduct.add(new ListCategoryProduct(R.drawable.bed, "BEDROOM"));
 
 
         adapter = new ListCategoryAdapter(ListAllRooms.this, browseRoomProduct);

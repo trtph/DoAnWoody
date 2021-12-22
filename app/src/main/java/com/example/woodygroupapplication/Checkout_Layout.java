@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.utils.AppUtils;
+import com.example.utils.AddUtils;
 import com.example.utils.NameUtils;
 
 public class Checkout_Layout extends AppCompatActivity {
@@ -44,14 +44,19 @@ public class Checkout_Layout extends AppCompatActivity {
         txtTotalCK.setText("$ " + total);
 
         if(getIntent().getExtras() !=null) {
-            AppUtils appUtils = (AppUtils) getIntent().getExtras().get("object_card");
-            textView7.setText(appUtils.getCard());
+
+            NameUtils nameUtils = (NameUtils) getIntent().getExtras().get("object_name");
+            txtNameAdd.setText(nameUtils.getName());
+
+            AddUtils addUtils = (AddUtils) getIntent().getExtras().get("object_address");
+            txtAddress.setText(addUtils.getAddress());
+
         }
 
-//        if(getIntent().getExtras() !=null) {
-//            NameUtils nameUtils = (NameUtils) getIntent().getExtras().get("object_name");
-//            txtNameAdd.setText(nameUtils.getName());
-//        }
+
+
+
+
 
 
         btnChangeAdd.setOnClickListener(new View.OnClickListener() {
