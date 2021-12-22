@@ -2,28 +2,30 @@ package com.example.model;
 
 import java.io.Serializable;
 
-public class ProductCollection implements Serializable {
+public class ProductModel implements Serializable {
     private String prID;
     private String prImage;
     private String prName;
     private Double prPrice;
+    private Double prPriceSale;
     private String prDescription;
     private Float prRating;
     private String prRvNumber;
+    private String prType;
 
-
-    public ProductCollection() {
-
+    public ProductModel() {
     }
 
-    public ProductCollection(String prID, String prImage, String prName, Double prPrice, String prDescription, Float prRating, String prRvNumber) {
+    public ProductModel(String prID, String prImage, String prName, Double prPrice, Double prPriceSale, String prDescription, Float prRating, String prRvNumber, String prType) {
         this.prID = prID;
         this.prImage = prImage;
         this.prName = prName;
         this.prPrice = prPrice;
+        this.prPriceSale = prPriceSale;
         this.prDescription = prDescription;
         this.prRating = prRating;
         this.prRvNumber = prRvNumber;
+        this.prType = prType;
     }
 
     public String getPrID() {
@@ -58,6 +60,14 @@ public class ProductCollection implements Serializable {
         this.prPrice = prPrice;
     }
 
+    public Double getPrPriceSale() {
+        return prPriceSale;
+    }
+
+    public void setPrPriceSale(Double prPriceSale) {
+        this.prPriceSale = prPriceSale;
+    }
+
     public String getPrDescription() {
         return prDescription;
     }
@@ -80,5 +90,13 @@ public class ProductCollection implements Serializable {
 
     public void setPrRvNumber(String prRvNumber) {
         this.prRvNumber = prRvNumber;
+    }
+
+    public String getPrType() {
+        return prType;
+    }
+
+    public void setPrType(String prType) {
+        this.prType = prType;
     }
 }
