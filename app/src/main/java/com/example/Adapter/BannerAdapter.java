@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.model.Banner;
-import com.example.woodygroupapplication.BlackFridayActivity;
+import com.example.model.BannerModel;
+import com.example.woodygroupapplication.DiscountEvent;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
@@ -21,9 +21,9 @@ import java.util.ArrayList;
 public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<Banner> bannersList;
+    ArrayList<BannerModel> bannersList;
 
-    public BannerAdapter(Context context, ArrayList<Banner> bannersList) {
+    public BannerAdapter(Context context, ArrayList<BannerModel> bannersList) {
         this.context = context;
         this.bannersList = bannersList;
     }
@@ -52,7 +52,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
     }
 
     private void onClickBlackFriday() {
-        Intent intent = new Intent(context, BlackFridayActivity.class);
+        Intent intent = new Intent(context, DiscountEvent.class);
         context.startActivity(intent);
     }
 

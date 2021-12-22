@@ -8,17 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.Adapter.ListCategoryAdapter;
-import com.example.Adapter.searchAdapter;
 import com.example.model.ListCategoryProduct;
-import com.example.model.searchProduct;
 
 import java.util.ArrayList;
 
 public class ListAllCategory extends AppCompatActivity {
 
     RecyclerView rcvAllCateGory;
+    ImageView imvBack;
     ListCategoryAdapter adapter1;
     ArrayList<ListCategoryProduct> browseCategoryProduct;
 
@@ -29,10 +30,22 @@ public class ListAllCategory extends AppCompatActivity {
         linkViews();
         configRecyclerView();
         initData();
+        onClick();
+    }
+
+    private void onClick() {
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().popBackStack();
+                finish();
+            }
+        });
     }
 
     private void linkViews() {
         rcvAllCateGory=findViewById(R.id.rcvAllCategory);
+        imvBack = findViewById(R.id.imvBack);
     }
 
     private void configRecyclerView() {
@@ -51,7 +64,6 @@ public class ListAllCategory extends AppCompatActivity {
         browseCategoryProduct.add(new ListCategoryProduct(R.drawable.kitchenapplicances, "KITCHEN & APPLIANCES"));
         browseCategoryProduct.add(new ListCategoryProduct(R.drawable.bedroom, "BED & MATTRESSES"));
         browseCategoryProduct.add(new ListCategoryProduct(R.drawable.img_living, "LIVING ROOM"));
-
 
         adapter1 = new ListCategoryAdapter(ListAllCategory.this, browseCategoryProduct);
         rcvAllCateGory.setAdapter(adapter1);

@@ -8,17 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.Adapter.ListCategoryAdapter;
-import com.example.Adapter.searchAdapter;
 import com.example.model.ListCategoryProduct;
-import com.example.model.searchProduct;
 
 import java.util.ArrayList;
 
 public class ListAllRooms extends AppCompatActivity {
 
     RecyclerView rcvAllRooms;
+    ImageView imvBack;
     ListCategoryAdapter adapter;
     ArrayList<ListCategoryProduct> browseRoomProduct;
 
@@ -29,11 +30,23 @@ public class ListAllRooms extends AppCompatActivity {
         linkViews();
         configRecyclerView();
         initData();
+        onClick();
 
+    }
+
+    private void onClick() {
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().popBackStack();
+                finish();
+            }
+        });
     }
 
     private void linkViews() {
         rcvAllRooms=findViewById(R.id.rcvAllRooms);
+        imvBack = findViewById(R.id.imvBack);
     }
 
 
