@@ -18,7 +18,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="190dp"
+            android:layout_width="match_parent"
             android:layout_height="150dp">
             <TextView
                 android:id="@+id/txtFavouriteProductName"
@@ -49,7 +49,7 @@
                 android:src="@drawable/black_outline_shopping_bag"/>
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/imvRemove"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
