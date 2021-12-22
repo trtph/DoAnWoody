@@ -61,7 +61,9 @@ public class FavoriteFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()){
                     for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+                        String documentID = documentSnapshot.getId();
                         FavouriteProduct cartModel1 = documentSnapshot.toObject(FavouriteProduct.class);
+                        cartModel1.setDocumentID(documentID);
                         favouriteProducts.add(cartModel1);
                         adapter.notifyDataSetChanged();
                     }
