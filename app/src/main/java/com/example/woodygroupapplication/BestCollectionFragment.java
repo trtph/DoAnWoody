@@ -14,7 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ProductCollectionAdapter;
-import com.example.model.ProductCollection;
+import com.example.MyInterfaces.IClickItemCollection;
+import com.example.model.ProductModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,13 +30,11 @@ public class BestCollectionFragment extends Fragment {
 
     RecyclerView rcvBest;
 
-    ArrayList<ProductCollection> productCollections;
+    ArrayList<ProductModel> product;
     ProductCollectionAdapter adapter;
     Context context;
 
     DatabaseReference databaseReference;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,6 +43,7 @@ public class BestCollectionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_best_collection, container, false);
         rcvBest = view.findViewById(R.id.rcvBest);
 
+        //Set orientation
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         rcvBest.setLayoutManager(manager);
 
@@ -53,9 +53,10 @@ public class BestCollectionFragment extends Fragment {
         //Get Data Method
         GetDataFromFirebase();
 
-        class SpacesItemDecortion extends RecyclerView.ItemDecoration{
+        //Set space between items
+        class SpacesItemDecoration extends RecyclerView.ItemDecoration{
             private final int mSpace;
-            public SpacesItemDecortion(int space, int mSpace){
+            public SpacesItemDecoration(int mSpace){
                 this.mSpace = mSpace;
             }
             @Override
@@ -66,31 +67,35 @@ public class BestCollectionFragment extends Fragment {
                 outRect.right = mSpace;
             }
         }
-
-        rcvBest.addItemDecoration(new SpacesItemDecortion(30, 30));
+        rcvBest.addItemDecoration(new SpacesItemDecoration( 30));
 
         return view;
     }
 
+    //Get Data
     private void GetDataFromFirebase() {
-        Query query = databaseReference.child("ProductCollection").child("BestCollection");
+        Query query = databaseReference.child("AllProduct").child("Product").orderByChild("prRating").equalTo(5);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                productCollections = new ArrayList<>();
+                product = new ArrayList<>();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    ProductCollection p = new ProductCollection();
+                    ProductModel p =new ProductModel();
                     p.setPrImage(snapshot.child("prImage").getValue().toString());
                     p.setPrName(snapshot.child("prName").getValue().toString());
                     p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
                     p.setPrRvNumber(snapshot.child("prRvNumber").getValue().toString());
                     p.setPrDescription(snapshot.child("prDescription").getValue().toString());
                     p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
-//                    p.setPrIntro(snapshot.child("prIntro").getValue().toString());
 
-                    productCollections.add(p);
+                    product.add(p);
                 }
-                adapter = new ProductCollectionAdapter(getActivity(), R.layout.item_product_collection, productCollections);
+                adapter = new ProductCollectionAdapter(getActivity(), R.layout.item_product_collection, product, new IClickItemCollection() {
+                    @Override
+                    public void onClickItemCollection(ProductModel p) {
+                        onClickToDetail(p);
+                    }
+                });
                 rcvBest.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
@@ -101,11 +106,13 @@ public class BestCollectionFragment extends Fragment {
             }
         });
     }
-    private void onClickToDetail(ProductCollection p){
-        Intent intent = new Intent(getContext(), DetailActivity.class);
+
+    //Go to Product Detail
+    private void onClickToDetail(ProductModel p){
+        Intent intent = new Intent(getContext(), ProductDetail.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object", p);
         intent.putExtras(bundle);
-        BestCollectionFragment.this.startActivity(intent);
+        getActivity().startActivity(intent);
     }
 }

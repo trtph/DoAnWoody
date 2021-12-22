@@ -1,6 +1,7 @@
 package com.example.woodygroupapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ProductCollectionAdapter;
-import com.example.model.ProductCollection;
+import com.example.MyInterfaces.IClickItemCollection;
+import com.example.model.ProductModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +28,7 @@ import java.util.ArrayList;
 public class SeatCollectionFragment extends Fragment {
     RecyclerView rcvSeat;
 
-    ArrayList<ProductCollection> productCollections;
+    ArrayList<ProductModel> product;
     ProductCollectionAdapter adapter;
     Context context;
 
@@ -41,6 +43,7 @@ public class SeatCollectionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_seat_collection, container, false);
         rcvSeat = view.findViewById(R.id.rcvSeat);
 
+        //Set orientation
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         rcvSeat.setLayoutManager(manager);
 
@@ -50,9 +53,10 @@ public class SeatCollectionFragment extends Fragment {
         //Get Data Method
         GetDataFromFirebase();
 
-        class SpacesItemDecortion extends RecyclerView.ItemDecoration{
+        //Set space between items
+        class SpacesItemDecoration extends RecyclerView.ItemDecoration{
             private final int mSpace;
-            public SpacesItemDecortion(int space, int mSpace){
+            public SpacesItemDecoration(int mSpace){
                 this.mSpace = mSpace;
             }
             @Override
@@ -63,20 +67,19 @@ public class SeatCollectionFragment extends Fragment {
                 outRect.right = mSpace;
             }
         }
-
-        rcvSeat.addItemDecoration(new SpacesItemDecortion(30, 30));
+        rcvSeat.addItemDecoration(new SpacesItemDecoration( 30));
 
         return view;
     }
 
     private void GetDataFromFirebase() {
-        Query query = databaseReference.child("ProductCollection").child("SeatCollection");
+        Query query = databaseReference.child("AllProduct").child("Product").orderByChild("prType").equalTo("seat");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                productCollections = new ArrayList<>();
+                product = new ArrayList<>();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    ProductCollection p = new ProductCollection();
+                    ProductModel p = new ProductModel();
                     p.setPrImage(snapshot.child("prImage").getValue().toString());
                     p.setPrName(snapshot.child("prName").getValue().toString());
                     p.setPrPrice(Double.valueOf(snapshot.child("prPrice").getValue().toString()));
@@ -84,9 +87,14 @@ public class SeatCollectionFragment extends Fragment {
                     p.setPrDescription(snapshot.child("prDescription").getValue().toString());
                     p.setPrRating(Float.valueOf(snapshot.child("prRating").getValue().toString()));
 
-                    productCollections.add(p);
+                    product.add(p);
                 }
-                adapter = new ProductCollectionAdapter(getActivity(), R.layout.item_product_collection, productCollections);
+                adapter = new ProductCollectionAdapter(getActivity(), R.layout.item_product_collection, product, new IClickItemCollection() {
+                    @Override
+                    public void onClickItemCollection(ProductModel p) {
+                        onClickToDetail(p);
+                    }
+                });
                 rcvSeat.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
@@ -96,5 +104,14 @@ public class SeatCollectionFragment extends Fragment {
 
             }
         });
+    }
+
+    //Go to Product Detail
+    private void onClickToDetail(ProductModel p){
+        Intent intent = new Intent(getContext(), ProductDetail.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object", p);
+        intent.putExtras(bundle);
+        getActivity().startActivity(intent);
     }
 }

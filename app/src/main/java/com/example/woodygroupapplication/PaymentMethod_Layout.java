@@ -6,11 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.utils.AppUtils;
+
 public class PaymentMethod_Layout extends AppCompatActivity {
+
+    EditText editText7, edtCard, edtCvv, edtDate;
+    Button materialButton;
 
     String[] credit_card = {"Agribank", "Vietcombank", "Sacombank"};
     AutoCompleteTextView autoCompleteTextView;
@@ -25,6 +32,11 @@ public class PaymentMethod_Layout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_method_layout);
 
+        editText7=findViewById(R.id.editText7);
+        edtCard=findViewById(R.id.edtCard);
+
+        materialButton=findViewById(R.id.materialButton);
+
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
         btnBackPayment = findViewById(R.id.btnBackPayment);
 
@@ -36,6 +48,28 @@ public class PaymentMethod_Layout extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PaymentMethod_Layout.this, Checkout_Layout.class));
+                finish();
+            }
+        });
+
+        materialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nextActivity();
+            }
+
+            private void nextActivity() {
+                String strCard = edtCard.getText().toString().trim();
+
+                AppUtils appUtils= new AppUtils(strCard);
+
+                Intent intent=new Intent(PaymentMethod_Layout.this,Checkout_Layout.class);
+
+                Bundle bundle= new Bundle();
+                bundle.putSerializable("object_card", appUtils);
+
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 

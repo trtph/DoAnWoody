@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.woodygroupapplication">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,16 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
-            android:name=".FragmentChangePassword"
-            android:exported="true" />
+            android:name=".ProductList"
+            android:exported="false" />
         <activity
-            android:name=".MyProfileFragment"
-            android:exported="true" />
+            android:name=".DiscountEvent"
+            android:exported="false" />
         <activity
-            android:name=".ChangePasswordActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ReviewActivity"
+            android:name=".Review"
             android:exported="false" />
         <activity
             android:name=".Checkout_Layout"
@@ -35,9 +30,14 @@
         <activity
             android:name=".NewFeatureActivity"
             android:exported="false" />
-        <activity android:name=".HelloPageActivity" />
+        <activity
+            android:name=".Introduction"
+            android:exported="false" />
         <activity
             android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreatePasswordActivity"
             android:exported="false" />
         <activity
             android:name=".VerificationActivity"
@@ -49,10 +49,16 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailActivity"
+            android:name=".ProductDetail"
             android:exported="false" />
         <activity
-            android:name=".NotiActivity"
+            android:name=".Notification"
+            android:exported="false" />
+        <activity
+            android:name=".ListAllRooms"
+            android:exported="false" />
+        <activity
+            android:name=".ListAllCategory"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -63,12 +69,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MyVouchers"
-            android:exported="false" />
-        <activity
-            android:name=".AccountSettingFragment"
-            android:exported="false" />
     </application>
 
 </manifest>
