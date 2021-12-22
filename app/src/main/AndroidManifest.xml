@@ -37,7 +37,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".CreatePasswordActivity"
+            android:name=".OrderSuccessActivity"
             android:exported="false" />
         <activity
             android:name=".VerificationActivity"

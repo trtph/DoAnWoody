@@ -264,10 +264,12 @@
                 android:layout_marginRight="40dp"/>
 
             <com.google.android.material.button.MaterialButton
-                android:layout_width="300dp"
+                android:id="@+id/btnSubmitOrder"
+                android:layout_width="350dp"
                 android:layout_height="70dp"
                 android:backgroundTint="@color/black"
-                app:cornerRadius="10dp"
+                app:cornerRadius="5dp"
+                android:elevation="10dp"
                 android:text="Submit Order"
                 android:fontFamily="@font/nunitosans_regular"
                 android:textSize="20sp"

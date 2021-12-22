@@ -1,11 +1,13 @@
 package com.example.woodygroupapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +17,7 @@ import com.example.Adapter.FavouriteAdapter;
 import com.example.model.FavouriteProduct;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,9 +27,13 @@ import java.util.ArrayList;
 
 
 public class FavoriteFragment extends Fragment {
-    RecyclerView rcvFavouriteProduct;
+    static RecyclerView rcvFavouriteProduct;
     FavouriteAdapter adapter;
     ArrayList<FavouriteProduct> favouriteProducts;
+
+    static ConstraintLayout constraintEmptyWish;
+
+    MaterialButton btnDiscoverWish;
 
     FirebaseFirestore db;
     FirebaseAuth auth;
@@ -37,8 +44,8 @@ public class FavoriteFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
         rcvFavouriteProduct = view.findViewById(R.id.rcvFavouriteProduct);
-
-
+        constraintEmptyWish = view.findViewById(R.id.constraintEmptyWish);
+        btnDiscoverWish = view.findViewById(R.id.btnDiscoverWish);
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -68,10 +75,30 @@ public class FavoriteFragment extends Fragment {
                         adapter.notifyDataSetChanged();
                     }
                 }
+                //Switch constraintLayout
+                SwitchLayoutWish(favouriteProducts);
 
+            }
+        });
+        //Open View List (Search Activity)
+        btnDiscoverWish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ProductList.class);
+                startActivity(intent);
             }
         });
 
         return view;
+    }
+
+    public static void SwitchLayoutWish(ArrayList<FavouriteProduct> favouriteProducts) {
+        if (favouriteProducts.isEmpty()){
+            constraintEmptyWish.setVisibility(View.VISIBLE);
+            rcvFavouriteProduct.setVisibility(View.GONE);
+        }else if (!favouriteProducts.isEmpty()){
+            constraintEmptyWish.setVisibility(View.GONE);
+            rcvFavouriteProduct.setVisibility(View.VISIBLE);
+        }
     }
 }

@@ -143,6 +143,8 @@ public class ProductDetail extends AppCompatActivity {
         cartMap.put("prThumb", p.getPrImage());
         cartMap.put("prName", txtName.getText().toString());
         cartMap.put("prPrice", txtPrice.getText().toString());
+        cartMap.put("totalQuantity", txtQuantity.getText().toString());
+        cartMap.put("totalPrice", totalPrice);
 
         firestore.collection("AddToWishlist").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override

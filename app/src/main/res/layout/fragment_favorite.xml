@@ -19,14 +19,58 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_gravity="center"/>
-    <ImageView
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/ic_search"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintEmptyWish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavorite"
+        tools:layout_editor_absoluteX="15dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="230dp"
+            android:layout_marginBottom="90dp"
+            android:src="@drawable/emptywishlist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/mavenpro_bold"
+            android:text="Your wishlist is empty"
+            android:textColor="#A4050F"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDiscoverWish"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#E5E5E5"
+            android:fontFamily="@font/mavenpro_bold"
+            android:text="Discover our products"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            app:cornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/rcvFavouriteProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
