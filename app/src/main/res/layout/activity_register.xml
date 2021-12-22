@@ -29,12 +29,12 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRegister">
+        app:layout_constraintTop_toBottomOf="@+id/imvLogoWoody">
         <EditText
-            android:id="@+id/edtName"
+            android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Name"
+            android:hint="Email"
             android:textSize="20sp"
 
             android:background="@drawable/custom_email_password"
@@ -49,7 +49,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edtLayoutPhone"
+        android:id="@+id/edtLayoutPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.498"
@@ -57,12 +57,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLayoutName">
         <EditText
-            android:id="@+id/edtPhone"
+            android:id="@+id/edtPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone number"
+            android:hint="Pass"
             android:textSize="20sp"
             android:password="true"
+            android:inputType="textPassword"
 
             android:background="@drawable/custom_email_password"
 
@@ -74,6 +75,37 @@
             tools:ignore="Deprecated" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtLayoutConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtLayoutPassword">
+        <EditText
+            android:id="@+id/edtConfirmPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ConFirm Pass"
+            android:textSize="20sp"
+            android:password="true"
+            android:inputType="textPassword"
+
+            android:background="@drawable/custom_email_password"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+
+            android:layout_margin="10dp"
+            android:paddingLeft="10dp"
+            tools:ignore="Deprecated" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnContinueRegister"
         android:layout_width="match_parent"
@@ -90,7 +122,7 @@
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtLayoutPhone"/>
+        app:layout_constraintTop_toBottomOf="@id/edtLayoutConfirmPassword"/>
     <TextView
         android:id="@+id/txtAlready"
         android:layout_width="350dp"
@@ -122,87 +154,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:padding="10dp"/>
-    <View
-        android:id="@+id/vLeft"
-        android:layout_width="150dp"
-        android:layout_height="0.5dp"
-        android:background="@color/black"
-         app:layout_constraintTop_toBottomOf="@id/txtAlready"
-        app:layout_constraintLeft_toLeftOf="parent"
 
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="20dp"/>
+    <ImageView
+        android:id="@+id/imvLogoWoody"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/woodylogo"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
 
-        android:text="OR"
-        android:textSize="25sp"
-        android:textStyle="italic"
-
-        app:layout_constraintRight_toRightOf="@id/vRight"
-        app:layout_constraintLeft_toLeftOf="@id/vLeft"
-        app:layout_constraintTop_toBottomOf="@+id/txtAlready"
-        android:layout_marginTop="40dp"/>
-
-    <View
-        android:id="@+id/vRight"
-        android:layout_width="150dp"
-        android:layout_height="0.5dp"
-        android:background="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/txtBackLogin"
+        app:layout_constraintTop_toBottomOf="@id/txtRegister"
         app:layout_constraintRight_toRightOf="parent"
-
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="20dp"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnGG"
-        android:layout_width="380dp"
-        android:layout_height="60dp"
-
-        android:text="Sign up with Google"
-        android:textColor="@color/black"
-        android:textSize="23sp"
-        android:textAllCaps="false"
-        android:drawableStart="@drawable/logo_gg1"
-        android:paddingStart="10dp"
-
-        android:backgroundTint="@color/white"
-        app:cornerRadius="60dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp"
-
-        app:layout_constraintTop_toBottomOf="@id/vLeft"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-
-        android:layout_margin="80dp"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnFB"
-        android:layout_width="380dp"
-        android:layout_height="60dp"
-
-        android:text="Sign up with Facebook"
-        android:textColor="@color/black"
-        android:textSize="23sp"
-        android:textAllCaps="false"
-        android:drawableStart="@drawable/logo_fb1"
-        android:paddingStart="10dp"
-
-        android:backgroundTint="@color/white"
-        app:cornerRadius="60dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp"
-
-        app:layout_constraintTop_toBottomOf="@id/btnGG"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-
-        android:layout_margin="10dp"/>
-
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

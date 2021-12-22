@@ -1,7 +1,7 @@
 package com.example.MyInterfaces;
 
-import com.example.model.ProductCollection;
+import com.example.model.ProductModel;
 
 public interface IClickItemCollection {
-    void onClickItemCollection(ProductCollection p);
+    void onClickItemCollection(ProductModel p);
 }

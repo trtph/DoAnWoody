@@ -37,6 +37,7 @@ public class ShoppingCartFragment extends Fragment {
 
     static ConstraintLayout constraintCart, constraintEmpty;
     RecyclerView rcvProduct;
+    ImageView imvAddProduct;
     ShoppingBagAdapter adapter;
     ArrayList<productshopModel> productshopModels;
     static TextView txtToTal;
@@ -55,11 +56,9 @@ public class ShoppingCartFragment extends Fragment {
         txtToTal = view.findViewById(R.id.txtTotal);
         imvAddNumber = view.findViewById(R.id.imvAddNumber);
         imvDecreseNumber = view.findViewById(R.id.imvAddNumber);
+        imvAddProduct = view.findViewById(R.id.imvAddProduct);
         constraintCart = view.findViewById(R.id.constraintCart);
         constraintEmpty = view.findViewById(R.id.constraintEmpty);
-
-
-
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -75,6 +74,15 @@ public class ShoppingCartFragment extends Fragment {
         productshopModels = new ArrayList<>();
         adapter = new ShoppingBagAdapter(getContext(),productshopModels);
         rcvProduct.setAdapter(adapter);
+
+        //Open View List (Search Activity)
+        imvAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ProductList.class);
+                startActivity(intent);
+            }
+        });
 
         //Insert data
         db.collection("AddToCart").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
