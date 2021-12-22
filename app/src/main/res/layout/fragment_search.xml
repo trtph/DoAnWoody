@@ -5,47 +5,45 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SearchFragment"
-    android:padding="15dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:textSize="21sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_gravity="center"/>
+    android:padding="10dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_search_24"/>
+            android:text="Search"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:fontFamily="@font/mavenpro_bold"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginStart="25dp"
+            android:layout_gravity="center"/>
 
-        <EditText
-            android:layout_marginTop="10dp"
-            android:id="@+id/edtSearch"
-            android:layout_width="362dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_search_home"
-            android:hint="What are you looking for ?"
-            android:inputType="text"
-            android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/imvSearch"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_search_black"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Browse by category"
+            android:fontFamily="@font/mavenpro_bold"
             android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/txtView1"
@@ -54,24 +52,27 @@
             android:layout_marginLeft="100dp"
             android:text="View all"
             android:gravity="right"
+            android:fontFamily="@font/mavenpro_semibold"
             android:textColor="#979393"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvCategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="10dp"/>
 
     <LinearLayout
-        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Browse by rooms"
             android:textColor="@color/black"
+            android:fontFamily="@font/mavenpro_bold"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -81,9 +82,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
             android:text="View all"
+            android:fontFamily="@font/mavenpro_semibold"
             android:gravity="right"
             android:textColor="#979393"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 
@@ -92,15 +94,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/rcvRooms"/>
 
-
     <TextView
-        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recently viewed"
         android:textColor="@color/black"
+        android:fontFamily="@font/mavenpro_bold"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

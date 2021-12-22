@@ -2,8 +2,6 @@ package com.example.Adapter;
 
 import android.content.Context;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.MyInterfaces.IClickItemCollection;
-import com.example.model.ProductCollection;
+import com.example.model.ProductModel;
 
-import com.example.woodygroupapplication.DetailActivity;
 import com.example.woodygroupapplication.R;
 
 import java.util.ArrayList;
@@ -28,14 +25,15 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
 
     Context context;
     int item_product_collection;
-    ArrayList<ProductCollection> productCollections;
+    ArrayList<ProductModel> product;
 
-//    IClickItemCollection iClickItemCollection;
+    IClickItemCollection iClickItemCollection;
 
-    public ProductCollectionAdapter(Context context, int item_product_collection, ArrayList<ProductCollection> productCollections) {
+    public ProductCollectionAdapter(Context context, int item_product_collection, ArrayList<ProductModel> product, IClickItemCollection iClickItemCollection) {
         this.context = context;
         this.item_product_collection = item_product_collection;
-        this.productCollections = productCollections;
+        this.product = product;
+        this.iClickItemCollection = iClickItemCollection;
     }
 
     @NonNull
@@ -48,7 +46,7 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ProductCollection p= productCollections.get(position);
+        ProductModel p = product.get(position);
 
         Glide.with(context).load(p.getPrImage()).into(holder.imvThumb);
 
@@ -60,24 +58,15 @@ public class ProductCollectionAdapter extends RecyclerView.Adapter<ProductCollec
         holder.layout_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               onClickToDetail(p);
+                iClickItemCollection.onClickItemCollection(p);
             }
         });
     }
-    private void onClickToDetail(ProductCollection p){
-        Intent intent = new Intent(context, DetailActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("object", p);
-        intent.putExtras(bundle);
-        context.startActivity(intent);
-    }
-    public void release(){
-        context = null;
-    }
+
 
     @Override
     public int getItemCount() {
-        return productCollections.size();
+        return product.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
