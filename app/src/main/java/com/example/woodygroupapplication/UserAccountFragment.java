@@ -1,6 +1,5 @@
 package com.example.woodygroupapplication;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -26,7 +24,7 @@ public class UserAccountFragment extends Fragment {
     Button btnLogin;
     TextView txtUserName;
     ImageView imgAvatar;
-    LinearLayout linearMyPurchase,linearRecentlyView,linearWishList,linearMyVoucher,linearAccountSetting,linearChatWithWoody;
+    LinearLayout linearMyPurchase, linearRecentlyView, linearWishList, linearMyVoucher, linearAccountSetting, linearChatWithWoody;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +34,6 @@ public class UserAccountFragment extends Fragment {
 
         //linkViews
         btnLogin = view.findViewById(R.id.btnLogin);
-
         linearMyPurchase = view.findViewById(R.id.linearMypurchase);
         linearRecentlyView = view.findViewById(R.id.linearRecentlyView);
         linearWishList = view.findViewById(R.id.linearWishList);
@@ -62,21 +59,20 @@ public class UserAccountFragment extends Fragment {
             }
         });
 
-        //Open Account Setting tab
-        linearAccountSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    Intent intent = new Intent(getContext() ,AccountSetting.class);
-                    startActivity(intent);
-                }catch (Exception ex)
-                {
-                    Toast.makeText(getActivity(), ex.toString(), Toast.LENGTH_LONG).show();
-
-                }
-
-            }
-        });
+//        //Open Account Setting tab
+//        linearAccountSetting.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                try {
+//                    Intent intent = new Intent(getContext(), AccountSettingFragment.class);
+//                    startActivity(intent);
+//                } catch (Exception ex) {
+//                    Toast.makeText(getActivity(), ex.toString(), Toast.LENGTH_LONG).show();
+//
+//                }
+//
+//            }
+//        });
 
 
         //Open Chat With Woody tab
@@ -103,20 +99,23 @@ public class UserAccountFragment extends Fragment {
                         fragment = new RecentlyViewFragment();
                     } else if (view.getId() == R.id.linearWishList) {
                         fragment = new FavoriteFragment();
+                    } else if (view.getId() == R.id.linearAccountSetting) {
+                        fragment = new AccountSettingFragment();
 
                     }
-                    if (fragment != null){
+                    if (fragment != null) {
                         fragmentTransaction.replace(R.id.frame_content, fragment);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                     }
-                }catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Toast.makeText(getActivity(), ex.toString(), Toast.LENGTH_SHORT).show();
                 }
 
 
-            };
+            }
+
+            ;
         };
 
         //Open My Purchase tab
@@ -128,23 +127,33 @@ public class UserAccountFragment extends Fragment {
         //Open Wish List tab
         linearWishList.setOnClickListener(myClick);
 
-        showUserInformation();
+        //Open Account Setting tab
+        linearAccountSetting.setOnClickListener(myClick);
 
+        showUserInformation();
         return view;
     }
 
     private void showUserInformation() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user ==null){
+        if (user == null) {
             return;
         }
         String name = user.getDisplayName();
         String email = user.getEmail();
         Uri photoUrl = user.getPhotoUrl();
 
+        if (name == null){
+            txtUserName.setVisibility(View.GONE);
+        }else {
+            txtUserName.setVisibility(View.VISIBLE);
+            txtUserName.setText(name);
+        }
+//        imgAvatar.setImageBitmap(photoUrl);
+//        Glide.with(this).load(user.getPhotoUrl()).error(R.drawable.account).into(imgAvatar);
+//        imgAvatar.get(photoUrl);
 
-        txtUserName.setText(email);
-        Glide.with(this).load(photoUrl).error(R.drawable.account);
     }
+
 
 }

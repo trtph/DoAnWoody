@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.woodygroupapplication" >
+    package="com.example.woodygroupapplication">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -8,13 +10,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WoodyGroupApplication" >
+        android:theme="@style/Theme.WoodyGroupApplication">
+        <activity
+            android:name=".FragmentChangePassword"
+            android:exported="true" />
+        <activity
+            android:name=".MyProfileFragment"
+            android:exported="true" />
         <activity
             android:name=".ChangePasswordActivity"
             android:exported="true" />
-        <activity
-            android:name=".ReviewActivity"
-            android:exported="false" />
         <activity
             android:name=".ReviewActivity"
             android:exported="false" />
@@ -30,15 +35,7 @@
         <activity
             android:name=".NewFeatureActivity"
             android:exported="false" />
-        <activity
-            android:name=".HelloPageActivity"
-<<<<<<< HEAD
-=======
-            android:exported="false"/>
-        <activity
-            android:name=".RegisterActivity"
->>>>>>> master
-            android:exported="false" />
+        <activity android:name=".HelloPageActivity" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
@@ -59,7 +56,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -70,7 +67,7 @@
             android:name=".MyVouchers"
             android:exported="false" />
         <activity
-            android:name=".AccountSetting"
+            android:name=".AccountSettingFragment"
             android:exported="false" />
     </application>
 

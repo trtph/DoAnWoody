@@ -1,16 +1,15 @@
 package com.example.woodygroupapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,8 +49,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void addEvent() {
-
-
         txtBackLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,28 +71,28 @@ public class RegisterActivity extends AppCompatActivity {
         //CheckEmailAndPassword
         if (strPass.equals(strConfirmPass) )
         {//Successful
-            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+            //Register
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            progressDialog.show();
+            mAuth.signInWithEmailAndPassword(strEmail,strPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    progressDialog.dismiss();
+                    if(task.isSuccessful()){
+                        Toast.makeText(getApplicationContext(), "Register success!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                        startActivity(intent);
+                        finishAffinity();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Register failed! ", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }else {
             Toast.makeText(RegisterActivity.this, "The password is not the same", Toast.LENGTH_SHORT).show();
         }
 
-        //Register
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        progressDialog.show();
-        mAuth.signInWithEmailAndPassword(strEmail,strPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                progressDialog.dismiss();
-                if(task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Register success!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                    startActivity(intent);
-                    finishAffinity();
-                }else{
-                    Toast.makeText(getApplicationContext(), "Register failed! ", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+
 
     }
 

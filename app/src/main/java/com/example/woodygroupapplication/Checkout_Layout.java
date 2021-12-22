@@ -36,10 +36,7 @@ public class Checkout_Layout extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Checkout_Layout.this, MainActivity.class));
-<<<<<<< HEAD
-=======
 //                getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new ShoppingCartFragment()).commit();
->>>>>>> master
             }
         });
 

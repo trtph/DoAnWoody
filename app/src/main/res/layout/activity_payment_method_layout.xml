@@ -84,15 +84,10 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:paddingLeft="20dp"
-<<<<<<< HEAD
-        android:paddingRight="20dp"
-        app:boxStrokeColor="@color/purple_700"
-=======
         app:hintTextColor="@color/black"
         android:paddingRight="20dp"
         app:endIconTint="@color/black"
         app:boxStrokeColor="#D38C0E"
->>>>>>> master
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -264,4 +259,4 @@
     </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

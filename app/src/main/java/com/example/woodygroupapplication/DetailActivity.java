@@ -3,10 +3,7 @@ package com.example.woodygroupapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-<<<<<<< HEAD
-=======
 import android.widget.Button;
->>>>>>> master
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -29,12 +26,7 @@ import java.util.HashMap;
 
 public class DetailActivity extends AppCompatActivity {
     ImageView imvThumb, add_quantity, remove_quantity;
-<<<<<<< HEAD
     TextView txtName, txtPrice, txtRvNumber, txtDes, txtQuantity;
-    RatingBar ratingBar;
-    int totalQuantity = 1;
-=======
-    TextView txtName, txtPrice, txtRvNumber, txtDes, txtQuantity, txtIntro;
     RatingBar ratingBar;
     Button btnAddToCart;
 
@@ -46,7 +38,6 @@ public class DetailActivity extends AppCompatActivity {
     FirebaseAuth auth;
 
     ProductCollection productCollection = null;
->>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,11 +64,8 @@ public class DetailActivity extends AppCompatActivity {
         txtRvNumber.setText("(" + p.getPrRvNumber()+" reviews)");
         txtDes.setText(p.getPrDescription());
         ratingBar.setRating(p.getPrRating());
-<<<<<<< HEAD
-=======
         totalPrice = (int) (p.getPrPrice() * totalQuantity);
 
->>>>>>> master
 
         add_quantity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,10 +73,7 @@ public class DetailActivity extends AppCompatActivity {
                 if (totalQuantity < 9){
                     totalQuantity++;
                     txtQuantity.setText(String.valueOf(totalQuantity));
-<<<<<<< HEAD
-=======
                     totalPrice = (int) (p.getPrPrice() * totalQuantity);
->>>>>>> master
                 }
             }
         });
@@ -98,10 +83,7 @@ public class DetailActivity extends AppCompatActivity {
                 if (totalQuantity >= 2){
                     totalQuantity--;
                     txtQuantity.setText(String.valueOf(totalQuantity));
-<<<<<<< HEAD
-=======
                     totalPrice = (int) (p.getPrPrice() * totalQuantity);
->>>>>>> master
                 }
             }
         });
@@ -116,8 +98,6 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-<<<<<<< HEAD
-=======
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,7 +134,6 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
->>>>>>> master
     }
 
     private void linkViews() {
@@ -164,18 +143,11 @@ public class DetailActivity extends AppCompatActivity {
         txtRvNumber = findViewById(R.id.txtRvNumber);
         txtDes = findViewById(R.id.txtDescription);
         ratingBar = findViewById(R.id.ratingBar);
-<<<<<<< HEAD
-=======
-        txtIntro = findViewById(R.id.txtIntro);
->>>>>>> master
 
         add_quantity = findViewById(R.id.add_quantity);
         remove_quantity = findViewById(R.id.remove_quantity);
         txtQuantity = findViewById(R.id.txtQuantity);
-<<<<<<< HEAD
-=======
         btnAddToCart = findViewById(R.id.btnAddToCart);
->>>>>>> master
 
     }
 }
