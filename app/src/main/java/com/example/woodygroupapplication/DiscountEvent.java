@@ -74,12 +74,6 @@ public class DiscountEvent extends AppCompatActivity {
     }
 
     private void addEvents() {
-//        imvShopCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //Open Shoping Cart
-//            }
-//        });
 
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
