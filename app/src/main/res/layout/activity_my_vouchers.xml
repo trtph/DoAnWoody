@@ -6,25 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MyVouchers"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:background="#F8F8F8">
+    android:background="@color/background_color">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="60dp"
+        android:gravity="center">
         <ImageView
             android:id="@+id/imvBackVoucher"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="20dp"
             android:src="@drawable/ic_back"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:text="My Vouchers"
-            android:textSize="25sp"
+            android:textSize="20sp"
+            android:fontFamily="@font/mavenpro_bold"
             android:textColor="@color/black"
             android:gravity="center"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginRight="60dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -40,6 +43,7 @@
             android:textColor="@color/black"
             android:text="Turn on notifications to get vouchers"
             android:textAllCaps="false"
+            android:fontFamily="@font/gelasio_regular"
             android:layout_marginLeft="25dp"
             android:textSize="20dp"
             />
