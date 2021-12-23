@@ -17,6 +17,7 @@ import com.example.model.ProductModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -146,14 +147,25 @@ public class ProductDetail extends AppCompatActivity {
         cartMap.put("totalQuantity", txtQuantity.getText().toString());
         cartMap.put("totalPrice", totalPrice);
 
-        firestore.collection("AddToWishlist").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentReference> task) {
-                Toast.makeText(ProductDetail.this, "Added " + txtName.getText().toString() + " To Your Wishlist", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
-    }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+            firestore.collection("AddToWishlist").document(auth.getCurrentUser().getUid())
+                    .collection("CurrentUser").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentReference> task) {
+                    Toast.makeText(ProductDetail.this, "Added " + txtName.getText().toString() + " To Your Wishlist", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
+        }
+            firestore.collection("AddToWishlist").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentReference> task) {
+                    Toast.makeText(ProductDetail.this, "Added " + txtName.getText().toString() + " To Your Wishlist", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
+        }
 
     private void AddedToCart() {
 
@@ -165,13 +177,27 @@ public class ProductDetail extends AppCompatActivity {
         cartMap.put("totalQuantity", txtQuantity.getText().toString());
         cartMap.put("totalPrice", totalPrice);
 
-        firestore.collection("AddToCart").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentReference> task) {
-                Toast.makeText(ProductDetail.this, "Added " + txtQuantity.getText().toString() + " " + txtName.getText().toString() + " To Your Cart", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+            firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
+                    .collection("CurrentUser").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentReference> task) {
+                    Toast.makeText(ProductDetail.this, "Added " + txtQuantity.getText().toString() + " " + txtName.getText().toString() + " To Your Cart", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
+        }else {
+            firestore.collection("AddToCart").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentReference> task) {
+                    Toast.makeText(ProductDetail.this, "Added " + txtQuantity.getText().toString() + " " + txtName.getText().toString() + " To Your Cart", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
+        }
+
+
 
     }
 

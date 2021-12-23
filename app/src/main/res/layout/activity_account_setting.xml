@@ -26,7 +26,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:fontFamily="@font/gelasio_semibold"
+            android:fontFamily="@font/mavenpro_bold"
 
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:fontFamily="@font/gelasio_regular"
+                android:fontFamily="@font/nunitosans_semibold"
 
                 app:layout_constraintTop_toBottomOf="@+id/imvAvatar"
                 android:imeOptions="actionNext"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:fontFamily="@font/gelasio_regular"
+                android:fontFamily="@font/nunitosans_semibold"
 
                 android:imeOptions="actionNext"
                 android:text="Email"
@@ -84,7 +84,7 @@
 
             android:text="Save"
             android:textSize="20sp"
-            android:fontFamily="@font/gelasio_semibold"
+            android:fontFamily="@font/mavenpro_regular"
             android:textAllCaps="false"
             android:backgroundTint="@color/black"
 

@@ -39,16 +39,16 @@
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/imvAvatar"
+                android:layout_marginLeft="10dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/ic_account_default"
                 android:scaleType="centerCrop"
-                app:riv_corner_radius="30dp"
+                android:src="@drawable/ic_account_default"
+                app:layout_constraintBottom_toBottomOf="@+id/linear"
 
-                app:layout_constraintTop_toTopOf="@+id/linear"
                 app:layout_constraintLeft_toLeftOf="@+id/linear"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="35dp"/>
+                app:layout_constraintTop_toTopOf="@+id/linear"
+                app:riv_corner_radius="30dp" />
 
             <TextView
                 android:id="@+id/txtName"
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="woody@gmail.com"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:fontFamily="@font/nunitosans_italic"
                 app:layout_constraintLeft_toRightOf="@+id/imvAvatar"
                 app:layout_constraintTop_toBottomOf="@+id/txtName"
@@ -95,7 +95,7 @@
                 android:id="@+id/btnLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log Out"
+                android:text="Log out"
                 android:fontFamily="@font/inter_regular"
                 android:textSize="16sp"
                 android:textAllCaps="false"

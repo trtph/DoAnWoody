@@ -31,18 +31,11 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:fontFamily="@font/mavenpro_bold"
-            android:text="Black Friday Sale Up 20%"
+            android:text="Black Friday Sale Up To 20%"
             android:textColor="@color/black"
             android:gravity="center"
             android:textSize="20sp"/>
 
-        <ImageView
-            android:id="@+id/imvShopCart"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_shopping_cart_black"
-            android:layout_marginEnd="10dp"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

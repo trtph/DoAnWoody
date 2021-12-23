@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -15,10 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.FavouriteAdapter;
 import com.example.model.FavouriteProduct;
+import com.github.ybq.android.spinkit.style.CubeGrid;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -34,6 +37,7 @@ public class FavoriteFragment extends Fragment {
     static ConstraintLayout constraintEmptyWish;
 
     MaterialButton btnDiscoverWish;
+    static ProgressBar progressbar;
 
     FirebaseFirestore db;
     FirebaseAuth auth;
@@ -46,6 +50,10 @@ public class FavoriteFragment extends Fragment {
         rcvFavouriteProduct = view.findViewById(R.id.rcvFavouriteProduct);
         constraintEmptyWish = view.findViewById(R.id.constraintEmptyWish);
         btnDiscoverWish = view.findViewById(R.id.btnDiscoverWish);
+        progressbar = view.findViewById(R.id.progressbarWishlist);
+        progressbar.setIndeterminateDrawable(new CubeGrid());
+        //Load Data
+        progressbar.setVisibility(View.VISIBLE);
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -63,23 +71,48 @@ public class FavoriteFragment extends Fragment {
         rcvFavouriteProduct.setAdapter(adapter);
 
         //Insert data
-        db.collection("AddToWishlist").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()){
-                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
-                        String documentID = documentSnapshot.getId();
-                        FavouriteProduct cartModel1 = documentSnapshot.toObject(FavouriteProduct.class);
-                        cartModel1.setDocumentID(documentID);
-                        favouriteProducts.add(cartModel1);
-                        adapter.notifyDataSetChanged();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+            db.collection("AddToWishlist").document(auth.getCurrentUser().getUid())
+                    .collection("CurrentUser").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()){
+                        for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+                            String documentID = documentSnapshot.getId();
+                            FavouriteProduct cartModel1 = documentSnapshot.toObject(FavouriteProduct.class);
+                            cartModel1.setDocumentID(documentID);
+                            favouriteProducts.add(cartModel1);
+                            adapter.notifyDataSetChanged();
+                            progressbar.setVisibility(View.GONE);
+                        }
                     }
-                }
-                //Switch constraintLayout
-                SwitchLayoutWish(favouriteProducts);
+                    //Switch constraintLayout
+                    SwitchLayoutWish(favouriteProducts);
 
-            }
-        });
+                }
+            });
+        }else {
+            db.collection("AddToWishlist").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()){
+                        for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+                            String documentID = documentSnapshot.getId();
+                            FavouriteProduct cartModel1 = documentSnapshot.toObject(FavouriteProduct.class);
+                            cartModel1.setDocumentID(documentID);
+                            favouriteProducts.add(cartModel1);
+                            adapter.notifyDataSetChanged();
+                            progressbar.setVisibility(View.GONE);
+                        }
+                    }
+                    //Switch constraintLayout
+                    SwitchLayoutWish(favouriteProducts);
+
+                }
+            });
+        }
+
         //Open View List (Search Activity)
         btnDiscoverWish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +129,7 @@ public class FavoriteFragment extends Fragment {
         if (favouriteProducts.isEmpty()){
             constraintEmptyWish.setVisibility(View.VISIBLE);
             rcvFavouriteProduct.setVisibility(View.GONE);
+            progressbar.setVisibility(View.GONE);
         }else if (!favouriteProducts.isEmpty()){
             constraintEmptyWish.setVisibility(View.GONE);
             rcvFavouriteProduct.setVisibility(View.VISIBLE);

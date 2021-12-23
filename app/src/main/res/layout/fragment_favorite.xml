@@ -20,6 +20,18 @@
         android:textStyle="bold"
         android:layout_gravity="center"/>
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/progressbarWishlist"
+        style="@style/SpinKitView.CubeGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:SpinKit_Color="#D3E4980E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintEmptyWish"
         android:layout_width="match_parent"

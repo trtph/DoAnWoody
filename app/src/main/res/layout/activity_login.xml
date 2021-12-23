@@ -26,7 +26,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:fontFamily="@font/gelasio_semibold"
+            android:fontFamily="@font/mavenpro_bold"
 
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:fontFamily="@font/gelasio_regular"
+                android:fontFamily="@font/nunitosans_semibold"
 
                 android:inputType="textEmailAddress"
                 android:imeOptions="actionNext"
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:fontFamily="@font/gelasio_regular"
+                android:fontFamily="@font/nunitosans_semibold"
 
                 android:inputType="textPassword"
                 android:imeOptions="actionDone"
@@ -113,7 +113,7 @@
 
             android:text="Sign In"
             android:textSize="20sp"
-            android:fontFamily="@font/gelasio_semibold"
+            android:fontFamily="@font/mavenpro_regular"
             android:textAllCaps="false"
             android:backgroundTint="@color/black"
 
@@ -129,7 +129,7 @@
             android:text="Sign Up"
 
             android:textSize="22sp"
-            android:fontFamily="@font/gelasio_bold"
+            android:fontFamily="@font/mavenpro_semibold"
             android:textColor="@color/black"
             android:gravity="center"
 

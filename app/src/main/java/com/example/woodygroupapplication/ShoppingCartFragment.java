@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,10 +20,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.ShoppingBagAdapter;
 import com.example.model.productshopModel;
+import com.github.ybq.android.spinkit.style.CubeGrid;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -45,6 +48,8 @@ public class ShoppingCartFragment extends Fragment {
     MaterialButton btnCheckout, btnDiscoverCart;
     ImageView imvAddNumber, imvDecreseNumber;
 
+    static ProgressBar progressbar;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,6 +65,11 @@ public class ShoppingCartFragment extends Fragment {
         constraintCart = view.findViewById(R.id.constraintCart);
         constraintEmpty = view.findViewById(R.id.constraintEmpty);
         btnDiscoverCart = view.findViewById(R.id.btnDiscoverCart);
+        progressbar = view.findViewById(R.id.progressbarCart);
+
+        progressbar.setIndeterminateDrawable(new CubeGrid());
+        //Load Data
+        progressbar.setVisibility(View.VISIBLE);
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -93,28 +103,58 @@ public class ShoppingCartFragment extends Fragment {
         });
 
         //Insert data
-        db.collection("AddToCart").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()){
-                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+            db.collection("AddToCart").document(auth.getCurrentUser().getUid())
+                    .collection("CurrentUser").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()){
+                        for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
 
-                        String documentID = documentSnapshot.getId();
+                            String documentID = documentSnapshot.getId();
 
-                        productshopModel cartModel = documentSnapshot.toObject(productshopModel.class);
+                            productshopModel cartModel = documentSnapshot.toObject(productshopModel.class);
 
-                        cartModel.setDocumentID(documentID);
+                            cartModel.setDocumentID(documentID);
 
-                        productshopModels.add(cartModel);
-                        adapter.notifyDataSetChanged();
+                            productshopModels.add(cartModel);
+                            adapter.notifyDataSetChanged();
+                            progressbar.setVisibility(View.GONE);
+                        }
                     }
-                }
-                //Switch constraintLayout
-                SwitchLayout(productshopModels);
+                    //Switch constraintLayout
+                    SwitchLayout(productshopModels);
 
-                caculateTotalAmount(productshopModels);
-            }
-        });
+                    caculateTotalAmount(productshopModels);
+                }
+            });
+        }else {
+            db.collection("AddToCart").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()){
+                        for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+
+                            String documentID = documentSnapshot.getId();
+
+                            productshopModel cartModel = documentSnapshot.toObject(productshopModel.class);
+
+                            cartModel.setDocumentID(documentID);
+
+                            productshopModels.add(cartModel);
+                            adapter.notifyDataSetChanged();
+                            progressbar.setVisibility(View.GONE);
+                        }
+                    }
+                    //Switch constraintLayout
+                    SwitchLayout(productshopModels);
+
+                    caculateTotalAmount(productshopModels);
+                }
+            });
+        }
+
 
         //Open Checkout Activity
         btnCheckout.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +170,7 @@ public class ShoppingCartFragment extends Fragment {
         if (productshopModels.isEmpty()){
             constraintEmpty.setVisibility(View.VISIBLE);
             constraintCart.setVisibility(View.GONE);
+            progressbar.setVisibility(View.GONE);
         }else if (!productshopModels.isEmpty()){
             constraintEmpty.setVisibility(View.GONE);
             constraintCart.setVisibility(View.VISIBLE);

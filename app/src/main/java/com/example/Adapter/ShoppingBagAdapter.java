@@ -23,6 +23,7 @@ import com.example.woodygroupapplication.ShoppingCartFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -72,22 +73,44 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
         holder.layoutDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firestore.collection("AddToCart").document(b.getDocumentID())
-                        .delete()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    productshopModels.remove(b);
-                                    notifyDataSetChanged();
-                                    ShoppingCartFragment.caculateTotalAmount(productshopModels);
-                                    Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
-                                }else {
-                                    Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user != null){
+                    firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
+                            .collection("CurrentUser").document(b.getDocumentID())
+                            .delete()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        productshopModels.remove(b);
+                                        notifyDataSetChanged();
+                                        ShoppingCartFragment.caculateTotalAmount(productshopModels);
+                                        Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
+                                    }else {
+                                        Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                    ShoppingCartFragment.SwitchLayout(productshopModels);
                                 }
-                                ShoppingCartFragment.SwitchLayout(productshopModels);
-                            }
-                        });
+                            });
+                }else {
+                    firestore.collection("AddToCart").document(b.getDocumentID())
+                            .delete()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        productshopModels.remove(b);
+                                        notifyDataSetChanged();
+                                        ShoppingCartFragment.caculateTotalAmount(productshopModels);
+                                        Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
+                                    }else {
+                                        Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                    ShoppingCartFragment.SwitchLayout(productshopModels);
+                                }
+                            });
+                }
+
             }
         });
         holder.imvAddNumber.setOnClickListener(new View.OnClickListener() {
@@ -123,22 +146,44 @@ public class ShoppingBagAdapter extends RecyclerView.Adapter<ShoppingBagAdapter.
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    firestore.collection("AddToCart").document(b.getDocumentID())
-                            .delete()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
-                                        productshopModels.remove(b);
-                                        notifyDataSetChanged();
-                                        ShoppingCartFragment.caculateTotalAmount(productshopModels);
-                                        Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
-                                    }else {
-                                        Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if(user != null){
+                        firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
+                                .collection("CurrentUser").document(b.getDocumentID())
+                                .delete()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            productshopModels.remove(b);
+                                            notifyDataSetChanged();
+                                            ShoppingCartFragment.caculateTotalAmount(productshopModels);
+                                            Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
+                                        }else {
+                                            Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        ShoppingCartFragment.SwitchLayout(productshopModels);
                                     }
-                                    ShoppingCartFragment.SwitchLayout(productshopModels);
-                                }
-                            });
+                                });
+                    }else {
+                        firestore.collection("AddToCart").document(b.getDocumentID())
+                                .delete()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            productshopModels.remove(b);
+                                            notifyDataSetChanged();
+                                            ShoppingCartFragment.caculateTotalAmount(productshopModels);
+                                            Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
+                                        }else {
+                                            Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        ShoppingCartFragment.SwitchLayout(productshopModels);
+                                    }
+                                });
+                    }
+
                 }
             });
             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

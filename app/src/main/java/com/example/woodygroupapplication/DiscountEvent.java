@@ -1,16 +1,16 @@
 package com.example.woodygroupapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Adapter.SaleProductAdapter;
 import com.example.MyInterfaces.IClickItemCollection;
@@ -70,7 +70,6 @@ public class DiscountEvent extends AppCompatActivity {
 
     private void linkViews() {
         rcvBlackFriday = findViewById(R.id.rcvBlackFriday);
-        imvShopCart = findViewById(R.id.imvShopCart);
         imvBack = findViewById(R.id.imvBack);
     }
 

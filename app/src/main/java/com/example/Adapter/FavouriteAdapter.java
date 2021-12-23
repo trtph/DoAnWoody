@@ -19,6 +19,8 @@ import com.example.woodygroupapplication.FavoriteFragment;
 import com.example.woodygroupapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -29,11 +31,13 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.View
     Context context;
     ArrayList<FavouriteProduct> favouriteProducts;
     FirebaseFirestore firestore;
+    FirebaseAuth auth;
 
     public FavouriteAdapter(Context context, ArrayList<FavouriteProduct> favouriteProducts) {
         this.context = context;
         this.favouriteProducts = favouriteProducts;
         firestore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
     }
 
     @NonNull
@@ -51,26 +55,51 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.View
         Glide.with(context).load(b.getPrThumb()).into(holder.imvFavouriteThumb);
         holder.txtFavouriteProductName.setText(b.getPrName());
         holder.txtFavouriteProductPrice.setText(b.getPrPrice());
+
+        //delete Items
         holder.imvRemove.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                firestore.collection("AddToWishlist").document(b.getDocumentID())
-                        .delete()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    favouriteProducts.remove(b);
-                                    notifyDataSetChanged();
-                                    Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
-                                }else {
-                                    Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                                FavoriteFragment.SwitchLayoutWish(favouriteProducts);
-                            }
-                        });
-            }
-        });
+                public void onClick(View view) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if(user != null){
+                        firestore.collection("AddToWishlist").document(auth.getCurrentUser().getUid())
+                                .collection("CurrentUser").document(b.getDocumentID())
+                                .delete()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            favouriteProducts.remove(b);
+                                            notifyDataSetChanged();
+                                            Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
+                                        }else {
+                                            Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        FavoriteFragment.SwitchLayoutWish(favouriteProducts);
+                                    }
+                                });
+                    }
+                    else {
+                        firestore.collection("AddToWishlist").document(b.getDocumentID())
+                                .delete()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            favouriteProducts.remove(b);
+                                            notifyDataSetChanged();
+                                            Toast.makeText(context, "Remove Item Successful", Toast.LENGTH_SHORT).show();
+                                        }else {
+                                            Toast.makeText(context, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        FavoriteFragment.SwitchLayoutWish(favouriteProducts);
+                                    }
+                                });
+                    }
+
+                }
+            });
+
         holder.imvCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,27 +111,53 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.View
                 cartMap.put("totalPrice", b.getTotalPrice());
                 cartMap.put("totalQuantity", "1");
 
-                firestore.collection("AddToCart").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setMessage("Do you want to add this item to your cart?");
-                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(context, "Added To Your Cart", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        });
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
-                    }
-                });
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null){
+                    firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
+                            .collection("CurrentUser").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setMessage("Do you want to add this item to your cart?");
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Toast.makeText(context, "Added To Your Cart", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
+                    });
+                }else {
+                    firestore.collection("AddToCart").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setMessage("Do you want to add this item to your cart?");
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Toast.makeText(context, "Added To Your Cart", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
+                    });
+                }
             }
         });
     }

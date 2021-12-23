@@ -4,89 +4,34 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable-v24/custom_button.xml" value="0.15925925925925927" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/cart_item_bg.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/custom_divider.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/custom_email_password.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/custom_payment.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/custom_payment_grey.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/custom_search_home.xml" value="0.19583333333333333" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/custom_shape.xml" value="0.15925925925925927" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_account_default.xml" value="0.1925925925925926" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_cached_.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_error.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_favorite.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_home.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_noti.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_person.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_search.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_search_black.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_shopping_cart.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_shopping_cart_black.xml" value="0.1925925925925926" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_shoppingcart.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/ic_star.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/round_coner.xml" value="0.19583333333333333" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/drawable/strikethrough_foreground.xml" value="0.19583333333333333" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_account_setting.xml" value="0.22" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_add_shipping_layout.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_black_friday.xml" value="0.22" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_checkout_layout.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_detail.xml" value="0.16666666666666666" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_detail_product_sale.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_forgot_password.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_list_all_category.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_list_all_rooms.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_list_view_product.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_main.xml" value="0.1037037037037037" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_my_purchases.xml" value="0.15648148148148147" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_my_vouchers.xml" value="0.22" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_new_feature.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_noti.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_order_success.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_payment_method_layout.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_product_detail.xml" value="0.175" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_product_detail_banner.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_product_detail_collection.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_register.xml" value="0.22" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_review.xml" value="0.22" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_review_banner.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_review_collection.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_review_product.xml" value="0.165625" />
+        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_review.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_review_sale.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_search.xml" value="0.22" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/activity_verification.xml" value="0.17552083333333332" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/bottom_sheet_myprofile.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/custom_favouritefragment_recyclerview.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/custom_item_banner.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/custom_recycler_mypurchases.xml" value="0.22" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/custom_recycler_product.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/custom_recyclerview.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/discount_event.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_account_setting.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_bed_collection.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_best_collection.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_favorite.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_search.xml" value="0.22" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_seat_collection.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_user_account.xml" value="0.22" />
+        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/fragment_user_account.xml" value="0.14166666666666666" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/item_banner.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/item_listviewproduct.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/item_product.xml" value="0.1796875" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/item_product_collection.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/item_product_discount.xml" value="0.14666666666666667" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/item_sale_product.xml" value="0.22" />
         <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/item_user.xml" value="0.2" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/item_voucher.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/notification.xml" value="0.1712962962962963" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/product_detail.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/product_list.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/review.xml" value="0.22" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/search_item.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/layout/shoppingbag_items.xml" value="0.1796875" />
-        <entry key="..\:/Android/DoAnWoody/app/src/main/res/menu/item_menu.xml" value="0.1796875" />
         <entry key="..\:/Android/FinalProject/DoAnWoody/app/src/main/res/drawable/ic_add.xml" value="0.1814814814814815" />
         <entry key="..\:/Android/FinalProject/DoAnWoody/app/src/main/res/drawable/ic_favorite_border.xml" value="0.1814814814814815" />
         <entry key="..\:/Android/FinalProject/DoAnWoody/app/src/main/res/layout/activity_detail.xml" value="0.16666666666666666" />
@@ -137,14 +82,26 @@
         <entry key="..\:/DoAnWoody/app/src/main/res/drawable/custom_payment_grey.xml" value="0.2712820512820513" />
         <entry key="..\:/DoAnWoody/app/src/main/res/drawable/custom_search_home.xml" value="0.2712820512820513" />
         <entry key="..\:/DoAnWoody/app/src/main/res/drawable/ic_baseline_credit_card_24.xml" value="0.14947916666666666" />
-        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_add_shipping_layout.xml" value="0.12613981762917933" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_account_setting.xml" value="0.16302083333333334" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_add_shipping_layout.xml" value="0.264" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_change_password.xml" value="0.16302083333333334" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_checkout_layout.xml" value="0.2" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_forgot_password.xml" value="0.16302083333333334" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_login.xml" value="0.15052083333333333" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_main.xml" value="0.25679347826086957" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_order_success.xml" value="0.25" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_payment_method_layout.xml" value="0.264" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/activity_register.xml" value="0.16302083333333334" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/custom_favouritefragment_recyclerview.xml" value="0.2341485507246377" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/discount_event.xml" value="0.4117647058823529" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/dropdown_creditcard.xml" value="0.259375" />
-        <entry key="..\:/DoAnWoody/app/src/main/res/layout/fragment_favorite.xml" value="0.13385416666666666" />
-        <entry key="..\:/DoAnWoody/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/fragment_favorite.xml" value="0.2" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/fragment_search.xml" value="0.10778985507246377" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.264" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/fragment_user_account.xml" value="0.25" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/product_detail.xml" value="0.20520833333333333" />
+        <entry key="..\:/DoAnWoody/app/src/main/res/layout/review.xml" value="0.25" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/search_item.xml" value="0.15989583333333332" />
         <entry key="..\:/DoAnWoody/app/src/main/res/layout/shoppingbag_items.xml" value="0.264" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/drawable/round_coner.xml" value="0.22135416666666666" />
@@ -155,36 +112,10 @@
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_favorite.xml" value="0.25" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.2015625" />
         <entry key="..\:/Users/Admin/Desktop/DoAnWoody/app/src/main/res/layout/shoppingbag_items.xml" value="0.2015625" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/drawable/ic_person.xml" value="0.22685185185185186" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_add_shipping_layout.xml" value="0.25" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_all_category_fragment.xml" value="0.15307971014492755" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_checkout_layout.xml" value="0.25" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_detail.xml" value="0.13601823708206687" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_all_category.xml" value="0.19021739130434784" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_all_category_fragment.xml" value="0.15307971014492755" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_all_room.xml" value="0.1947463768115942" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_all_room2.xml" value="0.18206521739130435" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_all_rooms.xml" value="0.13601823708206687" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_collection_furniture.xml" value="0.1585144927536232" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_list_view_product.xml" value="0.25" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/activity_payment_method_layout.xml" value="0.25" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_all_category.xml" value="0.15307971014492755" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_bed_collection.xml" value="0.15307971014492755" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_home.xml" value="0.18206521739130435" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_list_all_category.xml" value="0.15307971014492755" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_search.xml" value="0.25" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/fragment_user_account.xml" value="0.13601823708206687" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/item_list_collection_of_category.xml" value="0.1585144927536232" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/item_list_colleection_of_rooms.xml" value="0.1852355072463768" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/item_listviewproduct.xml" value="0.25" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/list_collection_of_category.xml" value="0.1585144927536232" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/layout/search_item.xml" value="0.13601823708206687" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/menu/item_menu.xml" value="0.2796875" />
-        <entry key="..\:/Users/Hong Nhung/AndroidStudioProjects/DoAnWoody/app/src/main/res/menu/item_menu_product.xml" value="0.2796875" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
