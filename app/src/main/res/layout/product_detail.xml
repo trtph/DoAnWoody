@@ -143,28 +143,31 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddToCart"
-            android:layout_width="220dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="28dp"
+            android:layout_width="270dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:elevation="20dp"
             android:backgroundTint="@color/black"
             android:text="Add to cart"
             android:fontFamily="@font/nunitosans_semibold"
             android:textSize="20sp"
             app:cornerRadius="15dp"
             app:layout_constraintTop_toBottomOf="@+id/txtDescription"
-            app:layout_constraintRight_toLeftOf="@+id/imvAddToFavorite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
+
         <ImageView
             android:id="@+id/imvAddToFavorite"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="20dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/ic_favorite1"
-            app:layout_constraintTop_toBottomOf="@+id/txtDescription"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/btnAddToCart"/>
+            app:layout_constraintTop_toBottomOf="@+id/txtDescription"
+            app:layout_constraintVertical_bias="1.0" />
+
         <ImageView
             android:id="@+id/imvBack"
             android:layout_width="20dp"

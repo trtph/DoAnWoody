@@ -9,11 +9,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.utils.AppUtils;
-import com.example.utils.NameUtils;
+import com.google.android.material.button.MaterialButton;
 
 public class Checkout_Layout extends AppCompatActivity {
 
     ImageView btnChangeAdd, btnBackCheckout, btnChangePayment;
+
+    MaterialButton btnSubmitOrder;
 
     TextView textView7,txtAddress,txtNameAdd;
 
@@ -30,13 +32,14 @@ public class Checkout_Layout extends AppCompatActivity {
         txtNameAdd=findViewById(R.id.txtNameAdd);
 
         btnChangeAdd = findViewById(R.id.btnChangeAdd);
+        btnSubmitOrder = findViewById(R.id.btnSubmitOrder);
         btnChangePayment = findViewById(R.id.btnChangePayment);
         btnBackCheckout = findViewById(R.id.imvBackCheckout);
         txtOrder = findViewById(R.id.txtOrder);
         txtDelivery = findViewById(R.id.txtDelivery);
         txtTotalCK = findViewById(R.id.txtTotalCK);
 
-        //Caculate cart
+        //Caculate Cart
         String order = ShoppingCartFragment.txtToTal.getText().toString();
         String delivery = txtDelivery.getText().toString().substring(2);
         Double total = (Double.parseDouble(order.substring(2)) + Double.parseDouble(delivery));
@@ -54,6 +57,12 @@ public class Checkout_Layout extends AppCompatActivity {
 //        }
 
 
+        btnSubmitOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Checkout_Layout.this, OrderSuccessActivity.class));
+            }
+        });
         btnChangeAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -20,12 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 
 public class ProductDetail extends AppCompatActivity {
-    ImageView imvThumb, add_quantity, remove_quantity, imvBack;
+    ImageView imvThumb, add_quantity, remove_quantity, imvBack, imvAddToFavorite ;
     TextView txtName, txtPrice, txtPriceSale, txtRvNumber, txtDes, txtQuantity;
     RatingBar ratingBar;
     Button btnAddToCart;
@@ -50,7 +48,7 @@ public class ProductDetail extends AppCompatActivity {
     }
     private void linkViews() {
         imvBack = findViewById(R.id.imvBack);
-
+        imvAddToFavorite = findViewById(R.id.imvAddToFavorite);
         imvThumb = findViewById(R.id.imvThumb);
         txtName = findViewById(R.id.txtName);
         txtPrice = findViewById(R.id.txtPrice);
@@ -131,25 +129,39 @@ public class ProductDetail extends AppCompatActivity {
                 AddedToCart();
             }
         });
+        imvAddToFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddedToWishlist();
+            }
+        });
+    }
+
+    private void AddedToWishlist() {
+        final HashMap<String,Object> cartMap = new HashMap<>();
+
+        cartMap.put("prThumb", p.getPrImage());
+        cartMap.put("prName", txtName.getText().toString());
+        cartMap.put("prPrice", txtPrice.getText().toString());
+        cartMap.put("totalQuantity", txtQuantity.getText().toString());
+        cartMap.put("totalPrice", totalPrice);
+
+        firestore.collection("AddToWishlist").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentReference> task) {
+                Toast.makeText(ProductDetail.this, "Added " + txtName.getText().toString() + " To Your Wishlist", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
     }
 
     private void AddedToCart() {
-        String saveCurrentDate, saveCurrentTime;
-        Calendar calForDate = Calendar.getInstance();
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("MM đ, yyyy");
-        saveCurrentDate = currentDate.format(calForDate.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        saveCurrentTime = currentTime.format(calForDate.getTime());
 
         final HashMap<String,Object> cartMap = new HashMap<>();
 
         cartMap.put("prThumb", p.getPrImage());
         cartMap.put("prName", txtName.getText().toString());
         cartMap.put("prPrice", txtPrice.getText().toString());
-//        cartMap.put("currentDate", currentDate);
-//        cartMap.put("currentTime", currentTime);
         cartMap.put("totalQuantity", txtQuantity.getText().toString());
         cartMap.put("totalPrice", totalPrice);
 
