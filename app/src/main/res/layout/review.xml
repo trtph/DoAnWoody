@@ -177,7 +177,7 @@
                         android:layout_height="match_parent"
                         android:text="Đồ gỗ tốt, xài ngon, bao bền. Chủ shop đẹp trai giảm giá ship. "
                         android:textSize="20sp"
-                        android:fontFamily="@font/nunitosans_regular"
+                        android:fontFamily="@font/gelasio_regular"
                         android:padding="12dp"/>
 
                 </LinearLayout>
@@ -263,7 +263,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/nunitosans_regular"
+                        android:fontFamily="@font/gelasio_regular"
                         android:padding="12dp"
                         android:text="Nội thất thiết kế đẹp, nhân viên đẹp trai xinh gái,  lần sau sẽ ủng hộ thêm."
                         android:textSize="20sp" />
@@ -342,7 +342,7 @@
                         android:layout_height="match_parent"
                         android:text="Sản phẩm chất lượng, kiểu dáng đẹp phù hợp với nhiều loại phòng."
                         android:textSize="20sp"
-                        android:fontFamily="@font/nunitosans_regular"
+                        android:fontFamily="@font/gelasio_regular"
                         android:padding="12dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

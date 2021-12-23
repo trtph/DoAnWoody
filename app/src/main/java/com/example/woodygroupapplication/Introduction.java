@@ -2,6 +2,7 @@ package com.example.woodygroupapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,7 @@ public class Introduction extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Introduction.this, MainActivity.class));
+                finishAffinity();
             }
         });
     }

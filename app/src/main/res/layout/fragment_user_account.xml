@@ -43,7 +43,7 @@
                 android:layout_height="70dp"
                 android:src="@drawable/ic_account_default"
                 android:scaleType="centerCrop"
-                app:riv_corner_radius="35dp"
+                app:riv_corner_radius="30dp"
 
                 app:layout_constraintTop_toTopOf="@+id/linear"
                 app:layout_constraintLeft_toLeftOf="@+id/linear"
@@ -126,8 +126,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/mypurchase"
-
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="30dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,7 +135,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter_bold"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="20dp"/>
 
             </LinearLayout>
 
@@ -160,7 +159,7 @@
                     android:layout_height="40dp"
                     android:src="@drawable/recentlyview"
 
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="30dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -169,7 +168,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter_bold"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="20dp"/>
 
             </LinearLayout>
 
@@ -193,7 +192,7 @@
                     android:layout_height="40dp"
                     android:src="@drawable/myvouchers"
 
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="30dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -202,7 +201,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter_bold"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="20dp"/>
 
             </LinearLayout>
 
@@ -225,8 +224,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/accountsetting"
-
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="30dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -235,7 +233,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter_bold"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="20dp"/>
 
             </LinearLayout>
 
@@ -258,8 +256,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/chatwithwoody"
-
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="30dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -268,260 +265,12 @@
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter_bold"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="20dp"/>
 
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
-
-
-
-<!--    <TextView-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:text="User account"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:fontFamily="@font/mavenpro_bold"-->
-<!--        android:gravity="center"-->
-
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"/>-->
-
-<!--    <com.makeramen.roundedimageview.RoundedImageView-->
-<!--        android:id="@+id/imvAvatar"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        android:layout_gravity="center_vertical"-->
-<!--        android:src="@drawable/account"-->
-
-<!--        android:layout_margin="20dp"-->
-
-<!--        app:layout_constraintTop_toBottomOf="@id/toolbar"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"/>-->
-
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-
-<!--        android:text="User name"-->
-<!--        android:textSize="18sp"-->
-<!--        android:fontFamily="@font/inter_bold"-->
-<!--        app:layout_constraintLeft_toRightOf="@+id/imvAvatar"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginTop="30dp"/>-->
-
-
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="80dp"-->
-<!--        android:background="#37000000"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="10dp">-->
-
-<!--        <com.makeramen.roundedimageview.RoundedImageView-->
-<!--            android:id="@+id/imvAvatar"-->
-<!--            android:layout_width="60dp"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:src="@drawable/account" />-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:layout_marginRight="20dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/txtUserName"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_vertical"-->
-
-<!--                android:text="User Name"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textStyle="bold" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/txtEmail"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Have a nice day"-->
-<!--                android:textStyle="italic" />-->
-<!--        </LinearLayout>-->
-
-
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/btnLogin"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:textColor="#F8F7F7"-->
-<!--            app:cornerRadius="60dp"-->
-<!--            android:backgroundTint="@color/black"-->
-<!--            android:text="Login" />-->
-<!--    </LinearLayout>-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_marginVertical="10dp"-->
-<!--        android:layout_marginHorizontal="25dp"-->
-<!--        android:paddingBottom="35dp"-->
-<!--        android:weightSum="5" >-->
-<!--        <LinearLayout-->
-<!--            android:id="@+id/linearMypurchase"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:background="#FFFFFF"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:padding="10dp"-->
-<!--            android:layout_weight="0.75">-->
-<!--                <ImageView-->
-<!--                    android:layout_marginLeft="30dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:scaleType="fitXY"-->
-<!--                    android:layout_width="45dp"-->
-<!--                    android:layout_height="45dp"-->
-<!--                    android:src="@drawable/mypurchase" />-->
-<!--                <TextView-->
-<!--                    android:layout_gravity="center_vertical"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:text="My Purchase"-->
-<!--                    android:layout_marginLeft="25dp"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:textStyle="bold"/>-->
-
-<!--        </LinearLayout>-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/linearRecentlyView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:background="#FFFFFF"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:padding="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_weight="0.75">-->
-<!--            <ImageView-->
-<!--                android:layout_marginLeft="30dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:scaleType="fitXY"-->
-<!--                android:layout_width="45dp"-->
-<!--                android:layout_height="45dp"-->
-<!--                android:src="@drawable/recentlyview" />-->
-<!--            <TextView-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:text="Recently View"-->
-<!--                android:layout_marginLeft="25dp"-->
-<!--                android:textSize="20dp"-->
-<!--                android:textStyle="bold"/>-->
-<!--        </LinearLayout>-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/linearMyVoucher"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:background="#FFFFFF"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:padding="10dp"-->
-<!--            android:layout_weight="0.75">-->
-<!--            <ImageView-->
-<!--                android:layout_marginLeft="30dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:scaleType="fitXY"-->
-<!--                android:layout_width="45dp"-->
-<!--                android:layout_height="45dp"-->
-<!--                android:src="@drawable/myvouchers" />-->
-<!--            <TextView-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:text="My Vouchers"-->
-<!--                android:layout_marginLeft="25dp"-->
-<!--                android:textSize="20dp"-->
-<!--                android:textStyle="bold"/>-->
-<!--        </LinearLayout>-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/linearAccountSetting"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:background="#FFFFFF"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:padding="10dp"-->
-<!--            android:layout_weight="0.75">-->
-<!--            <ImageView-->
-<!--                android:layout_marginLeft="30dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:scaleType="fitXY"-->
-<!--                android:layout_width="45dp"-->
-<!--                android:layout_height="45dp"-->
-<!--                android:src="@drawable/accountsetting" />-->
-<!--            <TextView-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:text="Account Setting"-->
-<!--                android:layout_marginLeft="25dp"-->
-<!--                android:textSize="20dp"-->
-<!--                android:textStyle="bold"/>-->
-<!--        </LinearLayout>-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/linearChatWithWoody"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:background="#FFFFFF"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:padding="10dp"-->
-<!--            android:layout_weight="0.75">-->
-<!--            <ImageView-->
-<!--                android:layout_marginLeft="30dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:scaleType="fitXY"-->
-<!--                android:layout_width="45dp"-->
-<!--                android:layout_height="45dp"-->
-<!--                android:src="@drawable/chatwithwoody" />-->
-<!--            <TextView-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:text="Chat with Woody"-->
-<!--                android:layout_marginLeft="25dp"-->
-<!--                android:textSize="20dp"-->
-<!--                android:textStyle="bold"/>-->
-<!--        </LinearLayout>-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btnLogOut"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="LOG OUT"-->
-<!--            android:gravity="center"/>-->
-
-
-<!--    </LinearLayout>-->
 
 </LinearLayout>

@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyGroupApplication">
         <activity
+            android:name=".Introduction"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+        <activity
             android:name=".AccountSetting"
             android:exported="false" />
         <activity
@@ -36,16 +48,13 @@
             android:name=".NewFeatureActivity"
             android:exported="false" />
         <activity
-            android:name=".Introduction"
-            android:exported="false" />
-        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MyVouchers"
+            android:name=".MyPurchases"
             android:exported="false" />
         <activity
-            android:name=".MyPurchases"
+            android:name=".MyVouchers"
             android:exported="false" />
         <activity
             android:name=".VerificationActivity"
@@ -69,14 +78,9 @@
             android:name=".ListAllCategory"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".OrderSuccessActivity"
+            android:exported="false" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

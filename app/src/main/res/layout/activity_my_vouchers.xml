@@ -32,21 +32,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:background="#FFFFFF"
         android:orientation="horizontal"
+        android:layout_gravity="center"
         android:padding="10dp">
         <TextView
             android:layout_gravity="left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
             android:textColor="@color/black"
             android:text="Turn on notifications to get vouchers"
-            android:textAllCaps="false"
             android:fontFamily="@font/gelasio_regular"
-            android:layout_marginLeft="25dp"
-            android:textSize="20dp"
-            />
+            android:gravity="center"
+            android:textSize="18sp"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swichcompat"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="5dp"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

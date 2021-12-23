@@ -157,7 +157,7 @@ public class UserAccountFragment extends Fragment {
         }
         txtEmail.setText(email);
 
-        Glide.with(getContext()).load(photoUrl).error(R.drawable.avatar_default).into(imvAvatar);
+        Glide.with(getContext()).load(photoUrl).error(R.drawable.ic_account_default).into(imvAvatar);
     }
 
 

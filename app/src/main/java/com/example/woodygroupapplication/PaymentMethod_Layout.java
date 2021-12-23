@@ -12,8 +12,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.utils.AppUtils;
-
 public class PaymentMethod_Layout extends AppCompatActivity {
 
     EditText editText7, edtCard, edtCvv, edtDate;
@@ -49,27 +47,6 @@ public class PaymentMethod_Layout extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(PaymentMethod_Layout.this, Checkout_Layout.class));
                 finish();
-            }
-        });
-
-        materialButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nextActivity();
-            }
-
-            private void nextActivity() {
-                String strCard = edtCard.getText().toString().trim();
-
-                AppUtils appUtils= new AppUtils(strCard);
-
-                Intent intent=new Intent(PaymentMethod_Layout.this,Checkout_Layout.class);
-
-                Bundle bundle= new Bundle();
-                bundle.putSerializable("object_card", appUtils);
-
-                intent.putExtras(bundle);
-                startActivity(intent);
             }
         });
 

@@ -26,7 +26,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:fontFamily="@font/gelasio_semibold"
+            android:fontFamily="@font/mavenpro_bold"
 
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
@@ -42,16 +42,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/txtEmail"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Email"-->
-<!--            android:textSize="20sp"-->
-<!--            android:fontFamily="@font/gelasio_regular"-->
-
-<!--            app:layout_constraintTop_toBottomOf="@+id/imvLogoWoody"-->
-<!--            android:layout_marginStart="20dp"/>-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputEmail"
             android:layout_width="match_parent"
@@ -76,18 +66,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <TextView-->
-<!--            android:id="@+id/txtPassword"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Password"-->
-<!--            android:textSize="20sp"-->
-<!--            android:fontFamily="@font/gelasio_regular"-->
-
-<!--            app:layout_constraintTop_toBottomOf="@+id/txtInputEmail"-->
-<!--            android:layout_marginStart="20dp"-->
-<!--            android:layout_marginTop="20dp"/>-->
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputPassword"
             android:layout_width="match_parent"
@@ -111,18 +89,6 @@
                 android:imeOptions="actionNext"
                 android:backgroundTint="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-<!--        <TextView-->
-<!--            android:id="@+id/txtCofirmPassword"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Confirm Password"-->
-<!--            android:textSize="20sp"-->
-<!--            android:fontFamily="@font/gelasio_regular"-->
-
-<!--            app:layout_constraintTop_toBottomOf="@+id/textInputPassword"-->
-<!--            android:layout_marginStart="20dp"-->
-<!--            android:layout_marginTop="20dp"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputConfirmPassword"
@@ -191,10 +157,6 @@
                 android:textColor="@color/black"/>
         </LinearLayout>
 
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </ScrollView>
