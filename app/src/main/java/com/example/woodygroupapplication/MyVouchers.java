@@ -50,7 +50,8 @@ public class MyVouchers extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                return ;
+                getSupportFragmentManager().popBackStack();
+                finish();
             }
         });
     }
