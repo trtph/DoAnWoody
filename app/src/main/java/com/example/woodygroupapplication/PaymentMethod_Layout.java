@@ -11,13 +11,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class PaymentMethod_Layout extends AppCompatActivity {
 
-    EditText editText7, edtCard, edtCvv, edtDate;
-    Button materialButton;
+    EditText editText7, edtCard;
+    Button btnConfirmPayment;
 
-    String[] credit_card = {"Agribank", "Vietcombank", "Sacombank"};
+    ConstraintLayout CashOnDelivery;
+
+    String[] credit_card = {"Agribank", "ACB", "BIDV","Techcombank", "Vietcombank", "Sacombank","ViettinBank"};
     AutoCompleteTextView autoCompleteTextView;
 
     ArrayAdapter<String> adapter;
@@ -33,7 +36,9 @@ public class PaymentMethod_Layout extends AppCompatActivity {
         editText7=findViewById(R.id.editText7);
         edtCard=findViewById(R.id.edtCard);
 
-        materialButton=findViewById(R.id.materialButton);
+        CashOnDelivery = findViewById(R.id.CashOnDelivery);
+
+        btnConfirmPayment=findViewById(R.id.btnConfirmPayment);
 
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
         btnBackPayment = findViewById(R.id.btnBackPayment);
@@ -47,6 +52,13 @@ public class PaymentMethod_Layout extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(PaymentMethod_Layout.this, Checkout_Layout.class));
                 finish();
+            }
+        });
+        btnConfirmPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Checkout_Layout.txtPayment.setText(edtCard.getText());
+                startActivity(new Intent(PaymentMethod_Layout.this, Checkout_Layout.class));
             }
         });
 

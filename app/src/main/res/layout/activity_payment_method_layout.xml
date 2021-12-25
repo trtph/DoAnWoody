@@ -29,7 +29,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/CashOnDelivery"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -63,7 +63,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/btnConfirmPayment"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginBottom="30dp"
@@ -112,11 +112,11 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:background="@drawable/custom_payment_grey"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfirmPayment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/CashOnDelivery"
         app:layout_constraintVertical_bias="0.162">
 
         <TextView
@@ -136,6 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:background="@android:color/transparent"
+            android:fontFamily="@font/nunitosans_regular"
             android:hint="Ex: John Lennon"
             android:textColor="#A5A5A5"
             android:textSize="20sp"
@@ -179,6 +180,7 @@
             android:layout_marginLeft="20dp"
             android:background="@android:color/transparent"
             android:hint="**** **** **** 3456"
+            android:fontFamily="@font/nunitosans_regular"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -219,6 +221,7 @@
                 android:layout_marginLeft="20dp"
                 android:background="@android:color/transparent"
                 android:hint="Ex: 123"
+                android:fontFamily="@font/nunitosans_regular"
                 android:textColor="#A5A5A5"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -251,6 +254,7 @@
                 android:layout_marginLeft="20dp"
                 android:background="@android:color/transparent"
                 android:hint="03/22"
+                android:fontFamily="@font/nunitosans_regular"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
