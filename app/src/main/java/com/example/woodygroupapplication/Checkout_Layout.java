@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +18,7 @@ public class Checkout_Layout extends AppCompatActivity {
     ImageView btnChangeAdd, btnBackCheckout, btnChangePayment;
 
     TextView textView7,txtAddress,txtNameAdd;
+    static TextView txtPayment;
 
     TextView txtOrder, txtDelivery, txtTotalCK;
 
@@ -32,7 +32,7 @@ public class Checkout_Layout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout_layout);
 
-        textView7=findViewById(R.id.textView7);
+        textView7=findViewById(R.id.txtPayment);
         txtAddress=findViewById(R.id.txtAddress);
         txtNameAdd=findViewById(R.id.txtNameAdd);
 
@@ -43,6 +43,7 @@ public class Checkout_Layout extends AppCompatActivity {
         txtOrder = findViewById(R.id.txtOrder);
         txtDelivery = findViewById(R.id.txtDelivery);
         txtTotalCK = findViewById(R.id.txtTotalCK);
+        txtPayment = findViewById(R.id.txtPayment);
 
         progressDialog = new ProgressDialog(this);
 
